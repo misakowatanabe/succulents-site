@@ -1,38 +1,141 @@
-.App {
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+/* Navbar start */
+
+.menuIcon {
+  color: #585858;
+}
+
+.MuiDrawer-paper {
+  background-color: #f3f3f3e1 !important;
+}
+
+.MuiDrawer-paperAnchorLeft {
+  width: 80%;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.navLinkText {
+  color: #242424d5;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.ArrowIcon {
+  margin-right: 0%;
+  margin-left: auto;
+}
+
+/* Navbar end */
+
+/* Header start */
+
+.header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo {
+  font-family: "Cinzel", serif;
+  color: #242424d5;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 28px;
+}
+
+.searchIcon {
+  padding-right: 12px;
+  color: #242424d5;
+}
+
+.cartIcon {
+  padding-right: 12px;
+  color: #242424d5;
+}
+
+/* Header end */
+
+/* Home start */
+
+.mainImage {
+  background-position: center center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flow-root;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainText {
+  font-family: "Cinzel", serif;
+  letter-spacing: 1px;
+  line-height: 95%;
+  font-size: 50px;
+  text-align: center;
+  margin: 130px 0px 0px 0px;
+  color: #242424d5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.shopByCategory {
+  color: #242424d5;
+  text-align: center;
+  font-size: 25px;
+  margin: 30px 5% 30px 5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.homeBackground {
+  background-color: #f3f3f3;
+  padding-bottom: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Home end */
+
+/* Product page start */
+
+.categoryName {
+  color: #242424d5;
+  text-align: center;
+  font-size: 25px;
+  margin: 100px 5% 30px 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.categoryDescription {
+  color: #242424d5;
+  text-align: center;
+  font-size: 16px;
+  margin: 30px 5% 30px 5%;
 }
+
+/* Product page end */
+
+/* Footer start */
+
+.galleyText {
+  color: #242424d5;
+  text-align: center;
+  font-size: 25px;
+  padding: 30px 0px 30px 0px;
+}
+
+.footer {
+  font-weight: 300;
+  line-height: 150%;
+  padding: 5% 5% 5% 5%;
+}
+
+.lastFooter {
+  text-align: center;
+  font-size: 12px;
+  margin: 20px 5% 0px 5%;
+}
+/* Footer end */

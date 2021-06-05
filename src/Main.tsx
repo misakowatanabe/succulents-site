@@ -1,8 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import Succulents from "./Succulents";
-import Pots from "./Pots";
+import Home from "./home/Home";
+import Succulents from "./productList/Succulents";
+import Pots from "./productList/Pots";
+import Other from "./productList/Other";
 
 export default function Main() {
   return (
@@ -10,6 +11,7 @@ export default function Main() {
       <Route exact path="/succulents-site" component={Home}></Route>
       <Route exact path="/succulents-site/succulents" component={Succulents}></Route>
       <Route exact path="/succulents-site/pots" component={Pots}></Route>
+      <Route exact path="/succulents-site/other" component={Other}></Route>
     </Switch>
   );
 }

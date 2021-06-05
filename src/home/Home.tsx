@@ -1,5 +1,5 @@
 import React from "react";
-import mainImage from "./img/main.jpg";
+import mainImage from "../img/main.jpg";
 import CategoryCard1 from "./CategoryCard1";
 import CategoryCard2 from "./CategoryCard2";
 import CategoryCard3 from "./CategoryCard3";

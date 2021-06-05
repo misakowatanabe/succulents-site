@@ -1,15 +1,17 @@
 import React from "react";
-import CategorySort from "./CategorySort";
+import CategorySort from "./ProductListSort";
+import ProductsPots from "./ProductsPots";
 
-export default function Succulents() {
+export default function Pots() {
   return (
-    <div className="">
-      <h1 className="categoryName">Succulents</h1>
+    <div className="categoryPage">
+      <div className="categoryName">Pots</div>
       <p className="categoryDescription">
         Ipsum dolor dolorem consectetur est velit fugiat. Dolorem provident
         corporis fuga saepe distinctio ipsam?
       </p>
       <CategorySort />
+      <ProductsPots />
     </div>
   );
 }

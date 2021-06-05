@@ -1,5 +1,5 @@
 import React from "react";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 
 import {
   createStyles,
@@ -16,10 +16,10 @@ const ColorButton = withStyles((theme: Theme) => ({
     "&:hover": {
       backgroundColor: "rgb(255,255,255,0.9)",
     },
-    padding: "10px 21px 10px 30px",
+    padding: "10px 18px 10px 30px",
     fontSize: "20px",
     fontWeight: "normal",
-    borderRadius: "4px"
+    borderRadius: "4px",
   },
 }))(Button);
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     margin: {
       margin: theme.spacing(1),
-      marginTop: "70%"
+      marginTop: "70%",
     },
   })
 );
@@ -41,9 +41,10 @@ export default function MainButton() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        style={{ fontSize: "16px" }}
       >
         Explore
-        <ArrowForwardIcon style={{marginLeft: "15px"}}/>
+        <KeyboardArrowRightIcon style={{ marginLeft: "13px" }} />
       </ColorButton>
     </div>
   );

@@ -60,6 +60,15 @@ export default function Navigation() {
       />
     </NavLink>
   );
+  const other = (
+    <NavLink to="/succulents-site/other" className="navLinkText">
+      Other
+      <KeyboardArrowRightIcon
+        className="ArrowIcon"
+        style={{ fontSize: "30px" }}
+      />
+    </NavLink>
+  );
 
   const list = (anchor: Anchor) => (
     <div
@@ -68,7 +77,7 @@ export default function Navigation() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[home, succulents, pots].map((text, index) => (
+        {[home, succulents, pots, other].map((text, index) => (
           <ListItem button key={index}>
             <ListItemText primary={text} />
           </ListItem>
@@ -112,7 +121,11 @@ export default function Navigation() {
               {list(anchor)}
             </SwipeableDrawer>
           </React.Fragment>
-          <div className="logo">Happy Succulent</div>
+          <div className="logo">
+            <NavLink to="/succulents-site">
+              Happy Succulent
+            </NavLink>
+          </div>
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
           <ShoppingCartIcon className="cartIcon" style={{ fontSize: "34px" }} />
         </div>

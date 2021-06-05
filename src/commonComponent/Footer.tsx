@@ -1,7 +1,7 @@
 import ImageGallery from "react-image-gallery";
-import galleryImage1 from "./img/galleryImage1.jpg";
-import galleryImage2 from "./img/galleryImage2.jpg";
-import galleryImage3 from "./img/galleryImage3.jpg";
+import galleryImage1 from "../img/galleryImage1.jpg";
+import galleryImage2 from "../img/galleryImage2.jpg";
+import galleryImage3 from "../img/galleryImage3.jpg";
 
 const images = [
   {
@@ -21,17 +21,15 @@ const images = [
 export default function Footer() {
   return (
     <div style={{ backgroundColor: "#f3f3f3" }}>
-      <div style={{ paddingBottom: "30px" }}>
-        <div className="galleyText">Follow us on Instagram</div>
-        <ImageGallery
-          items={images}
-          showThumbnails={false}
-          showFullscreenButton={false}
-          showPlayButton={false}
-          autoPlay={true}
-          slideInterval={5000}
-        />
-      </div>
+      <div className="galleyText">Follow us on Instagram</div>
+      <ImageGallery
+        items={images}
+        showThumbnails={false}
+        showFullscreenButton={false}
+        showPlayButton={false}
+        autoPlay={true}
+        slideInterval={5000}
+      />
       <div className="footer">
         <div>ABOUT</div>
         <div>HELP</div>

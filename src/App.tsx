@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
-import Navigation from "./Navigation";
+import "./style/App.css";
+import Navigation from "./commonComponent/Navigation";
 import Main from "./Main";
-import Footer from "./Footer";
+import Footer from "./commonComponent/Footer";
 
 
 const App = () => (

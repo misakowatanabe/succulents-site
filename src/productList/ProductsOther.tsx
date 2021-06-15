@@ -22,8 +22,8 @@ export default function ProductsSucculents() {
   const classes = useStyles();
 
   const products = [
-    { image: other1, name: "soil", price: "1", sold: "22" },
-    { image: other2, name: "shovel", price: "2", sold: "35" }
+    { image: other1, name: "Soil", price: "1", sold: "22" },
+    { image: other2, name: "Shovel", price: "2", sold: "35" }
   ];
 
   function FormRow() {

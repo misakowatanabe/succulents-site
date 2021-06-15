@@ -10,6 +10,7 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import useWindowScrollPosition from "@rehooks/window-scroll-position";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 type Anchor = "left";
 
@@ -34,7 +35,7 @@ export default function Navigation() {
     };
 
   const home = (
-    <NavLink to="/succulents-site" className="navLinkText">
+    <NavLink to="/succulents-site" className="drawerLinkText">
       Home
       <KeyboardArrowRightIcon
         className="ArrowIcon"
@@ -43,7 +44,7 @@ export default function Navigation() {
     </NavLink>
   );
   const succulents = (
-    <NavLink to="/succulents-site/succulents" className="navLinkText">
+    <NavLink to="/succulents-site/succulents" className="drawerLinkText">
       Succulents
       <KeyboardArrowRightIcon
         className="ArrowIcon"
@@ -52,7 +53,7 @@ export default function Navigation() {
     </NavLink>
   );
   const pots = (
-    <NavLink to="/succulents-site/pots" className="navLinkText">
+    <NavLink to="/succulents-site/pots" className="drawerLinkText">
       Pots
       <KeyboardArrowRightIcon
         className="ArrowIcon"
@@ -61,7 +62,7 @@ export default function Navigation() {
     </NavLink>
   );
   const other = (
-    <NavLink to="/succulents-site/other" className="navLinkText">
+    <NavLink to="/succulents-site/other" className="drawerLinkText">
       Other
       <KeyboardArrowRightIcon
         className="ArrowIcon"
@@ -104,32 +105,58 @@ export default function Navigation() {
     transition: "400ms ease",
   };
 
+  const isMobile = useMediaQuery("(max-width:688px)");
+  const isBigScreen = useMediaQuery("(min-width:688px)");
+
   return (
     <div className="test">
-      {(["left"] as Anchor[]).map((anchor) => (
-        <div key={anchor} className="header" style={style}>
-          <React.Fragment key={anchor}>
-            <Button onClick={toggleDrawer(anchor, true)}>
-              <MenuIcon className="menuIcon" style={{ fontSize: "40px" }} />
-            </Button>
-            <SwipeableDrawer
-              anchor={anchor}
-              open={state[anchor]}
-              onClose={toggleDrawer(anchor, false)}
-              onOpen={toggleDrawer(anchor, true)}
-            >
-              {list(anchor)}
-            </SwipeableDrawer>
-          </React.Fragment>
-          <div className="logo">
-            <NavLink to="/succulents-site">
-              Happy Succulent
-            </NavLink>
+      {isMobile && (
+        <div>
+          {(["left"] as Anchor[]).map((anchor) => (
+            <div key={anchor} className="header" style={style}>
+              <React.Fragment key={anchor}>
+                <Button onClick={toggleDrawer(anchor, true)}>
+                  <MenuIcon className="menuIcon" style={{ fontSize: "40px" }} />
+                </Button>
+                <SwipeableDrawer
+                  anchor={anchor}
+                  open={state[anchor]}
+                  onClose={toggleDrawer(anchor, false)}
+                  onOpen={toggleDrawer(anchor, true)}
+                >
+                  {list(anchor)}
+                </SwipeableDrawer>
+              </React.Fragment>
+              <div className="logoMobile">
+                <NavLink to="/succulents-site">Happy Succulent</NavLink>
+              </div>
+              <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
+              <ShoppingCartIcon
+                className="cartIcon"
+                style={{ fontSize: "34px" }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+      {isBigScreen && (
+        <div className="header" style={style}>
+          <div className="logoBigScreen">
+            <NavLink to="/succulents-site">Happy Succulent</NavLink>
           </div>
+          <NavLink to="/succulents-site/succulents" className="navLinkText">
+            Succulents
+          </NavLink>
+          <NavLink to="/succulents-site/pots" className="navLinkText">
+            Pots
+          </NavLink>
+          <NavLink to="/succulents-site/other" className="navLinkText">
+            Other
+          </NavLink>
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
           <ShoppingCartIcon className="cartIcon" style={{ fontSize: "34px" }} />
         </div>
-      ))}
+      )}
     </div>
   );
 }

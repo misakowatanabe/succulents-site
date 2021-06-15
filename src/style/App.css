@@ -1,5 +1,9 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+p {
+  font-family: "Roboto", sans-serif;
+}
+
 /* Navbar start */
 
 .menuIcon {
@@ -19,7 +23,7 @@ a:-webkit-any-link {
   color: #242424;
 }
 
-.navLinkText {
+.drawerLinkText {
   color: #242424;
   display: flex;
   align-items: center;
@@ -45,7 +49,7 @@ a:-webkit-any-link {
   z-index: 1;
 }
 
-.logo {
+.logoMobile {
   font-family: "Cinzel", serif;
   color: #242424;
   text-align: center;
@@ -55,8 +59,25 @@ a:-webkit-any-link {
   -webkit-tap-highlight-color: transparent;
 }
 
+.logoBigScreen {
+  font-family: "Cinzel", serif;
+  color: #242424;
+  -webkit-tap-highlight-color: transparent;
+  margin: 15px auto 15px 28px;
+}
+
+.navLinkText {
+  font-family: "Roboto", sans-serif;
+  color: #242424;
+  display: flex;
+  text-align: center;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
 .searchIcon {
   padding-right: 12px;
+  padding-left: 25px;
   color: #242424;
 }
 
@@ -76,6 +97,7 @@ a:-webkit-any-link {
   background-size: cover;
   display: flow-root;
   text-align: center;
+  position: relative;
 }
 
 .mainText {
@@ -84,11 +106,12 @@ a:-webkit-any-link {
   line-height: 95%;
   font-size: 50px;
   text-align: center;
-  margin: 130px 0px 0px 0px;
+  margin: 100px 0px 0px 0px;
   color: #242424;
 }
 
 .shopByCategory {
+  font-family: "Roboto", sans-serif;
   color: #242424;
   text-align: center;
   font-size: 25px;
@@ -124,6 +147,7 @@ a:-webkit-any-link {
 /* Footer start */
 
 .galleyText {
+  font-family: "Roboto", sans-serif;
   color: #242424;
   text-align: center;
   font-size: 25px;
@@ -131,6 +155,7 @@ a:-webkit-any-link {
 }
 
 .footer {
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   line-height: 150%;
   padding: 70px 5% 10px 5%;
@@ -141,4 +166,5 @@ a:-webkit-any-link {
   font-size: 12px;
   margin: 20px 5% 0px 5%;
 }
+
 /* Footer end */

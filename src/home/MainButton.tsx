@@ -19,7 +19,7 @@ const ColorButton = withStyles((theme: Theme) => ({
     padding: "10px 18px 10px 30px",
     fontSize: "20px",
     fontWeight: "normal",
-    borderRadius: "4px",
+    borderRadius: "24px",
   },
 }))(Button);
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     margin: {
       margin: theme.spacing(1),
-      marginTop: "70%",
+      marginTop: "40px",
     },
   })
 );
@@ -41,7 +41,7 @@ export default function MainButton() {
         variant="contained"
         color="primary"
         className={classes.margin}
-        style={{ fontSize: "16px" }}
+        style={{ fontSize: "15px" }}
       >
         Explore
         <KeyboardArrowRightIcon style={{ marginLeft: "13px" }} />

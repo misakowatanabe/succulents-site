@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/succulents-site/static/css/main.7b587d14.chunk.css",
-    "main.js": "/succulents-site/static/js/main.45dd7a6a.chunk.js",
-    "main.js.map": "/succulents-site/static/js/main.45dd7a6a.chunk.js.map",
+    "main.css": "/succulents-site/static/css/main.ee1fce88.chunk.css",
+    "main.js": "/succulents-site/static/js/main.6749c7df.chunk.js",
+    "main.js.map": "/succulents-site/static/js/main.6749c7df.chunk.js.map",
     "runtime-main.js": "/succulents-site/static/js/runtime-main.7b0fc0f7.js",
     "runtime-main.js.map": "/succulents-site/static/js/runtime-main.7b0fc0f7.js.map",
     "static/css/2.ad581902.chunk.css": "/succulents-site/static/css/2.ad581902.chunk.css",
-    "static/js/2.96f0fa94.chunk.js": "/succulents-site/static/js/2.96f0fa94.chunk.js",
-    "static/js/2.96f0fa94.chunk.js.map": "/succulents-site/static/js/2.96f0fa94.chunk.js.map",
+    "static/js/2.6a0fbd35.chunk.js": "/succulents-site/static/js/2.6a0fbd35.chunk.js",
+    "static/js/2.6a0fbd35.chunk.js.map": "/succulents-site/static/js/2.6a0fbd35.chunk.js.map",
     "index.html": "/succulents-site/index.html",
     "static/css/2.ad581902.chunk.css.map": "/succulents-site/static/css/2.ad581902.chunk.css.map",
-    "static/css/main.7b587d14.chunk.css.map": "/succulents-site/static/css/main.7b587d14.chunk.css.map",
-    "static/js/2.96f0fa94.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.96f0fa94.chunk.js.LICENSE.txt",
-    "static/media/categoryOthers.27ff9f4e.jpg": "/succulents-site/static/media/categoryOthers.27ff9f4e.jpg",
+    "static/css/main.ee1fce88.chunk.css.map": "/succulents-site/static/css/main.ee1fce88.chunk.css.map",
+    "static/js/2.6a0fbd35.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.6a0fbd35.chunk.js.LICENSE.txt",
+    "static/media/categoryOther.27ff9f4e.jpg": "/succulents-site/static/media/categoryOther.27ff9f4e.jpg",
     "static/media/categoryPot.9ef1b587.jpg": "/succulents-site/static/media/categoryPot.9ef1b587.jpg",
     "static/media/categorySucculent.62275829.jpg": "/succulents-site/static/media/categorySucculent.62275829.jpg",
     "static/media/galleryImage1.02f25a67.jpg": "/succulents-site/static/media/galleryImage1.02f25a67.jpg",
@@ -35,8 +35,8 @@
   "entrypoints": [
     "static/js/runtime-main.7b0fc0f7.js",
     "static/css/2.ad581902.chunk.css",
-    "static/js/2.96f0fa94.chunk.js",
-    "static/css/main.7b587d14.chunk.css",
-    "static/js/main.45dd7a6a.chunk.js"
+    "static/js/2.6a0fbd35.chunk.js",
+    "static/css/main.ee1fce88.chunk.css",
+    "static/js/main.6749c7df.chunk.js"
   ]
 }

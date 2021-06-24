@@ -108,6 +108,7 @@ a:-webkit-any-link {
   text-align: center;
   margin: 100px 0px 0px 0px;
   color: #242424;
+  margin: 100px 5% 0px 5%;
 }
 
 .shopByCategory {
@@ -132,7 +133,7 @@ a:-webkit-any-link {
   text-align: center;
   font-size: 25px;
   padding: 100px 5% 0px 5%;
-  top: 0px;
+  /* top: 0px; */
 }
 
 .categoryDescription {
@@ -140,6 +141,18 @@ a:-webkit-any-link {
   text-align: center;
   font-size: 16px;
   margin: 30px 5% 30px 5%;
+}
+
+/* Category page end */
+
+/* Product page start */
+
+.productView {
+  padding: 100px 5% 100px 5%;
+}
+
+.productViewName {
+  font-size: 25px;
 }
 
 /* Product page end */

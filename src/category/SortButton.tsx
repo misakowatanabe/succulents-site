@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function CategorySort() {
+export default function SortButton() {
   const classes = useStyles();
   const [state, setState] = React.useState<{
     age: string | number;

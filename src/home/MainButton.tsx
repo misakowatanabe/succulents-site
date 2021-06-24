@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     margin: {
       margin: theme.spacing(1),
-      marginTop: "40px",
+      marginTop: "200px",
     },
   })
 );
@@ -36,7 +36,7 @@ export default function MainButton() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className="mainButton">
       <ColorButton
         variant="contained"
         color="primary"

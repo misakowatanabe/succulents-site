@@ -1,18 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import succulent1 from "../img/succulent1.jpg";
-import succulent2 from "../img/succulent2.jpg";
-import succulent3 from "../img/succulent3.jpg";
-import succulent4 from "../img/succulent4.jpg";
-import succulent5 from "../img/succulent5.jpg";
-import succulent6 from "../img/succulent6.jpg";
-// import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
+import { ProductData } from "../ProductData";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,69 +17,27 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function ProductsSucculents() {
+type Params = {
+  category: string;
+};
+
+export default function ProductList() {
   const classes = useStyles();
 
-  type ProductProps = {
-    image?: string;
-    name: string;
-    price: number;
-    sold: number;
-    selfLink: string;
-  };
-
-  const products: ProductProps[] = [
-    {
-      image: succulent1,
-      name: "Zebra Plant",
-      price: 1,
-      sold: 22,
-      selfLink: "/succulents-site/productPageSucculent",
-    },
-    {
-      image: succulent2,
-      name: "Graptosedum",
-      price: 2,
-      sold: 35,
-      selfLink: "/succulents-site/other",
-    },
-    {
-      image: succulent3,
-      name: "Sedum clavatum",
-      price: 3,
-      sold: 17,
-      selfLink: "/succulents-site/productPageSucculent",
-    },
-    { image: succulent4, name: "Agave", price: 4, sold: 5, selfLink: "/succulents-site/productPageSucculent", },
-    {
-      image: succulent5,
-      name: "Haworthiopsis",
-      price: 5,
-      sold: 13,
-      selfLink: "/succulents-site/productPageSucculent",
-    },
-    {
-      image: succulent6,
-      name: "Haworthia turgida",
-      price: 6,
-      sold: 8,
-      selfLink: "/succulents-site/productPageSucculent",
-    },
-  ];
-
-  // function FormRow(products: ProductProps[]) {
   function FormRow() {
-    return (
-      <React.Fragment>
-        {products.map((product, index) => (
+    const { category } = useParams<Params>();
+    var selectedProduct: any[] = [];
+
+    ProductData.forEach((product) => {
+      if (product.category === category) {
+        selectedProduct.push(
           <Grid
-            key={index}
+            key={product.id}
             item
             xs={6}
             style={{ flexBasis: "48%", marginBottom: "20px" }}
           >
-            <NavLink to={product.selfLink+'/'}>
-            {/* <NavLink to={product.selfLink}> */}
+            <NavLink to={`/succulents-site/${product.category}/${product.id}`}>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -116,16 +68,18 @@ export default function ProductsSucculents() {
                       color: "#242424",
                     }}
                   >
-                    {product.price}
+                    SEK {product.price}
                   </Typography>
                 </CardContent>
               </CardActionArea>
             </NavLink>
           </Grid>
-        ))}
-      </React.Fragment>
-    );
-  };
+        );
+      }
+    });
+
+    return <React.Fragment>{selectedProduct}</React.Fragment>;
+  }
 
   return (
     <div className={classes.root}>

@@ -34,42 +34,9 @@ export default function Navigation() {
       setState({ ...state, [anchor]: open });
     };
 
-  const home = (
-    <NavLink to="/succulents-site" className="drawerLinkText">
-      Home
-      <KeyboardArrowRightIcon
-        className="ArrowIcon"
-        style={{ fontSize: "30px" }}
-      />
-    </NavLink>
-  );
-  const succulents = (
-    <NavLink to="/succulents-site/succulents" className="drawerLinkText">
-      Succulents
-      <KeyboardArrowRightIcon
-        className="ArrowIcon"
-        style={{ fontSize: "30px" }}
-      />
-    </NavLink>
-  );
-  const pots = (
-    <NavLink to="/succulents-site/pots" className="drawerLinkText">
-      Pots
-      <KeyboardArrowRightIcon
-        className="ArrowIcon"
-        style={{ fontSize: "30px" }}
-      />
-    </NavLink>
-  );
-  const other = (
-    <NavLink to="/succulents-site/other" className="drawerLinkText">
-      Other
-      <KeyboardArrowRightIcon
-        className="ArrowIcon"
-        style={{ fontSize: "30px" }}
-      />
-    </NavLink>
-  );
+  const succulents = "Succulents";
+  const pots = "Pots";
+  const other = "Other";
 
   const list = (anchor: Anchor) => (
     <div
@@ -78,9 +45,17 @@ export default function Navigation() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[home, succulents, pots, other].map((text, index) => (
+        {[succulents, pots, other].map((text, index) => (
           <ListItem button key={index}>
-            <ListItemText primary={text} />
+            <ListItemText>
+              <NavLink to={`/succulents-site/${text}`} className="drawerLinkText">
+                {text}
+                <KeyboardArrowRightIcon
+                  className="ArrowIcon"
+                  style={{ fontSize: "30px" }}
+                />
+              </NavLink>
+            </ListItemText>
           </ListItem>
         ))}
       </List>
@@ -89,17 +64,13 @@ export default function Navigation() {
 
   const [change, setChange] = useState(false);
   const changePosition = 50;
-
   let position = useWindowScrollPosition();
-
   if (position.y > changePosition && !change) {
     setChange(true);
   }
-
   if (position.y <= changePosition && change) {
     setChange(false);
   }
-
   let style = {
     backgroundColor: change ? "white" : "transparent",
     transition: "400ms ease",
@@ -144,15 +115,11 @@ export default function Navigation() {
           <div className="logoBigScreen">
             <NavLink to="/succulents-site">Happy Succulent</NavLink>
           </div>
-          <NavLink to="/succulents-site/succulents" className="navLinkText">
-            Succulents
-          </NavLink>
-          <NavLink to="/succulents-site/pots" className="navLinkText">
-            Pots
-          </NavLink>
-          <NavLink to="/succulents-site/other" className="navLinkText">
-            Other
-          </NavLink>
+          {[succulents, pots, other].map((text, index) => (
+            <NavLink to={`/succulents-site/${text}`} className="navLinkText" key={index}>
+              {text}
+            </NavLink>
+          ))}
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
           <ShoppingCartIcon className="cartIcon" style={{ fontSize: "34px" }} />
         </div>

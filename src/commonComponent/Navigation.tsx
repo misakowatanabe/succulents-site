@@ -11,6 +11,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import useWindowScrollPosition from "@rehooks/window-scroll-position";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { CategoryData } from "../CategoryData";
 
 type Anchor = "left";
 
@@ -34,9 +35,9 @@ export default function Navigation() {
       setState({ ...state, [anchor]: open });
     };
 
-  const succulents = "Succulents";
-  const pots = "Pots";
-  const other = "Other";
+  // const succulents = "Succulents";
+  // const pots = "Pots";
+  // const other = "Other";
 
   const list = (anchor: Anchor) => (
     <div
@@ -45,11 +46,14 @@ export default function Navigation() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[succulents, pots, other].map((text, index) => (
+        {CategoryData.map((item, index) => (
           <ListItem button key={index}>
             <ListItemText>
-              <NavLink to={`/succulents-site/${text}`} className="drawerLinkText">
-                {text}
+              <NavLink
+                to={`/succulents-site/${item.categoryName}`}
+                className="drawerLinkText"
+              >
+                {item.categoryName}
                 <KeyboardArrowRightIcon
                   className="ArrowIcon"
                   style={{ fontSize: "30px" }}
@@ -115,9 +119,13 @@ export default function Navigation() {
           <div className="logoBigScreen">
             <NavLink to="/succulents-site">Happy Succulent</NavLink>
           </div>
-          {[succulents, pots, other].map((text, index) => (
-            <NavLink to={`/succulents-site/${text}`} className="navLinkText" key={index}>
-              {text}
+          {CategoryData.map((item, index) => (
+            <NavLink
+              to={`/succulents-site/${item.categoryName}`}
+              className="navLinkText"
+              key={index}
+            >
+              {item.categoryName}
             </NavLink>
           ))}
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />

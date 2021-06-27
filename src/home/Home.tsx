@@ -1,13 +1,25 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
 import mainImage from "../img/main.jpg";
-import CategoryCard from "./CategoryCard";
 import MainButton from "./MainButton";
 import Grid from "@material-ui/core/Grid";
+import { CategoryData } from "../CategoryData";
+
+const useStyles = makeStyles({
+  root: {
+    textAlign: "center",
+    margin: "0% 5% 5% 5%",
+  },
+});
 
 export default function Home() {
-  const succulents = "Succulents";
-  const pots = "Pots";
-  const other = "Other";
+  const classes = useStyles();
 
   return (
     <div className="homeBackground">
@@ -20,9 +32,32 @@ export default function Home() {
       </div>
       <div className="shopByCategory">Shop By Category</div>
       <Grid container spacing={1}>
-        {[succulents, pots, other].map((text, index) => (
+        {CategoryData.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <CategoryCard text={text} />
+            <Card className={classes.root}>
+              <CardActionArea>
+                <NavLink to={`/succulents-site/${item.categoryName}`}>
+                    <CardMedia
+                      component="img"
+                      alt="CategoryImage"
+                      height="220"
+                      image={item.image}
+                    />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {item.categoryName}
+                    </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {item.description}
+                      </Typography>
+                  </CardContent>
+                </NavLink>
+              </CardActionArea>
+            </Card>
           </Grid>
         ))}
       </Grid>

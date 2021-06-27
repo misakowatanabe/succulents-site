@@ -18,18 +18,18 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Params = {
-  category: string;
+  categoryName: string;
 };
 
 export default function ProductList() {
   const classes = useStyles();
 
   function FormRow() {
-    const { category } = useParams<Params>();
+    const { categoryName } = useParams<Params>();
     var selectedProduct: any[] = [];
 
     ProductData.forEach((product) => {
-      if (product.category === category) {
+      if (product.category === categoryName) {
         selectedProduct.push(
           <Grid
             key={product.id}
@@ -37,7 +37,7 @@ export default function ProductList() {
             xs={6}
             style={{ flexBasis: "48%", marginBottom: "20px" }}
           >
-            <NavLink to={`/succulents-site/${product.category}/${product.id}`}>
+            <NavLink to={`/succulents-site/${categoryName}/${product.id}`}>
               <CardActionArea>
                 <CardMedia
                   component="img"

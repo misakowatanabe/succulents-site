@@ -3,7 +3,6 @@ import succulent2 from "./img/succulent2.jpg";
 import succulent3 from "./img/succulent3.jpg";
 import succulent4 from "./img/succulent4.jpg";
 import succulent5 from "./img/succulent5.jpg";
-import succulent6 from "./img/succulent6.jpg";
 import pot1 from "./img/pot1.jpg";
 import pot2 from "./img/pot2.jpg";
 import pot3 from "./img/pot3.jpg";
@@ -24,7 +23,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Succulents",
     image: succulent1,
-    name: "Zebra Plant",
+    name: "Mixed",
     price: 1,
     sold: 22,
     id: "1",
@@ -40,7 +39,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Succulents",
     image: succulent3,
-    name: "Sedum clavatum",
+    name: "Agave",
     price: 3,
     sold: 17,
     id: "3",
@@ -48,7 +47,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Succulents",
     image: succulent4,
-    name: "Agave",
+    name: "Haworthiopsis",
     price: 4,
     sold: 5,
     id: "4",
@@ -56,23 +55,15 @@ export const ProductData: ProductProps[] = [
   {
     category: "Succulents",
     image: succulent5,
-    name: "Haworthiopsis",
+    name: "Haworthia Turgida",
     price: 5,
     sold: 13,
     id: "5",
   },
   {
-    category: "Succulents",
-    image: succulent6,
-    name: "Haworthia turgida",
-    price: 6,
-    sold: 8,
-    id: "6",
-  },
-  {
     category: "Pots",
     image: pot1,
-    name: "Matte gray",
+    name: "Matte Gray",
     price: 1,
     sold: 22,
     id: "7",
@@ -80,7 +71,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Pots",
     image: pot2,
-    name: "Sad owl",
+    name: "Round Bowl",
     price: 2,
     sold: 35,
     id: "8",
@@ -88,7 +79,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Pots",
     image: pot3,
-    name: "Creemy gray",
+    name: "Creemy Gray",
     price: 3,
     sold: 17,
     id: "9",
@@ -96,7 +87,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Pots",
     image: pot4,
-    name: "Pot with foot",
+    name: "Pot with Foot",
     price: 4,
     sold: 5,
     id: "10",
@@ -112,7 +103,7 @@ export const ProductData: ProductProps[] = [
   {
     category: "Other",
     image: other2,
-    name: "shovel",
+    name: "Shovel",
     price: 2,
     sold: 5,
     id: "12",

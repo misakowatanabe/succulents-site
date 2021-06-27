@@ -35,10 +35,6 @@ export default function Navigation() {
       setState({ ...state, [anchor]: open });
     };
 
-  // const succulents = "Succulents";
-  // const pots = "Pots";
-  // const other = "Other";
-
   const list = (anchor: Anchor) => (
     <div
       role="presentation"

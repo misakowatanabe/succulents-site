@@ -2,15 +2,10 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import NativeSelect from "@material-ui/core/NativeSelect";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    formControl: {
-      minWidth: 120,
-      textAlign: "right",
-      margin: "20px 5% 20px 5%",
-      display: "block"
-    },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
@@ -37,8 +32,10 @@ export default function SortButton() {
     });
   };
 
+  const isMobile = useMediaQuery("(max-width:750px)");
+
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl className={isMobile ? "sortButton-mobile" : "sortButton-bigScreen"}>
       <NativeSelect
         value={state.age}
         onChange={handleChange}

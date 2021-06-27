@@ -143,19 +143,46 @@ a:-webkit-any-link {
   margin: 30px 5% 30px 5%;
 }
 
+.sortButton-mobile {
+  text-align: right !important;
+  margin: 20px 5% 20px 5% !important;
+  display: block !important;
+}
+
+.sortButton-bigScreen {
+  text-align: right !important;
+  margin: 20px 6.1% 20px 5% !important;
+  display: block !important;
+}
+
 /* Category page end */
 
-/* Product page start */
+/* Product view page start */
 
-.productView {
-  padding: 100px 5% 100px 5%;
+.productView-mobile {
+  margin: 100px 5% 100px 5%;
+}
+
+.productView-bigScreen {
+  margin: 100px auto 100px auto;
+  width: 850px;
+}
+
+.productViewCategory {
+  font-size: 18px;
 }
 
 .productViewName {
-  font-size: 25px;
+  font-size: 30px;
+  margin: 20px 0px 10px 0px;
 }
 
-/* Product page end */
+.productViewPrice {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Product view page end */
 
 /* Footer start */
 

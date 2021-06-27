@@ -6,6 +6,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { ProductData } from "../ProductData";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,6 +25,8 @@ type Params = {
 export default function ProductList() {
   const classes = useStyles();
 
+  const isMobile = useMediaQuery("(max-width:750px)");
+
   function FormRow() {
     const { categoryName } = useParams<Params>();
     var selectedProduct: any[] = [];
@@ -35,16 +38,21 @@ export default function ProductList() {
             key={product.id}
             item
             xs={6}
-            style={{ flexBasis: "48%", marginBottom: "20px" }}
+            md={4}
+            style={
+              isMobile
+                ? { flexBasis: "48%", marginBottom: "20px" }
+                : { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
+            }
           >
             <NavLink to={`/succulents-site/${categoryName}/${product.id}`}>
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  alt="Contemplative Reptile"
-                  height="190"
+                  alt={`${product.name}`}
+                  height="280"
                   image={product.image}
-                  title="Contemplative Reptile"
+                  title={`${product.name}`}
                 />
                 <CardContent style={{ padding: 0 }}>
                   <Typography
@@ -83,7 +91,16 @@ export default function ProductList() {
 
   return (
     <div className={classes.root}>
-      <Grid container item xs={12} style={{ justifyContent: "space-between" }}>
+      <Grid
+        container
+        item
+        xs={12}
+        style={
+          isMobile
+            ? { justifyContent: "space-between" }
+            : { justifyContent: "start" }
+        }
+      >
         <FormRow />
       </Grid>
     </div>

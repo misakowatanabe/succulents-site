@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 
 import {
@@ -37,15 +38,17 @@ export default function MainButton() {
 
   return (
     <div className="mainButton">
-      <ColorButton
-        variant="contained"
-        color="primary"
-        className={classes.margin}
-        style={{ fontSize: "15px" }}
-      >
-        Explore
-        <KeyboardArrowRightIcon style={{ marginLeft: "13px" }} />
-      </ColorButton>
+      <NavLink to="/succulents-site/Succulents">
+        <ColorButton
+          variant="contained"
+          color="primary"
+          className={classes.margin}
+          style={{ fontSize: "15px" }}
+        >
+          Explore
+          <KeyboardArrowRightIcon style={{ marginLeft: "13px" }} />
+        </ColorButton>
+      </NavLink>
     </div>
   );
 }

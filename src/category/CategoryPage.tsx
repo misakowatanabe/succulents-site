@@ -3,16 +3,19 @@ import { useParams } from "react-router-dom";
 import SortButton from "./SortButton";
 import ProductList from "./ProductList";
 import { CategoryData } from "../CategoryData";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 type Params = {
   categoryName: string;
 };
 
 export default function CategoryPage() {
-  function Row() {
-    const { categoryName } = useParams<Params>();
-    var selectedCategory: any[] = [];
+  const { categoryName } = useParams<Params>();
+  var selectedCategory: any[] = [];
 
+  const isMobile = useMediaQuery("(max-width:950px)");
+
+  function Row() {
     CategoryData.forEach((category) => {
       if (category.categoryName === categoryName) {
         selectedCategory.push(
@@ -23,14 +26,34 @@ export default function CategoryPage() {
         );
       }
     });
-    return <div>{selectedCategory}</div>;
+    return (
+      <div>
+        {selectedCategory}
+        <SortButton />
+        <ProductList />
+      </div>
+    );
   }
 
   return (
     <div className="categoryPage">
-      <Row />
-      <SortButton />
-      <ProductList />
+      {!CategoryData.map((a) => a.categoryName).includes(categoryName) ? (
+        <div
+          className={
+            isMobile
+              ? "categoryNotAvailableContainer-mobile"
+              : "categoryNotAvailableContainer-bigscreen"
+          }
+        >
+          <div className="categoryNotAvailable">
+            This category is no longer available.
+          </div>
+        </div>
+      ) : (
+        <div>
+          <Row />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { ProductData } from "../ProductData";
-import CardMedia from "@material-ui/core/CardMedia";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import ImageGallery from "react-image-gallery";
 
 type Params = {
   id: string;
@@ -10,9 +10,25 @@ type Params = {
 
 export default function Succulent() {
   const { id } = useParams<Params>();
-  const thisProduct = ProductData.find((prod) => prod.id === id);
+  const thisProduct = ProductData.find((prod) => prod.id === id)!;
 
-  const isMobile = useMediaQuery("(max-width:900px)");
+  const isMobile = useMediaQuery("(max-width:950px)");
+  const isBigScreen = useMediaQuery("(min-width:950px)");
+
+  const images = [
+    {
+      original: thisProduct?.image,
+      thumbnail: thisProduct?.image,
+    },
+    {
+      original: thisProduct?.image,
+      thumbnail: thisProduct?.image,
+    },
+    {
+      original: thisProduct?.image,
+      thumbnail: thisProduct?.image,
+    },
+  ];
 
   return (
     <div className={isMobile ? "productView-mobile" : "productView-bigScreen"}>
@@ -31,16 +47,29 @@ export default function Succulent() {
           {thisProduct?.category}
         </NavLink>
       </div>
-      <div className="productViewName">{thisProduct?.name}</div>
-      <div className="productViewPrice">SEK {thisProduct?.price}</div>
-      <CardMedia
-        component="img"
-        alt={`${thisProduct?.name}`}
-        image={thisProduct?.image}
-        title={`${thisProduct?.name}`}
-        style={{ width: "100%" }}
-      />
-      <div>ID: {thisProduct?.id}</div>
+      {!thisProduct ? (
+        <div className="productViewNotAvailable">
+          This product is no longer available.
+        </div>
+      ) : (
+        <div>
+          <div className="productViewName">{thisProduct.name}</div>
+          <div className="productViewPrice">SEK {thisProduct.price}</div>
+          <ImageGallery
+            items={images}
+            showThumbnails={true}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            autoPlay={false}
+            slideInterval={50000}
+            showNav={false}
+          />
+          <div className="productViewId">ID: {thisProduct.id}</div>
+          <div className="productViewDescription">
+            {thisProduct.description}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

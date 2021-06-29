@@ -155,6 +155,19 @@ a:-webkit-any-link {
   display: block !important;
 }
 
+.categoryNotAvailableContainer-bigscreen {
+  margin: 100px auto 100px auto;
+  width: 850px;
+}
+
+.categoryNotAvailableContainer-mobile {
+  margin: 100px 5% 100px 5%;
+}
+
+.categoryNotAvailable {
+  font-size: 16px;
+}
+
 /* Category page end */
 
 /* Product view page start */
@@ -169,7 +182,7 @@ a:-webkit-any-link {
 }
 
 .productViewCategory {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .productViewName {
@@ -178,13 +191,34 @@ a:-webkit-any-link {
 }
 
 .productViewPrice {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 20px;
+}
+
+.productViewId {
+  font-size: 16px;
+}
+
+.productViewDescription {
+  font-size: 16px;
+}
+
+.productViewNotAvailable {
+  margin-top: 30px;
 }
 
 /* Product view page end */
 
 /* Footer start */
+
+.footer-mobile {
+  margin: 100px 5% 0px 5%;
+}
+
+.footer-bigScreen {
+  margin: 100px auto 0px auto;
+  width: 850px;
+}
 
 .galleyText {
   font-family: "Roboto", sans-serif;
@@ -194,17 +228,25 @@ a:-webkit-any-link {
   padding: 40px 0px 40px 0px;
 }
 
-.footer {
+.imageGalley {
+  width: 500px;
+}
+
+.footerLink {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   line-height: 150%;
-  padding: 70px 5% 10px 5%;
+  padding: 70px 0px 10px 0px;
 }
 
-.lastFooter {
+.footerCredit {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  line-height: 150%;
+  padding: 0px 0px 10px 0px;
   text-align: center;
   font-size: 12px;
-  margin: 20px 5% 0px 5%;
+  margin: 50px 0px 0px 0px;
 }
 
 /* Footer end */

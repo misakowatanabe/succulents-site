@@ -14,7 +14,7 @@ export default function NotFoundPage() {
       }
     >
       <div className="categoryNotAvailable">
-        This category is no longer available.
+        Test.
       </div>
     </div>
   );

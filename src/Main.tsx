@@ -8,18 +8,10 @@ import NotFoundPage from "./NotFoundPage";
 export default function Main() {
   return (
     <Switch>
-      <Route exact path="/succulents-site" component={Home}></Route>
-      <Route
-        exact
-        path="/succulents-site/:categoryName"
-        component={CategoryPage}
-      ></Route>
-      <Route
-        exact
-        path={`/succulents-site/:categoryName/:id`}
-        component={ProductView}
-      ></Route>
-      <Route component={NotFoundPage} />
+      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/:categoryName" component={CategoryPage}></Route>
+      <Route exact path="/:categoryName/:id" component={ProductView}></Route>
+      {/* <Route exact path="*" component={ProductView}></Route> */}
     </Switch>
   );
 }

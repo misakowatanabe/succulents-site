@@ -38,7 +38,7 @@ export default function MainButton() {
 
   return (
     <div className="mainButton">
-      <NavLink to="/succulents-site/Succulents">
+      <NavLink to="/Succulents">
         <ColorButton
           variant="contained"
           color="primary"

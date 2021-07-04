@@ -45,7 +45,7 @@ export default function ProductList() {
                 : { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
             }
           >
-            <NavLink to={`/succulents-site/${categoryName}/${product.id}`}>
+            <NavLink to={`/${categoryName}/${product.id}`}>
               <CardActionArea>
                 <CardMedia
                   component="img"

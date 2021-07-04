@@ -46,7 +46,7 @@ export default function Navigation() {
           <ListItem button key={index}>
             <ListItemText>
               <NavLink
-                to={`/succulents-site/${item.categoryName}`}
+                to={`/${item.categoryName}`}
                 className="drawerLinkText"
               >
                 {item.categoryName}
@@ -99,7 +99,7 @@ export default function Navigation() {
                 </SwipeableDrawer>
               </React.Fragment>
               <div className="logoMobile">
-                <NavLink to="/succulents-site">Happy Succulent</NavLink>
+                <NavLink to="/">Happy Succulent</NavLink>
               </div>
               <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
               <ShoppingCartIcon
@@ -113,11 +113,11 @@ export default function Navigation() {
       {isBigScreen && (
         <div className="header" style={style}>
           <div className="logoBigScreen">
-            <NavLink to="/succulents-site">Happy Succulent</NavLink>
+            <NavLink to="/">Happy Succulent</NavLink>
           </div>
           {CategoryData.map((item, index) => (
             <NavLink
-              to={`/succulents-site/${item.categoryName}`}
+              to={`/${item.categoryName}`}
               className="navLinkText"
               key={index}
             >

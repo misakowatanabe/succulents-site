@@ -26,6 +26,7 @@ export default function CategoryPage() {
       );
     }
   });
+  
   if (CategoryData.map((a) => a.categoryName).includes(categoryName))
     return (
       <div className="categoryPage">

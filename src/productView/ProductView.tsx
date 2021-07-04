@@ -31,23 +31,26 @@ export default function Succulent() {
     },
   ];
 
-  if(thisProduct) return (
-    <div className={isMobile ? "productView-mobile" : "productView-bigScreen"}>
-      <div className="productViewCategory">
-        <NavLink
-          to={`/succulents-site`}
-          style={{ textDecoration: "underline" }}
-        >
-          Home
-        </NavLink>
-        <span> &gt; </span>
-        <NavLink
-          to={`/succulents-site/${thisProduct?.category}`}
-          style={{ textDecoration: "underline" }}
-        >
-          {thisProduct?.category}
-        </NavLink>
-      </div>
+  if (thisProduct)
+    return (
+      <div
+        className={isMobile ? "productView-mobile" : "productView-bigScreen"}
+      >
+        <div className="productViewCategory">
+          <NavLink
+            to={`/succulents-site`}
+            style={{ textDecoration: "underline" }}
+          >
+            Home
+          </NavLink>
+          <span> &gt; </span>
+          <NavLink
+            to={`/succulents-site/${thisProduct?.category}`}
+            style={{ textDecoration: "underline" }}
+          >
+            {thisProduct?.category}
+          </NavLink>
+        </div>
         <div>
           <div className="productViewName">{thisProduct.name}</div>
           <div className="productViewPrice">SEK {thisProduct.price}</div>
@@ -65,6 +68,7 @@ export default function Succulent() {
             {thisProduct.description}
           </div>
         </div>
-    </div>
-  ); else return <NotFoundPage />;
+      </div>
+    );
+  else return <NotFoundPage />;
 }

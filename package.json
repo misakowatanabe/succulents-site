@@ -1,7 +1,7 @@
 {
   "name": "succulents-site",
   "version": "0.1.0",
-  "homepage": "http://misakowatanabe.github.io/succulents-site",
+  "homepage": "https://misakowatanabe.github.io/succulents-site",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",

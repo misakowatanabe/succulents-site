@@ -4,6 +4,7 @@ import SortButton from "./SortButton";
 import ProductList from "./ProductList";
 import { CategoryData } from "../CategoryData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import NotFoundPage from "../NotFoundPage";
 
 type Params = {
   categoryName: string;
@@ -15,45 +16,23 @@ export default function CategoryPage() {
 
   const isMobile = useMediaQuery("(max-width:950px)");
 
-  function Row() {
-    CategoryData.forEach((category) => {
-      if (category.categoryName === categoryName) {
-        selectedCategory.push(
-          <div key={category.categoryName}>
-            <div className="categoryName">{category.categoryName}</div>
-            <p className="categoryDescription">{category.description}</p>
-          </div>
-        );
-      }
-    });
+  CategoryData.forEach((category) => {
+    if (category.categoryName === categoryName) {
+      selectedCategory.push(
+        <div key={category.categoryName}>
+          <div className="categoryName">{category.categoryName}</div>
+          <p className="categoryDescription">{category.description}</p>
+        </div>
+      );
+    }
+  });
+  if (CategoryData.map((a) => a.categoryName).includes(categoryName))
     return (
-      <div>
+      <div className="categoryPage">
         {selectedCategory}
         <SortButton />
         <ProductList />
       </div>
     );
-  }
-
-  return (
-    <div className="categoryPage">
-      {!CategoryData.map((a) => a.categoryName).includes(categoryName) ? (
-        <div
-          className={
-            isMobile
-              ? "categoryNotAvailableContainer-mobile"
-              : "categoryNotAvailableContainer-bigscreen"
-          }
-        >
-          <div className="categoryNotAvailable">
-            This category is no longer available.
-          </div>
-        </div>
-      ) : (
-        <div>
-          <Row />
-        </div>
-      )}
-    </div>
-  );
+  else return <NotFoundPage />;
 }

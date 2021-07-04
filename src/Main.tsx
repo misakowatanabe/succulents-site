@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./home/Home";
 import CategoryPage from "./category/CategoryPage";
 import ProductView from "./productView/ProductView";
+import NotFoundPage from "./NotFoundPage";
 
 export default function Main() {
   return (
@@ -18,6 +19,7 @@ export default function Main() {
         path={`/succulents-site/:categoryName/:id`}
         component={ProductView}
       ></Route>
+      <Route component={NotFoundPage} />
     </Switch>
   );
 }

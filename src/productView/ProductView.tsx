@@ -3,6 +3,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { ProductData } from "../ProductData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ImageGallery from "react-image-gallery";
+import NotFoundPage from "../NotFoundPage";
 
 type Params = {
   id: string;
@@ -30,7 +31,7 @@ export default function Succulent() {
     },
   ];
 
-  return (
+  if(thisProduct) return (
     <div className={isMobile ? "productView-mobile" : "productView-bigScreen"}>
       <div className="productViewCategory">
         <NavLink
@@ -47,11 +48,6 @@ export default function Succulent() {
           {thisProduct?.category}
         </NavLink>
       </div>
-      {!thisProduct ? (
-        <div className="productViewNotAvailable">
-          This product is no longer available.
-        </div>
-      ) : (
         <div>
           <div className="productViewName">{thisProduct.name}</div>
           <div className="productViewPrice">SEK {thisProduct.price}</div>
@@ -69,7 +65,6 @@ export default function Succulent() {
             {thisProduct.description}
           </div>
         </div>
-      )}
     </div>
-  );
+  ); else return <NotFoundPage />;
 }

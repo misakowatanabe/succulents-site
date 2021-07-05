@@ -10,6 +10,7 @@ import mainImage from "../img/main.jpg";
 import MainButton from "./MainButton";
 import Grid from "@material-ui/core/Grid";
 import { CategoryData } from "../CategoryData";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles({
   root: {
@@ -21,8 +22,10 @@ const useStyles = makeStyles({
 export default function Home() {
   const classes = useStyles();
 
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   return (
-    <div className="homeBackground">
+    <div className="homeBackground" style={isMobile ? {paddingBottom: "120px"} : {paddingBottom: "30px"}}>
       <div
         className="mainImage"
         style={{ backgroundImage: `url(${mainImage})` }}
@@ -37,23 +40,23 @@ export default function Home() {
             <Card className={classes.root}>
               <CardActionArea>
                 <NavLink to={`/${item.categoryName}`}>
-                    <CardMedia
-                      component="img"
-                      alt="CategoryImage"
-                      height="220"
-                      image={item.image}
-                    />
+                  <CardMedia
+                    component="img"
+                    alt="CategoryImage"
+                    height="220"
+                    image={item.image}
+                  />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                       {item.categoryName}
                     </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {item.description}
-                      </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      {item.description}
+                    </Typography>
                   </CardContent>
                 </NavLink>
               </CardActionArea>

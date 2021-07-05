@@ -1,11 +1,10 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 .App {
-  min-height: 100vh; /* will cover the 100% of viewport */
+  min-height: 100vh;
   overflow: hidden;
   display: block;
   position: relative;
-  /* padding-bottom: 100px;  */
 }
 
 p {
@@ -129,7 +128,6 @@ a:-webkit-any-link {
 
 .homeBackground {
   background-color: #f3f3f3;
-  padding-bottom: 30px;
 }
 
 /* Home end */
@@ -141,7 +139,6 @@ a:-webkit-any-link {
   text-align: center;
   font-size: 25px;
   padding: 100px 5% 0px 5%;
-  /* top: 0px; */
 }
 
 .categoryDescription {
@@ -181,7 +178,7 @@ a:-webkit-any-link {
 /* Product view page start */
 
 .productView-mobile {
-  margin: 100px 5% 100px 5%;
+  margin: 100px 5% 200px 5%;
 }
 
 .productView-bigScreen {
@@ -218,38 +215,36 @@ a:-webkit-any-link {
 /* Product view page end */
 
 /* Footer start */
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-.footer-mobile {
-  margin: 0px 5% 0px 5%;
-}
-
-.footer-bigScreen {
-  margin: 0px auto 0px auto;
-  width: 850px;
-}
-
-.galleyText {
+.followUsText {
   font-family: "Roboto", sans-serif;
   color: #242424;
   text-align: center;
-  font-size: 25px;
+  font-size: 21px;
   padding: 40px 0px 40px 0px;
 }
 
 .imageGalley {
-  width: 500px;
+  width: 300px;
+}
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  height: 72px !important;
+  width: 30px !important;
 }
 
 .footerLink {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   line-height: 150%;
-  padding: 70px 0px 10px 0px;
+  padding: 50px 0px 0px 0px;
 }
 
 .footerCredit {

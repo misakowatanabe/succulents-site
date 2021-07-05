@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      margin: "0px 5% 60px 5%",
+      margin: "0px 5% 180px 5%",
     },
   })
 );
@@ -25,7 +25,8 @@ type Params = {
 export default function ProductList() {
   const classes = useStyles();
 
-  const isMobile = useMediaQuery("(max-width:750px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMediumScreen = useMediaQuery("(min-width:960px)");
 
   function FormRow() {
     const { categoryName } = useParams<Params>();
@@ -39,9 +40,12 @@ export default function ProductList() {
             item
             xs={6}
             md={4}
+            lg={3}
             style={
               isMobile
                 ? { flexBasis: "48%", marginBottom: "20px" }
+                : isMediumScreen
+                ? { flexBasis: "22%", marginBottom: "20px", margin: "1.5%" }
                 : { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
             }
           >
@@ -93,8 +97,8 @@ export default function ProductList() {
     <div className={classes.root}>
       <Grid
         container
-        item
-        xs={12}
+        // item
+        // xs={12}
         style={
           isMobile
             ? { justifyContent: "space-between" }

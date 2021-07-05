@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export default function NotFoundPage() {
@@ -14,7 +14,12 @@ export default function NotFoundPage() {
       }
     >
       <div className="categoryNotAvailable">
-        Test.
+        This page is no longer available.
+        <p>
+          <NavLink to={`/`} style={{ textDecoration: "underline" }}>
+            Home
+          </NavLink>
+        </p>
       </div>
     </div>
   );

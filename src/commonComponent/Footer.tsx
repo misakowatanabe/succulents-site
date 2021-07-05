@@ -20,7 +20,7 @@ export default function Footer() {
   const isMobile = useMediaQuery("(max-width:950px)");
 
   return (
-    <div style={{ backgroundColor: "#f3f3f3" }}>
+    <div style={{ backgroundColor: "#f3f3f3" }} className="footer">
       <div className={isMobile ? "footer-mobile" : "footer-bigScreen"}>
         <div className="galleyText">Follow us on Instagram</div>
         <div className={isMobile ? "" : "imageGalley"}>

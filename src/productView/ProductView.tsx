@@ -14,7 +14,6 @@ export default function Succulent() {
   const thisProduct = ProductData.find((prod) => prod.id === id)!;
 
   const isMobile = useMediaQuery("(max-width:950px)");
-  const isBigScreen = useMediaQuery("(min-width:950px)");
 
   const images = [
     {
@@ -38,14 +37,14 @@ export default function Succulent() {
       >
         <div className="productViewCategory">
           <NavLink
-            to={`/succulents-site`}
+            to={`/`}
             style={{ textDecoration: "underline" }}
           >
             Home
           </NavLink>
           <span> &gt; </span>
           <NavLink
-            to={`/succulents-site/${thisProduct?.category}`}
+            to={`/${thisProduct?.category}`}
             style={{ textDecoration: "underline" }}
           >
             {thisProduct?.category}

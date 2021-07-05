@@ -1,5 +1,13 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+.App {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  /* padding-bottom: 100px;  */
+}
+
 p {
   font-family: "Roboto", sans-serif;
 }
@@ -210,13 +218,18 @@ a:-webkit-any-link {
 /* Product view page end */
 
 /* Footer start */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 .footer-mobile {
-  margin: 100px 5% 0px 5%;
+  margin: 0px 5% 0px 5%;
 }
 
 .footer-bigScreen {
-  margin: 100px auto 0px auto;
+  margin: 0px auto 0px auto;
   width: 850px;
 }
 

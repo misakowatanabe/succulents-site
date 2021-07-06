@@ -27,6 +27,13 @@ export default function Footer() {
         style={{ justifyContent: "space-evenly", alignItems: "center" }}
       >
         <Grid item sm={6} style={{ flexBasis: "auto" }}>
+          <div className="footerLink">
+            <div>ABOUT</div>
+            <div>HELP</div>
+            <div>SHOP</div>
+          </div>
+        </Grid>
+        <Grid item sm={6} style={{ flexBasis: "auto" }}>
           <div className="followUsText">Follow us on Instagram</div>
           <div className={isMobile ? "" : "imageGalley"}>
             <ImageGallery
@@ -37,13 +44,6 @@ export default function Footer() {
               autoPlay={true}
               slideInterval={50000}
             />
-          </div>
-        </Grid>
-        <Grid item sm={6} style={{ flexBasis: "auto" }}>
-          <div className="footerLink">
-            <div>ABOUT</div>
-            <div>HELP</div>
-            <div>SHOP</div>
           </div>
         </Grid>
       </Grid>

@@ -97,8 +97,6 @@ export default function ProductList() {
     <div className={classes.root}>
       <Grid
         container
-        // item
-        // xs={12}
         style={
           isMobile
             ? { justifyContent: "space-between" }

@@ -80,7 +80,7 @@ export default function Navigation() {
   const isBigScreen = useMediaQuery("(min-width:688px)");
 
   return (
-    <div className="test">
+    <div>
       {isMobile && (
         <div>
           {(["left"] as Anchor[]).map((anchor) => (

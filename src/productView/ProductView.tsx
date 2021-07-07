@@ -5,6 +5,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ImageGallery from "react-image-gallery";
 import NotFoundPage from "../NotFoundPage";
 import Grid from "@material-ui/core/Grid";
+import QuantitySelect from "./QuantitySelect";
+import AddToCartButton from "./AddToCartButton";
 
 type Params = {
   id: string;
@@ -68,8 +70,12 @@ export default function Succulent() {
                 {thisProduct?.category}
               </NavLink>
             </div>
-            <div className="productViewName">{thisProduct.name}</div>
-            <div className="productViewPrice">SEK {thisProduct.price}</div>
+            <div
+              className="productViewName"
+              style={isMobile ? {} : { display: "none" }}
+            >
+              {thisProduct.name}
+            </div>
             <ImageGallery
               items={images}
               showThumbnails={true}
@@ -91,10 +97,40 @@ export default function Succulent() {
                   }
             }
           >
-            <div className={isMobile ? "productViewDescription-mobile" : "productViewDescription-biggerScreen"}>
-              {thisProduct.description}
+            <div
+              className="productViewName-biggerScreen"
+              style={isMobile ? { display: "none" } : {}}
+            >
+              {thisProduct.name}
             </div>
-            <div className="productViewId">ID: {thisProduct.id}</div>
+            <div
+              className={
+                isMobile
+                  ? "productViewDescription-mobile"
+                  : "productViewDescription-biggerScreen"
+              }
+            >
+              {thisProduct.description}
+              <div className="productViewPrice">SEK {thisProduct.price}</div>
+              <Grid
+                container
+                style={{
+                  justifyContent: "space-between",
+                  width: "100%",
+                  margin: "0px auto 0px auto",
+                  flexGrow: 0,
+                  height: "100px",
+                }}
+              >
+                <Grid item xs={4} style={{ flexBasis: "30%" }}>
+                  <QuantitySelect />
+                </Grid>
+                <Grid item xs={8} style={{ flexBasis: "| auto" }}>
+                  <AddToCartButton />
+                </Grid>
+              </Grid>
+              <div className="productViewId">ID: {thisProduct.id}</div>
+            </div>
           </Grid>
         </Grid>
       </div>

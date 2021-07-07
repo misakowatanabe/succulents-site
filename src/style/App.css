@@ -191,16 +191,22 @@ a:-webkit-any-link {
 
 .productViewCategory {
   font-size: 16px;
+  margin-bottom: 40px;
 }
 
 .productViewName {
   font-size: 30px;
-  margin: 20px 0px 10px 0px;
+  margin: 20px 0px 30px 0px;
+}
+
+.productViewName-biggerScreen {
+  font-size: 30px;
+  margin: 51px 0px 30px 0px;
 }
 
 .productViewPrice {
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 21px;
+  margin: 30px 0px 0px 0px;
 }
 
 .image-gallery-thumbnails .image-gallery-thumbnails-container {
@@ -224,18 +230,31 @@ a:-webkit-any-link {
 
 .productViewDescription-mobile {
   font-size: 16px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .productViewDescription-biggerScreen {
   font-size: 16px;
-  margin-top: 120px;
+  margin-top: 0px;
 }
 
 .productViewId {
   font-size: 16px;
   color: #929292;
-  margin-top: 30px;
+  margin-top: 0px;
+}
+
+.quantitySelect {
+  margin: 30px 0px 30px 0px;
+}
+
+.addToCartButton {
+  margin: 30px 0px 30px 0px;
+}
+
+.cartIcon-addToCart {
+  padding-right: 12px;
+  color: #2b2b2b;
 }
 
 .productViewNotAvailable {

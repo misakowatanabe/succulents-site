@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import SortButton from "./SortButton";
+import SortSelect from "./SortSelect";
 import ProductList from "./ProductList";
 import { CategoryData } from "../CategoryData";
 import NotFoundPage from "../NotFoundPage";
@@ -28,7 +28,7 @@ export default function CategoryPage() {
     return (
       <div className="categoryPage">
         {selectedCategory}
-        <SortButton />
+        <SortSelect />
         <ProductList />
       </div>
     );

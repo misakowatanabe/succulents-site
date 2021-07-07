@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function SortButton() {
   const classes = useStyles();
   const [state, setState] = React.useState<{
-    age: string | number;
+    sort: string;
     name: string;
   }>({
-    age: "",
-    name: "hai",
+    sort: "",
+    name: "",
   });
 
   const handleChange = (
@@ -32,16 +32,16 @@ export default function SortButton() {
     });
   };
 
-  const isMobile = useMediaQuery("(max-width:750px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
     <FormControl className={isMobile ? "sortButton-mobile" : "sortButton-bigScreen"}>
       <NativeSelect
-        value={state.age}
+        value={state.sort}
         onChange={handleChange}
-        name="age"
+        name="sort"
         className={classes.selectEmpty}
-        inputProps={{ "aria-label": "age" }}
+        inputProps={{ "aria-label": "sort" }}
       >
         <option value="Best selling">Best selling</option>
         <option value="Price, high to low">Price, high to low</option>

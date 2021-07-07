@@ -25,7 +25,7 @@ type Params = {
 export default function ProductList() {
   const classes = useStyles();
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:599px)");
   const isMediumScreen = useMediaQuery("(min-width:960px)");
 
   function FormRow() {

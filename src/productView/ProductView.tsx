@@ -16,7 +16,7 @@ export default function Succulent() {
   const { id } = useParams<Params>();
   const thisProduct = ProductData.find((prod) => prod.id === id)!;
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:599px)");
 
   const images = [
     {

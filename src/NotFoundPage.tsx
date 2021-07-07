@@ -9,11 +9,11 @@ export default function NotFoundPage() {
     <div
       className={
         isMobile
-          ? "categoryNotAvailableContainer-mobile"
-          : "categoryNotAvailableContainer-bigscreen"
+          ? "notFoundContainer-mobile"
+          : "notFoundContainer-bigscreen"
       }
     >
-      <div className="categoryNotAvailable">
+      <div className="notFound">
         This page is no longer available.
         <p>
           <NavLink to={`/`} style={{ textDecoration: "underline" }}>

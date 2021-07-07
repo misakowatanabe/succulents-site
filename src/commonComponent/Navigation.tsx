@@ -77,7 +77,7 @@ export default function Navigation() {
   };
 
   const isMobile = useMediaQuery("(max-width:688px)");
-  const isBigScreen = useMediaQuery("(min-width:688px)");
+  const isBigScreen = useMediaQuery("(min-width:689px)");
 
   return (
     <div>

@@ -18,7 +18,7 @@ const images = [
 ];
 
 export default function Footer() {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:599px)");
 
   return (
     <div style={{ backgroundColor: "#f3f3f3" }} className="footer">

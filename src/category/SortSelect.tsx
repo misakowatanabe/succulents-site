@@ -32,7 +32,7 @@ export default function SortButton() {
     });
   };
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:599px)");
 
   return (
     <FormControl className={isMobile ? "sortButton-mobile" : "sortButton-bigScreen"}>

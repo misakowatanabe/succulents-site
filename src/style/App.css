@@ -164,19 +164,6 @@ a:-webkit-any-link {
   display: block !important;
 }
 
-.categoryNotAvailableContainer-bigscreen {
-  margin: 100px auto 100px auto;
-  width: 850px;
-}
-
-.categoryNotAvailableContainer-mobile {
-  margin: 100px 5% 100px 5%;
-}
-
-.categoryNotAvailable {
-  font-size: 16px;
-}
-
 /* Category page end */
 
 /* Product view page start */
@@ -257,11 +244,24 @@ a:-webkit-any-link {
   color: #2b2b2b;
 }
 
-.productViewNotAvailable {
-  margin-top: 30px;
+/* Product view page end */
+
+/* Not available page start */
+
+.notFoundContainer-mobile {
+  margin: 100px 5% 100px 5%;
 }
 
-/* Product view page end */
+.notFoundContainer-bigscreen {
+  margin: 100px auto 100px auto;
+  width: 850px;
+}
+
+.notFound {
+  font-size: 16px;
+}
+
+/* Not available page start */
 
 /* Footer start */
 

@@ -235,6 +235,22 @@ a:-webkit-any-link {
   margin: 30px 0px 30px 0px;
 }
 
+/* Font size of quantity number */
+.icqKiv {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+/* Background of quantity + - buttons */
+.kUcYqO:active {
+  background: #cad4de !important;
+}
+
+.quantityLabel {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
 .addToCartButton {
   margin: 30px 0px 30px 0px;
 }
@@ -242,6 +258,10 @@ a:-webkit-any-link {
 .cartIcon-addToCart {
   padding-right: 12px;
   color: #2b2b2b;
+}
+
+input[type="number" i] {
+  padding: 10px 10px;
 }
 
 /* Product view page end */

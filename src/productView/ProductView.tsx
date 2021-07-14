@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { ProductData } from "../ProductData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -7,6 +7,9 @@ import NotFoundPage from "../NotFoundPage";
 import Grid from "@material-ui/core/Grid";
 import QuantitySelect from "./QuantitySelect";
 import AddToCartButton from "./AddToCartButton";
+import { AppContext } from "../Context";
+import { Types } from "../Reducers";
+import Quantityselect from "./QuantitySelect";
 
 type Params = {
   id: string;
@@ -32,6 +35,33 @@ export default function Succulent() {
       thumbnail: thisProduct?.image,
     },
   ];
+
+  const { dispatch } = React.useContext(AppContext);
+
+  const AddProduct = () => {
+    dispatch({
+      type: Types.Create,
+      payload: {
+        id: Math.round(Math.random() * 10000),
+        name: thisProduct.name,
+        price: thisProduct.price,
+        image: thisProduct.image,
+        quantity: form.quantity,
+      },
+    });
+  };
+
+  const [form, setForm] = React.useState({
+    name: "",
+    quantity: 0,
+  });
+
+  const handleForm = (type: string, value: string) => {
+    setForm((form) => ({
+      ...form,
+      [type]: value,
+    }));
+  };
 
   if (thisProduct)
     return (
@@ -112,23 +142,13 @@ export default function Succulent() {
             >
               {thisProduct.description}
               <div className="productViewPrice">SEK {thisProduct.price}</div>
-              <Grid
-                container
-                style={{
-                  justifyContent: "space-between",
-                  width: "100%",
-                  margin: "0px auto 0px auto",
-                  flexGrow: 0,
-                  height: "100px",
+              <Quantityselect
+                onChange={(e) => {
+                  handleForm("quantity", e.target.value);
                 }}
-              >
-                <Grid item xs={4} style={{ flexBasis: "30%" }}>
-                  <QuantitySelect />
-                </Grid>
-                <Grid item xs={8} style={{ flexBasis: "| auto" }}>
-                  <AddToCartButton />
-                </Grid>
-              </Grid>
+                value={form.quantity}
+              />
+              <AddToCartButton onClick={AddProduct} />
               <div className="productViewId">ID: {thisProduct.id}</div>
             </div>
           </Grid>

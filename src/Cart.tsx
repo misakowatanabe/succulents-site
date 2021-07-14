@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 import { AppContext } from "./Context";
 import { Types } from "./Reducers";
@@ -48,7 +49,8 @@ const Cart = () => {
 
   return (
     <div>
-      <div style={{ marginTop: 20 }}>
+      <div style={{ marginTop: 100 }}>
+        <div>YOUR SHOPPING CART</div>
         {state.products.map((productInCart) => (
           <Card className={classes.root} key={productInCart.id}>
             <CardMedia
@@ -67,6 +69,13 @@ const Cart = () => {
                 <Typography variant="subtitle1" color="textSecondary">
                   Quantity: {productInCart.quantity}
                 </Typography>
+                {/* <input
+                  value={productInCart.quantity}
+                  type="number"
+                  // onChange={handleChange}
+                  min="1"
+                  max="10"
+                /> */}
                 <button onClick={() => deleteProduct(productInCart.id)}>
                   delete
                 </button>

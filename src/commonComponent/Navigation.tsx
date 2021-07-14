@@ -46,7 +46,7 @@ export default function Navigation() {
           <ListItem button key={index}>
             <ListItemText>
               <NavLink
-                to={`/${item.categoryName}`}
+                to={`/product/${item.categoryName}`}
                 className="drawerLinkText"
               >
                 {item.categoryName}
@@ -102,10 +102,12 @@ export default function Navigation() {
                 <NavLink to="/">Happy Succulent</NavLink>
               </div>
               <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-              <ShoppingCartIcon
-                className="cartIcon"
-                style={{ fontSize: "34px" }}
-              />
+              <NavLink to="/cart">
+                <ShoppingCartIcon
+                  className="cartIcon"
+                  style={{ fontSize: "34px" }}
+                />
+              </NavLink>
             </div>
           ))}
         </div>
@@ -117,7 +119,7 @@ export default function Navigation() {
           </div>
           {CategoryData.map((item, index) => (
             <NavLink
-              to={`/${item.categoryName}`}
+              to={`/product/${item.categoryName}`}
               className="navLinkText"
               key={index}
             >
@@ -125,7 +127,12 @@ export default function Navigation() {
             </NavLink>
           ))}
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-          <ShoppingCartIcon className="cartIcon" style={{ fontSize: "34px" }} />
+          <NavLink to="/cart">
+            <ShoppingCartIcon
+              className="cartIcon"
+              style={{ fontSize: "34px" }}
+            />
+          </NavLink>
         </div>
       )}
     </div>

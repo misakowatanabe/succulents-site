@@ -21,7 +21,7 @@ export default function App() {
         <Navigation />
         <Main />
         <Footer />
-        <Cart />
+        {/* <Cart /> */}
       </div>
     </AppProvider>
   );

@@ -1,8 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import Home from "./home/Home";
 import CategoryPage from "./category/CategoryPage";
 import ProductView from "./productView/ProductView";
+import Cart from "./Cart";
+
 
 export default function Main() {
   return (
@@ -10,14 +13,15 @@ export default function Main() {
       <Route exact path="/" component={Home}></Route>
       <Route
         exact
-        path="/:categoryName"
+        path="/product/:categoryName"
         component={CategoryPage}
       ></Route>
       <Route
         exact
-        path="/:categoryName/:id"
+        path="/product/:categoryName/:id"
         component={ProductView}
       ></Route>
+      <Route exact path="/cart" component={Cart}></Route>
     </Switch>
   );
 }

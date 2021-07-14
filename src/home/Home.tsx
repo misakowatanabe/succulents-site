@@ -50,7 +50,7 @@ export default function Home() {
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card className={classes.root}>
                 <CardActionArea>
-                  <NavLink to={`/${item.categoryName}`}>
+                  <NavLink to={`/product/${item.categoryName}`}>
                     <CardMedia
                       component="img"
                       alt="CategoryImage"

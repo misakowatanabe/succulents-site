@@ -53,7 +53,7 @@ export default function Succulent() {
 
   const [form, setForm] = React.useState({
     name: "",
-    quantity: 0,
+    quantity: 1,
   });
 
   const handleForm = (type: string, value: string) => {
@@ -94,7 +94,7 @@ export default function Succulent() {
               </NavLink>
               <span> &gt; </span>
               <NavLink
-                to={`/${thisProduct?.category}`}
+                to={`product/${thisProduct?.category}`}
                 style={{ textDecoration: "underline" }}
               >
                 {thisProduct?.category}

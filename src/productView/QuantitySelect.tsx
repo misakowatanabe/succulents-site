@@ -2,6 +2,7 @@ import React from "react";
 import Stack from "@kiwicom/orbit-components/lib/Stack";
 import Stepper from "@kiwicom/orbit-components/lib/Stepper";
 import Heading from "@kiwicom/orbit-components/lib/Heading";
+import Select from "@material-ui/core/Select";
 
 type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

@@ -42,25 +42,32 @@ export default function Succulent() {
     dispatch({
       type: Types.Create,
       payload: {
-        id: Math.round(Math.random() * 10000),
+        // id: Math.round(Math.random() * 10000),
+        id: thisProduct.id,
         name: thisProduct.name,
         price: thisProduct.price,
         image: thisProduct.image,
-        quantity: form.quantity,
+        quantity: state.quantity,
       },
     });
   };
 
-  const [form, setForm] = React.useState({
-    name: "",
+  const [state, setState] = React.useState<{
+    quantity: number;
+    name: string;
+  }>({
     quantity: 1,
+    name: "hai",
   });
 
-  const handleForm = (type: string, value: string) => {
-    setForm((form) => ({
-      ...form,
-      [type]: value,
-    }));
+  const handleChange = (
+    event: React.ChangeEvent<{ name?: string; value: unknown }>
+  ) => {
+    const name = event.target.name as keyof typeof state;
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
   };
 
   if (thisProduct)
@@ -143,10 +150,8 @@ export default function Succulent() {
               {thisProduct.description}
               <div className="productViewPrice">SEK {thisProduct.price}</div>
               <Quantityselect
-                onChange={(e) => {
-                  handleForm("quantity", e.target.value);
-                }}
-                value={form.quantity}
+                onChange={handleChange}
+                value={state.quantity}
               />
               <AddToCartButton onClick={AddProduct} />
               <div className="productViewId">ID: {thisProduct.id}</div>

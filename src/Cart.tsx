@@ -38,7 +38,7 @@ const Cart = () => {
 
   const { state, dispatch } = useContext(AppContext);
 
-  const deleteProduct = (id: number) => {
+  const deleteProduct = (id: string) => {
     dispatch({
       type: Types.Delete,
       payload: {
@@ -69,13 +69,6 @@ const Cart = () => {
                 <Typography variant="subtitle1" color="textSecondary">
                   Quantity: {productInCart.quantity}
                 </Typography>
-                {/* <input
-                  value={productInCart.quantity}
-                  type="number"
-                  // onChange={handleChange}
-                  min="1"
-                  max="10"
-                /> */}
                 <button onClick={() => deleteProduct(productInCart.id)}>
                   delete
                 </button>

@@ -1,46 +1,51 @@
 import React from "react";
-import Stack from "@kiwicom/orbit-components/lib/Stack";
-import Stepper from "@kiwicom/orbit-components/lib/Stepper";
-import Heading from "@kiwicom/orbit-components/lib/Heading";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-type Props = {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  // onChange: (value: number) => void | Promise<void>;
+type quantityProps = {
+  onChange: (event: React.ChangeEvent<{ name?: string | undefined; value: unknown; }>) => void;
   value: number;
 };
 
-export default function Quantityselect({ onChange, value }: Props) {
-// export default function Quantityselect() {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    formControl: {
+      margin: theme.spacing(0),
+      minWidth: 120,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  })
+);
+
+export default function Quantityselect({ onChange, value }: quantityProps) {
+  const classes = useStyles();
+
   return (
     <form noValidate autoComplete="off">
       <div className="quantitySelect">
-        <Stack flex align="center">
-          <Heading type="title4">
-            <div className="quantityLabel">Quantity</div>
-          </Heading>
-          <div
-            style={{
-              maxWidth: "7em",
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel htmlFor="outlined-age-native-simple">Quantity</InputLabel>
+          <Select
+            native
+            value={value}
+            onChange={onChange}
+            label="Quantity"
+            inputProps={{
+              name: "quantity",
+              id: "outlined-age-native-simple",
             }}
           >
-            {/* <Stepper
-              onChange={onChange}
-              defaultValue={1}
-              maxValue={10}
-              minValue={1}
-              titleIncrement="Increase"
-              titleDecrement="Decrease"
-            /> */}
-          </div>
-        </Stack>
-        <input
-          value={value}
-          type="number"
-          onChange={onChange}
-          min="1"
-          max="10"
-        />
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </Select>
+        </FormControl>
       </div>
     </form>
   );

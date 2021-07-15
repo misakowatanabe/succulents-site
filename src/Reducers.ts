@@ -18,7 +18,7 @@ export enum Types {
 // Product
 
 type ProductType = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   image: string;
@@ -27,14 +27,14 @@ type ProductType = {
 
 type ProductPayload = {
   [Types.Create]: {
-    id: number;
+    id: string;
     name: string;
     price: number;
     image: string;
     quantity: number;
   };
   [Types.Delete]: {
-    id: number;
+    id: string;
   };
 };
 

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { ProductData } from "../ProductData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ImageGallery from "react-image-gallery";
 import NotFoundPage from "../NotFoundPage";
 import Grid from "@material-ui/core/Grid";
-import QuantitySelect from "./QuantitySelect";
 import AddToCartButton from "./AddToCartButton";
 import { AppContext } from "../Context";
 import { Types } from "../Reducers";
@@ -42,30 +41,29 @@ export default function Succulent() {
     dispatch({
       type: Types.Create,
       payload: {
-        // id: Math.round(Math.random() * 10000),
         id: thisProduct.id,
         name: thisProduct.name,
         price: thisProduct.price,
         image: thisProduct.image,
-        quantity: state.quantity,
+        quantity: quantityState.quantity,
       },
     });
   };
 
-  const [state, setState] = React.useState<{
-    quantity: number;
+  const [quantityState, setQuantityState] = React.useState<{
+    quantity: string;
     name: string;
   }>({
-    quantity: 1,
+    quantity: "1",
     name: "hai",
   });
 
   const handleChange = (
-    event: React.ChangeEvent<{ name?: string; value: unknown }>
+    event: React.ChangeEvent<{ name?: string; value: number | unknown }>
   ) => {
-    const name = event.target.name as keyof typeof state;
-    setState({
-      ...state,
+    const name = event.target.name as keyof typeof quantityState;
+    setQuantityState({
+      ...quantityState,
       [name]: event.target.value,
     });
   };
@@ -151,7 +149,7 @@ export default function Succulent() {
               <div className="productViewPrice">SEK {thisProduct.price}</div>
               <Quantityselect
                 onChange={handleChange}
-                value={state.quantity}
+                value={quantityState.quantity}
               />
               <AddToCartButton onClick={AddProduct} />
               <div className="productViewId">ID: {thisProduct.id}</div>

@@ -22,7 +22,7 @@ type ProductType = {
   name: string;
   price: number;
   image: string;
-  quantity: number;
+  quantity: string;
 };
 
 type ProductPayload = {
@@ -31,7 +31,7 @@ type ProductPayload = {
     name: string;
     price: number;
     image: string;
-    quantity: number;
+    quantity: string;
   };
   [Types.Delete]: {
     id: string;
@@ -47,16 +47,30 @@ export const productReducer = (
 ) => {
   switch (action.type) {
     case Types.Create:
-      return [
-        ...state,
-        {
-          id: action.payload.id,
-          name: action.payload.name,
-          price: action.payload.price,
-          image: action.payload.image,
-          quantity: action.payload.quantity,
-        },
-      ];
+      const x = [...state.filter((product) => product.id === action.payload.id)];
+      const y = [...state].indexOf(x[0]);
+      if (x[0]) {
+        const t = x.map((product) => product.quantity)[0];
+        const updatedQuantity = (
+          parseInt(t) + parseInt(action.payload.quantity)
+        ).toString();
+        [...state][y].quantity = updatedQuantity;
+
+        return [
+          ...state,
+        ];
+      } else {
+        return [
+          ...state,
+          {
+            id: action.payload.id,
+            name: action.payload.name,
+            price: action.payload.price,
+            image: action.payload.image,
+            quantity: action.payload.quantity,
+          },
+        ];
+      }
     case Types.Delete:
       return [...state.filter((product) => product.id !== action.payload.id)];
     default:

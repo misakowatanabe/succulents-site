@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
-// import { useParams } from "react-router-dom";
 import { AppContext } from "./Context";
 import { Types } from "./Reducers";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
@@ -27,14 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-// type Params = {
-//   id: string;
-// };
-
 const Cart = () => {
   const classes = useStyles();
-
-//   const { id } = useParams<Params>();
 
   const { state, dispatch } = useContext(AppContext);
 

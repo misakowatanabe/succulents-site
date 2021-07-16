@@ -4,7 +4,6 @@ import Navigation from "./commonComponent/Navigation";
 import Main from "./Main";
 import Footer from "./commonComponent/Footer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Cart from "./Cart";
 import { AppProvider } from "./Context";
 
 export default function App() {
@@ -21,7 +20,6 @@ export default function App() {
         <Navigation />
         <Main />
         <Footer />
-        {/* <Cart /> */}
       </div>
     </AppProvider>
   );

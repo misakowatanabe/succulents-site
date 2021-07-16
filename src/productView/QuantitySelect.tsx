@@ -6,7 +6,7 @@ import Select from "@material-ui/core/Select";
 
 type quantityProps = {
   onChange: (event: React.ChangeEvent<{ name?: string | undefined; value: unknown; }>) => void;
-  value: number;
+  value: string;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -39,11 +39,11 @@ export default function Quantityselect({ onChange, value }: quantityProps) {
               id: "outlined-age-native-simple",
             }}
           >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
+            <option value={"1"}>1</option>
+            <option value={"2"}>2</option>
+            <option value={"3"}>3</option>
+            <option value={"4"}>4</option>
+            <option value={"5"}>5</option>
           </Select>
         </FormControl>
       </div>

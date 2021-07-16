@@ -11,7 +11,7 @@ type ProductType = {
   name: string;
   price: number;
   image: string;
-  quantity: number;
+  quantity: string;
 };
 
 type InitialStateType = {

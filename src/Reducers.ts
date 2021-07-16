@@ -47,18 +47,19 @@ export const productReducer = (
 ) => {
   switch (action.type) {
     case Types.Create:
-      const x = [...state.filter((product) => product.id === action.payload.id)];
-      const y = [...state].indexOf(x[0]);
-      if (x[0]) {
-        const t = x.map((product) => product.quantity)[0];
+      const existingSameProduct = [...state.filter((product) => product.id === action.payload.id)];
+      const existingSameProductIndex = [...state].indexOf(existingSameProduct[0]);
+      if (existingSameProduct[0]) {
+        const existingSameProductQuantity = existingSameProduct.map(
+          (product) => product.quantity
+        )[0];
         const updatedQuantity = (
-          parseInt(t) + parseInt(action.payload.quantity)
+          parseInt(existingSameProductQuantity) +
+          parseInt(action.payload.quantity)
         ).toString();
-        [...state][y].quantity = updatedQuantity;
+        [...state][existingSameProductIndex].quantity = updatedQuantity;
 
-        return [
-          ...state,
-        ];
+        return [...state];
       } else {
         return [
           ...state,

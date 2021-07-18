@@ -4,6 +4,13 @@ import FormControl from "@material-ui/core/FormControl";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+type sortProps = {
+  onChange: (
+    event: React.ChangeEvent<{ name?: string | undefined; value: unknown }>
+  ) => void;
+  value: string;
+};
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     selectEmpty: {
@@ -12,33 +19,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function SortButton() {
+export default function SortButton({ onChange, value }: sortProps) {
   const classes = useStyles();
-  const [state, setState] = React.useState<{
-    sort: string;
-    name: string;
-  }>({
-    sort: "",
-    name: "",
-  });
-
-  const handleChange = (
-    event: React.ChangeEvent<{ name?: string; value: unknown }>
-  ) => {
-    const name = event.target.name as keyof typeof state;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  };
 
   const isMobile = useMediaQuery("(max-width:599px)");
 
   return (
-    <FormControl className={isMobile ? "sortButton-mobile" : "sortButton-bigScreen"}>
+    <FormControl
+      className={isMobile ? "sortButton-mobile" : "sortButton-bigScreen"}
+    >
       <NativeSelect
-        value={state.sort}
-        onChange={handleChange}
+        value={value}
+        onChange={onChange}
         name="sort"
         className={classes.selectEmpty}
         inputProps={{ "aria-label": "sort" }}

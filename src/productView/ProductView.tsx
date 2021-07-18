@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { ProductData } from "../ProductData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -35,7 +35,7 @@ export default function Succulent() {
     },
   ];
 
-  const { dispatch } = React.useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
 
   const AddProduct = () => {
     dispatch({
@@ -50,12 +50,12 @@ export default function Succulent() {
     });
   };
 
-  const [quantityState, setQuantityState] = React.useState<{
+  const [quantityState, setQuantityState] = useState<{
     quantity: string;
     name: string;
   }>({
     quantity: "1",
-    name: "hai",
+    name: "quantity",
   });
 
   const handleChange = (

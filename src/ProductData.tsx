@@ -30,7 +30,6 @@ export type ProductProps = {
   sold: number;
   id: string;
   description: string;
-  // quantity: number;
 };
 
 export const ProductData: ProductProps[] = [
@@ -44,7 +43,6 @@ export const ProductData: ProductProps[] = [
     id: "1",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Succulents",
@@ -56,7 +54,6 @@ export const ProductData: ProductProps[] = [
     id: "2",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Succulents",
@@ -68,7 +65,6 @@ export const ProductData: ProductProps[] = [
     id: "3",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Succulents",
@@ -80,7 +76,6 @@ export const ProductData: ProductProps[] = [
     id: "4",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Succulents",
@@ -92,7 +87,6 @@ export const ProductData: ProductProps[] = [
     id: "5",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Pots",
@@ -104,7 +98,6 @@ export const ProductData: ProductProps[] = [
     id: "7",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Pots",
@@ -116,7 +109,6 @@ export const ProductData: ProductProps[] = [
     id: "8",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Pots",
@@ -128,7 +120,6 @@ export const ProductData: ProductProps[] = [
     id: "9",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Pots",
@@ -140,7 +131,6 @@ export const ProductData: ProductProps[] = [
     id: "10",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Other",
@@ -152,7 +142,6 @@ export const ProductData: ProductProps[] = [
     id: "11",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
   {
     category: "Other",
@@ -164,6 +153,5 @@ export const ProductData: ProductProps[] = [
     id: "12",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a fringilla ipsum, vel condimentum felis. Donec imperdiet tortor nec libero mollis, efficitur laoreet tortor dictum. Quisque scelerisque semper dolor, consectetur tincidunt eros egestas a.",
-    // quantity: 1,
   },
 ];

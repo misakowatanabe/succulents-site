@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/succulents-site/static/css/main.c90b9789.chunk.css",
-    "main.js": "/succulents-site/static/js/main.5722bbf8.chunk.js",
-    "main.js.map": "/succulents-site/static/js/main.5722bbf8.chunk.js.map",
+    "main.js": "/succulents-site/static/js/main.df5e1ec7.chunk.js",
+    "main.js.map": "/succulents-site/static/js/main.df5e1ec7.chunk.js.map",
     "runtime-main.js": "/succulents-site/static/js/runtime-main.1b45c573.js",
     "runtime-main.js.map": "/succulents-site/static/js/runtime-main.1b45c573.js.map",
     "static/css/2.ad581902.chunk.css": "/succulents-site/static/css/2.ad581902.chunk.css",
-    "static/js/2.d1b072fb.chunk.js": "/succulents-site/static/js/2.d1b072fb.chunk.js",
-    "static/js/2.d1b072fb.chunk.js.map": "/succulents-site/static/js/2.d1b072fb.chunk.js.map",
+    "static/js/2.402635b2.chunk.js": "/succulents-site/static/js/2.402635b2.chunk.js",
+    "static/js/2.402635b2.chunk.js.map": "/succulents-site/static/js/2.402635b2.chunk.js.map",
     "index.html": "/succulents-site/index.html",
     "static/css/2.ad581902.chunk.css.map": "/succulents-site/static/css/2.ad581902.chunk.css.map",
     "static/css/main.c90b9789.chunk.css.map": "/succulents-site/static/css/main.c90b9789.chunk.css.map",
-    "static/js/2.d1b072fb.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.d1b072fb.chunk.js.LICENSE.txt",
+    "static/js/2.402635b2.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.402635b2.chunk.js.LICENSE.txt",
     "static/media/categoryOther.27ff9f4e.jpg": "/succulents-site/static/media/categoryOther.27ff9f4e.jpg",
     "static/media/categoryPot.9ef1b587.jpg": "/succulents-site/static/media/categoryPot.9ef1b587.jpg",
     "static/media/categorySucculent.62275829.jpg": "/succulents-site/static/media/categorySucculent.62275829.jpg",
@@ -45,8 +45,8 @@
   "entrypoints": [
     "static/js/runtime-main.1b45c573.js",
     "static/css/2.ad581902.chunk.css",
-    "static/js/2.d1b072fb.chunk.js",
+    "static/js/2.402635b2.chunk.js",
     "static/css/main.c90b9789.chunk.css",
-    "static/js/main.5722bbf8.chunk.js"
+    "static/js/main.df5e1ec7.chunk.js"
   ]
 }

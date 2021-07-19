@@ -10,9 +10,10 @@ type ActionMap<M extends { [index: string]: any }> = {
 };
 
 export enum Types {
-  Create = "CREATE_PRODUCT",
+  Add = "CREATE_PRODUCT",
   Delete = "DELETE_PRODUCT",
-  Add = "ADD_PRODUCT",
+  Increase = "ADD_PRODUCT",
+  Decrease = "REDUCE_PRODUCT",
 }
 
 // Product
@@ -26,7 +27,7 @@ type ProductType = {
 };
 
 type ProductPayload = {
-  [Types.Create]: {
+  [Types.Add]: {
     id: string;
     name: string;
     price: number;
@@ -46,9 +47,13 @@ export const productReducer = (
   action: ProductActions | ShoppingCartActions
 ) => {
   switch (action.type) {
-    case Types.Create:
-      const existingSameProduct = [...state.filter((product) => product.id === action.payload.id)];
-      const existingSameProductIndex = [...state].indexOf(existingSameProduct[0]);
+    case Types.Add:
+      const existingSameProduct = [
+        ...state.filter((product) => product.id === action.payload.id),
+      ];
+      const existingSameProductIndex = [...state].indexOf(
+        existingSameProduct[0]
+      );
       if (existingSameProduct[0]) {
         const existingSameProductQuantity = existingSameProduct.map(
           (product) => product.quantity
@@ -82,7 +87,12 @@ export const productReducer = (
 // ShoppingCart
 
 type ShoppingCartPayload = {
-  [Types.Add]: undefined;
+  [Types.Increase]: {
+    quantity: string;
+  };
+  [Types.Decrease]: {
+    quantity: string;
+  };
 };
 
 export type ShoppingCartActions =
@@ -93,8 +103,10 @@ export const shoppingCartReducer = (
   action: ProductActions | ShoppingCartActions
 ) => {
   switch (action.type) {
-    case Types.Add:
-      return state + 1;
+    case Types.Increase:
+      return state + parseInt(action.payload.quantity);
+    case Types.Decrease:
+      return state - parseInt(action.payload.quantity);
     default:
       return state;
   }

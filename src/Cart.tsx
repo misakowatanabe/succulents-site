@@ -30,11 +30,17 @@ const Cart = () => {
 
   const { state, dispatch } = useContext(AppContext);
 
-  const deleteProduct = (id: string) => {
+  const deleteProduct = (id: string, quantity: string) => {
     dispatch({
       type: Types.Delete,
       payload: {
         id,
+      },
+    });
+    dispatch({
+      type: Types.Decrease,
+      payload: {
+        quantity,
       },
     });
   };
@@ -43,6 +49,7 @@ const Cart = () => {
     <div>
       <div style={{ marginTop: 100 }}>
         <div>YOUR SHOPPING CART</div>
+        <div>{state.shoppingCart}</div>
         {state.products.map((productInCart) => (
           <Card className={classes.root} key={productInCart.id}>
             <CardMedia
@@ -61,7 +68,11 @@ const Cart = () => {
                 <Typography variant="subtitle1" color="textSecondary">
                   Quantity: {productInCart.quantity}
                 </Typography>
-                <button onClick={() => deleteProduct(productInCart.id)}>
+                <button
+                  onClick={() =>
+                    deleteProduct(productInCart.id, productInCart.quantity)
+                  }
+                >
                   delete
                 </button>
               </CardContent>

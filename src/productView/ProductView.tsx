@@ -39,12 +39,18 @@ export default function Succulent() {
 
   const AddProduct = () => {
     dispatch({
-      type: Types.Create,
+      type: Types.Add,
       payload: {
         id: thisProduct.id,
         name: thisProduct.name,
         price: thisProduct.price,
         image: thisProduct.image,
+        quantity: quantityState.quantity,
+      },
+    });
+    dispatch({
+      type: Types.Increase,
+      payload: {
         quantity: quantityState.quantity,
       },
     });

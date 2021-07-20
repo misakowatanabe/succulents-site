@@ -5,7 +5,9 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 type quantityProps = {
-  onChange: (event: React.ChangeEvent<{ name?: string | undefined; value: unknown; }>) => void;
+  onChange: (
+    event: React.ChangeEvent<{ name?: string | undefined; value: unknown }>
+  ) => void;
   value: string;
 };
 
@@ -28,7 +30,11 @@ export default function Quantityselect({ onChange, value }: quantityProps) {
     <form noValidate autoComplete="off">
       <div className="quantitySelect">
         <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel htmlFor="outlined-age-native-simple">Quantity</InputLabel>
+          <div style={{ zIndex: -1 }}>
+            <InputLabel htmlFor="outlined-age-native-simple">
+              Quantity
+            </InputLabel>
+          </div>
           <Select
             native
             value={value}

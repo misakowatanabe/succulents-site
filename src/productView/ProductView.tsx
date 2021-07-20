@@ -105,7 +105,7 @@ export default function Succulent() {
               </NavLink>
               <span> &gt; </span>
               <NavLink
-                to={`product/${thisProduct?.category}`}
+                to={`/product/${thisProduct?.category}`}
                 style={{ textDecoration: "underline" }}
               >
                 {thisProduct?.category}

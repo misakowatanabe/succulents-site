@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { withStyles, Theme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -6,9 +7,9 @@ import Button from "@material-ui/core/Button";
 const ColorButton = withStyles((theme: Theme) => ({
   root: {
     color: theme.palette.getContrastText("rgb(255,255,255.0.9)"),
-    backgroundColor: "#fdab3f",
+    backgroundColor: "#bababa",
     "&:hover": {
-      backgroundColor: "#e9982d",
+      backgroundColor: "#a6a6a6",
       boxShadow: "none",
     },
     fontWeight: "normal",
@@ -20,20 +21,22 @@ const ColorButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
-type AddToCartButtonProps = {
+type GoToCartButtonProps = {
   onClick: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-export default function AddToCartButton({ onClick }: AddToCartButtonProps) {
+export default function GoToCartButton({ onClick }: GoToCartButtonProps) {
   return (
-    <div className="addToCartButton">
-      <ColorButton variant="contained" color="primary" onClick={onClick}>
-        <ShoppingCartIcon
-          className="cartIcon-addToCart"
-          style={{ fontSize: "26px" }}
-        />
-        ADD TO CART
-      </ColorButton>
+    <div className="goToCartButton">
+      <NavLink to="/cart">
+        <ColorButton onClick={onClick} variant="contained" color="primary">
+          <ShoppingCartIcon
+            className="cartIcon-addToCart"
+            style={{ fontSize: "26px" }}
+          />
+          GO TO CART
+        </ColorButton>
+      </NavLink>
     </div>
   );
 }

@@ -7,11 +7,11 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
 import useWindowScrollPosition from "@rehooks/window-scroll-position";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { CategoryData } from "../CategoryData";
+import CartPreview from "./CartPreview";
 
 type Anchor = "left";
 
@@ -76,8 +76,10 @@ export default function Navigation() {
     transition: "400ms ease",
   };
 
-  const isMobile = useMediaQuery("(max-width:688px)");
-  const isBigScreen = useMediaQuery("(min-width:689px)");
+  // const isMobile = useMediaQuery("(max-width:688px)");
+  // const isBigScreen = useMediaQuery("(min-width:689px)");
+  const isMobile = useMediaQuery("(max-width:599px)");
+  const isBigScreen = useMediaQuery("(min-width:600px)");
 
   return (
     <div>
@@ -99,15 +101,14 @@ export default function Navigation() {
                 </SwipeableDrawer>
               </React.Fragment>
               <div className="logoMobile">
-                <NavLink to="/">Happy Succulent</NavLink>
+                <NavLink to="/">
+                  Happy
+                  <br />
+                  Succulent
+                </NavLink>
               </div>
               <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-              <NavLink to="/cart">
-                <ShoppingCartIcon
-                  className="cartIcon"
-                  style={{ fontSize: "34px" }}
-                />
-              </NavLink>
+              <CartPreview />
             </div>
           ))}
         </div>
@@ -115,7 +116,11 @@ export default function Navigation() {
       {isBigScreen && (
         <div className="header" style={style}>
           <div className="logoBigScreen">
-            <NavLink to="/">Happy Succulent</NavLink>
+            <NavLink to="/">
+              Happy
+              <br />
+              Succulent
+            </NavLink>
           </div>
           {CategoryData.map((item, index) => (
             <NavLink
@@ -127,12 +132,9 @@ export default function Navigation() {
             </NavLink>
           ))}
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-          <NavLink to="/cart">
-            <ShoppingCartIcon
-              className="cartIcon"
-              style={{ fontSize: "34px" }}
-            />
-          </NavLink>
+          {/* <NavLink to="/cart"></NavLink> */}
+          {/* <ShoppingCartIcon className="cartIcon" style={{ fontSize: "34px" }} /> */}
+          <CartPreview />
         </div>
       )}
     </div>

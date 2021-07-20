@@ -60,8 +60,7 @@ a:-webkit-any-link {
   font-family: "Cinzel", serif;
   color: #242424;
   text-align: center;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 15px auto 15px auto;
   padding-left: 28px;
   -webkit-tap-highlight-color: transparent;
 }
@@ -69,6 +68,7 @@ a:-webkit-any-link {
 .logoBigScreen {
   font-family: "Cinzel", serif;
   color: #242424;
+  text-align: center;
   -webkit-tap-highlight-color: transparent;
   margin: 15px auto 15px 28px;
 }
@@ -84,7 +84,7 @@ a:-webkit-any-link {
 
 .searchIcon {
   padding-right: 12px;
-  padding-left: 25px;
+  padding-left: 2%;
   color: #242424;
 }
 
@@ -113,9 +113,8 @@ a:-webkit-any-link {
   line-height: 95%;
   font-size: 50px;
   text-align: center;
-  margin: 100px 0px 0px 0px;
   color: #242424;
-  margin: 100px 5% 0px 5%;
+  margin: 120px 5% 0px 5%;
 }
 
 .shopByCategory {
@@ -235,22 +234,6 @@ a:-webkit-any-link {
   margin: 30px 0px 30px 0px;
 }
 
-/* Font size of quantity number */
-.icqKiv {
-  font-size: 16px !important;
-  font-weight: 400 !important;
-}
-
-/* Background of quantity + - buttons */
-.kUcYqO:active {
-  background: #cad4de !important;
-}
-
-.quantityLabel {
-  font-size: 16px !important;
-  font-weight: 400 !important;
-}
-
 .addToCartButton {
   margin: 30px 0px 30px 0px;
 }
@@ -282,6 +265,64 @@ input[type="number" i] {
 }
 
 /* Not available page start */
+
+/* Cart preview start */
+
+.cartPreview-container-mobile {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 300px;
+  margin-top: 20px;
+  border: 1px solid rgb(161, 161, 161);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.cartPreview-container-bigscreen {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 400px;
+  margin-top: 20px;
+  border: 1px solid rgb(192, 192, 192);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.cartPreview {
+  padding: 15px;
+}
+
+.itemInCartPreview-mobile {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.itemInCartPreview-bigscreen {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.titleInCartPreview {
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  padding: 0px 0px 5px 0px;
+  font-weight: 400;
+}
+
+.productNameInCartPreview {
+  font-size: 19px;
+  padding-bottom: 10px;
+}
+
+.subInfoInCartPreview {
+  font-size: 16px;
+  padding-bottom: 5px;
+  color: #6d6d6d;
+}
+
+.goToCartButton {
+  margin: 30px 0px 0px 0px;
+}
+
+/* Cart preview end */
 
 /* Footer start */
 

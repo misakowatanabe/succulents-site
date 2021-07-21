@@ -94,32 +94,39 @@ export default function CartPreview() {
                         : "itemInCartPreview-bigscreen"
                     }
                   >
-                    {state.products.map((productInCart) => (
-                      <Card className={classes.root} key={productInCart.id}>
-                        <CardMedia
-                          className={classes.cover}
-                          image={productInCart.image}
-                          title="Product"
-                        />
-                        <div className={classes.details}>
-                          <CardContent className={classes.content}>
-                            <div>
-                              <div className="productNameInCartPreview">
-                                {productInCart.name}
-                              </div>
-                              <div className="subInfoInCartPreview">
-                                SEK {productInCart.price}
-                              </div>
-                              <div className="subInfoInCartPreview">
-                                Quantity: {productInCart.quantity}
-                              </div>
+                    {state.products[0] == null ? (
+                      <div className="noProductInCartPreview">
+                        There is no product in your cart.
+                      </div>
+                    ) : (
+                      <div>
+                        {state.products.map((productInCart) => (
+                          <Card className={classes.root} key={productInCart.id}>
+                            <CardMedia
+                              className={classes.cover}
+                              image={productInCart.image}
+                              title="Product"
+                            />
+                            <div className={classes.details}>
+                              <CardContent className={classes.content}>
+                                <div>
+                                  <div className="productNameInCartPreview">
+                                    {productInCart.name}
+                                  </div>
+                                  <div className="subInfoInCartPreview">
+                                    SEK {productInCart.price}
+                                  </div>
+                                  <div className="subInfoInCartPreview">
+                                    Quantity: {productInCart.quantity}
+                                  </div>
+                                </div>
+                              </CardContent>
                             </div>
-                          </CardContent>
-                        </div>
-                      </Card>
-                    ))}
+                          </Card>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  {/* <div>Total Quantity: {state.shoppingCart}</div> */}
                   <GoToCartButton onClick={handleClickAway} />
                 </div>
               </div>

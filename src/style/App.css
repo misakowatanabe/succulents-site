@@ -292,7 +292,7 @@ input[type="number" i] {
 
 .itemInCartPreview-mobile {
   overflow-y: auto;
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .itemInCartPreview-bigscreen {
@@ -316,6 +316,11 @@ input[type="number" i] {
   font-size: 16px;
   padding-bottom: 5px;
   color: #6d6d6d;
+}
+
+.noProductInCartPreview {
+  color: #4d4d4d;
+  padding-top: 10px;
 }
 
 .goToCartButton {

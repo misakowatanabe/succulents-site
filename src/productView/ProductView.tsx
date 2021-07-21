@@ -54,6 +54,13 @@ export default function Succulent() {
         quantity: quantityState.quantity,
       },
     });
+    dispatch({
+      type: Types.SubTotalIncrease,
+      payload: {
+        price: thisProduct.price,
+        quantity: quantityState.quantity,
+      },
+    });
   };
 
   const [quantityState, setQuantityState] = useState<{

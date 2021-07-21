@@ -12,8 +12,10 @@ type ActionMap<M extends { [index: string]: any }> = {
 export enum Types {
   Add = "CREATE_PRODUCT",
   Delete = "DELETE_PRODUCT",
-  Increase = "ADD_PRODUCT",
-  Decrease = "REDUCE_PRODUCT",
+  Increase = "ADD_QUANTITY",
+  Decrease = "REDUCE_QUANTITY",
+  SubTotalIncrease = "ADD_SUBTOTAL",
+  SubTotalDecrease = "REDUCE_SUBTOTAL",
 }
 
 // Product
@@ -44,7 +46,7 @@ export type ProductActions =
 
 export const productReducer = (
   state: ProductType[],
-  action: ProductActions | ShoppingCartActions
+  action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
 ) => {
   switch (action.type) {
     case Types.Add:
@@ -84,7 +86,7 @@ export const productReducer = (
   }
 };
 
-// ShoppingCart
+// ShoppingCartQuantity
 
 type ShoppingCartPayload = {
   [Types.Increase]: {
@@ -100,13 +102,43 @@ export type ShoppingCartActions =
 
 export const shoppingCartReducer = (
   state: number,
-  action: ProductActions | ShoppingCartActions
+  action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
 ) => {
   switch (action.type) {
     case Types.Increase:
       return state + parseInt(action.payload.quantity);
     case Types.Decrease:
       return state - parseInt(action.payload.quantity);
+    default:
+      return state;
+  }
+};
+
+// ShoppingCartSubTotal
+
+type ShoppingCartSubTotalPayload = {
+  [Types.SubTotalIncrease]: {
+    price: number;
+    quantity: string;
+  };
+  [Types.SubTotalDecrease]: {
+    price: number;
+    quantity: string;
+  };
+};
+
+export type ShoppingCartSubTotalActions =
+  ActionMap<ShoppingCartSubTotalPayload>[keyof ActionMap<ShoppingCartSubTotalPayload>];
+
+export const shoppingCartSubTotalReducer = (
+  state: number,
+  action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
+) => {
+  switch (action.type) {
+    case Types.SubTotalIncrease:
+      return state + (action.payload.price * parseInt(action.payload.quantity));
+    case Types.SubTotalDecrease:
+      return state - (action.payload.price * parseInt(action.payload.quantity));
     default:
       return state;
   }

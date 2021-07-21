@@ -2,8 +2,10 @@ import React, { createContext, useReducer, Dispatch } from "react";
 import {
   productReducer,
   shoppingCartReducer,
+  shoppingCartSubTotalReducer,
   ProductActions,
   ShoppingCartActions,
+  ShoppingCartSubTotalActions,
 } from "./Reducers";
 
 type ProductType = {
@@ -17,27 +19,35 @@ type ProductType = {
 type InitialStateType = {
   products: ProductType[];
   shoppingCart: number;
+  shoppingCartSubTotal: number;
 };
 
 const initialState = {
   products: [],
   shoppingCart: 0,
+  shoppingCartSubTotal: 0,
 };
 
 const AppContext = createContext<{
   state: InitialStateType;
-  dispatch: Dispatch<ProductActions | ShoppingCartActions>;
+  dispatch: Dispatch<
+    ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
+  >;
 }>({
   state: initialState,
   dispatch: () => null,
 });
 
 const mainReducer = (
-  { products, shoppingCart }: InitialStateType,
-  action: ProductActions | ShoppingCartActions
+  { products, shoppingCart, shoppingCartSubTotal }: InitialStateType,
+  action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
 ) => ({
   products: productReducer(products, action),
   shoppingCart: shoppingCartReducer(shoppingCart, action),
+  shoppingCartSubTotal: shoppingCartSubTotalReducer(
+    shoppingCartSubTotal,
+    action
+  ),
 });
 
 const AppProvider: React.FC = ({ children }) => {

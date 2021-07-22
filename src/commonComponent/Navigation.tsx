@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -76,8 +75,6 @@ export default function Navigation() {
     transition: "400ms ease",
   };
 
-  // const isMobile = useMediaQuery("(max-width:688px)");
-  // const isBigScreen = useMediaQuery("(min-width:689px)");
   const isMobile = useMediaQuery("(max-width:599px)");
   const isBigScreen = useMediaQuery("(min-width:600px)");
 
@@ -88,9 +85,12 @@ export default function Navigation() {
           {(["left"] as Anchor[]).map((anchor) => (
             <div key={anchor} className="header" style={style}>
               <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)}>
-                  <MenuIcon className="menuIcon" style={{ fontSize: "40px" }} />
-                </Button>
+                <button
+                  onClick={toggleDrawer(anchor, true)}
+                  className="menuIcon"
+                >
+                  <MenuIcon style={{ fontSize: "40px" }} />
+                </button>
                 <SwipeableDrawer
                   anchor={anchor}
                   open={state[anchor]}
@@ -132,8 +132,6 @@ export default function Navigation() {
             </NavLink>
           ))}
           <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-          {/* <NavLink to="/cart"></NavLink> */}
-          {/* <ShoppingCartIcon className="cartIcon" style={{ fontSize: "34px" }} /> */}
           <CartPreview />
         </div>
       )}

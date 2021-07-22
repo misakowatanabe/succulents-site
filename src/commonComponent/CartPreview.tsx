@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { AppContext } from "../Context";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Popper, { PopperPlacementType } from "@material-ui/core/Popper";
-import Button from "@material-ui/core/Button";
 import Fade from "@material-ui/core/Fade";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Card from "@material-ui/core/Card";
@@ -36,10 +35,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 100,
       height: 100,
     },
-    typography: {
-      padding: theme.spacing(2),
-      marginTop: "10px",
-    },
+    // typography: {
+    //   padding: theme.spacing(2),
+    //   marginTop: "10px",
+    // },
   })
 );
 
@@ -134,12 +133,9 @@ export default function CartPreview() {
           )}
         </Popper>
         <div style={{ marginTop: "-10px" }}>
-          <Button onClick={handleClick("bottom-end")}>
-            <ShoppingCartIcon
-              className="cartIcon"
-              style={{ fontSize: "34px" }}
-            />
-          </Button>
+          <button onClick={handleClick("bottom-end")} className="cartIcon">
+            <ShoppingCartIcon style={{ fontSize: "34px" }} />
+          </button>
         </div>
       </div>
     </ClickAwayListener>

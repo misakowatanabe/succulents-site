@@ -43,7 +43,7 @@ const mainReducer = (
   action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
 ) => ({
   products: productReducer(products, action),
-  shoppingCart: shoppingCartReducer(shoppingCart, action),
+  shoppingCart: shoppingCartReducer(products, shoppingCart, action),
   shoppingCartSubTotal: shoppingCartSubTotalReducer(
     shoppingCartSubTotal,
     action

@@ -63,6 +63,7 @@ a:-webkit-any-link {
   background-color: transparent;
   border-width: 0px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .logoMobile {
@@ -92,7 +93,6 @@ a:-webkit-any-link {
 }
 
 .searchIcon {
-  /* margin: 0px 10px 0px 10px !important; */
   padding-left: 2%;
   color: #242424;
 }
@@ -106,6 +106,7 @@ a:-webkit-any-link {
   background-color: transparent;
   border-width: 0px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Header end */
@@ -387,6 +388,12 @@ input[type="number" i] {
 .subTotalinCart {
   font-size: 18px;
   margin-top: 10px;
+}
+
+/* Remove arrows in quantity inputs */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
 }
 
 /* Cart end */

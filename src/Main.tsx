@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./home/Home";
 import CategoryPage from "./category/CategoryPage";
 import ProductView from "./productView/ProductView";
-import Cart from "./Cart";
+import Cart from "./cart/Cart";
 
 
 export default function Main() {

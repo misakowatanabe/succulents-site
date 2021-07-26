@@ -35,10 +35,6 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 100,
       height: 100,
     },
-    // typography: {
-    //   padding: theme.spacing(2),
-    //   marginTop: "10px",
-    // },
   })
 );
 

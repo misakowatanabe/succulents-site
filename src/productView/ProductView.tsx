@@ -46,6 +46,7 @@ export default function Succulent() {
         price: thisProduct.price,
         image: thisProduct.image,
         quantity: quantityState.quantity,
+        button: false,
       },
     });
     dispatch({

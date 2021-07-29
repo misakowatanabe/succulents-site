@@ -16,9 +16,12 @@ export enum Types {
   Decrease = "REDUCE_QUANTITY",
   SubTotalIncrease = "ADD_SUBTOTAL",
   SubTotalDecrease = "REDUCE_SUBTOTAL",
-  QuantityChange = "CHANGE_QUANTITY",
+  QuantityChange = "BUTTON_SHOW",
+  QuantitySet = "CHANGE_QUANTITY",
   TotalQuantityChange = "CHANGE_TOTALQUANTITY",
+  TotalQuantitySet = "SET_TOTALQUANTITY",
   SubTotalChange = "CHANGE_SUBTOTAL",
+  SubTotalSet = "SET_SUBTOTAL",
 }
 
 // Product
@@ -29,6 +32,7 @@ type ProductType = {
   price: number;
   image: string;
   quantity: string;
+  button: boolean;
 };
 
 type ProductPayload = {
@@ -38,6 +42,7 @@ type ProductPayload = {
     price: number;
     image: string;
     quantity: string;
+    button: boolean;
   };
   [Types.Delete]: {
     id: string;
@@ -45,6 +50,10 @@ type ProductPayload = {
   [Types.QuantityChange]: {
     id: string;
     quantity: string;
+  };
+  [Types.QuantitySet]: {
+    id: string;
+    // quantity: string;
   };
 };
 
@@ -72,7 +81,6 @@ export const productReducer = (
           parseInt(action.payload.quantity)
         ).toString();
         [...state][existingSameProductIndex].quantity = updatedQuantity;
-
         return [...state];
       } else {
         return [
@@ -83,6 +91,7 @@ export const productReducer = (
             price: action.payload.price,
             image: action.payload.image,
             quantity: action.payload.quantity,
+            button: action.payload.button,
           },
         ];
       }
@@ -93,8 +102,23 @@ export const productReducer = (
         ...state.filter((product) => product.id === action.payload.id),
       ];
       const modifiedProductIndex = [...state].indexOf(modifiedProduct[0]);
-      const updatedQuantity = parseInt(action.payload.quantity).toString();
-      [...state][modifiedProductIndex].quantity = updatedQuantity;
+      const newValue = action.payload;
+      var updatedQuantity = parseInt(newValue.quantity).toString();
+      [...state][modifiedProductIndex].button = true;
+      if (Number.isNaN(parseInt(newValue.quantity))) {
+        updatedQuantity = "0";
+        [...state][modifiedProductIndex].quantity = updatedQuantity;
+        return [...state];
+      } else {
+        [...state][modifiedProductIndex].quantity = updatedQuantity;
+        return [...state];
+      }
+    case Types.QuantitySet:
+      const modifiedProduct2 = [
+        ...state.filter((product) => product.id === action.payload.id),
+      ];
+      const modifiedProductIndex2 = [...state].indexOf(modifiedProduct2[0]);
+      [...state][modifiedProductIndex2].button = false;
       return [...state];
     default:
       return state;
@@ -114,6 +138,7 @@ type ShoppingCartPayload = {
     id: string;
     quantity: string;
   };
+  [Types.TotalQuantitySet]: {};
 };
 
 export type ShoppingCartActions =
@@ -136,9 +161,11 @@ export const shoppingCartReducer = (
       const modifiedProductQuantity = modifiedProduct.map(
         (product) => product.quantity
       )[0];
-      const offset =
+      var offset =
         parseInt(modifiedProductQuantity) - parseInt(action.payload.quantity);
       return state + offset;
+    case Types.TotalQuantitySet:
+      return state;
     default:
       return state;
   }
@@ -157,14 +184,17 @@ type ShoppingCartSubTotalPayload = {
   };
   [Types.SubTotalChange]: {
     id: string;
+    price: number;
     quantity: string;
   };
+  [Types.SubTotalSet]: {};
 };
 
 export type ShoppingCartSubTotalActions =
   ActionMap<ShoppingCartSubTotalPayload>[keyof ActionMap<ShoppingCartSubTotalPayload>];
 
 export const shoppingCartSubTotalReducer = (
+  productState: ProductType[],
   state: number,
   action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
 ) => {
@@ -173,6 +203,22 @@ export const shoppingCartSubTotalReducer = (
       return state + action.payload.price * parseInt(action.payload.quantity);
     case Types.SubTotalDecrease:
       return state - action.payload.price * parseInt(action.payload.quantity);
+    case Types.SubTotalChange:
+      const modifiedProduct = [
+        ...productState.filter((product) => product.id === action.payload.id),
+      ];
+      const modifiedProductPrice = modifiedProduct.map(
+        (product) => product.price
+      )[0];
+      const modifiedProductQuantity = modifiedProduct.map(
+        (product) => product.quantity
+      )[0];
+      var offset =
+        modifiedProductPrice * parseInt(modifiedProductQuantity) -
+        action.payload.price * parseInt(action.payload.quantity);
+      return state + offset;
+    case Types.SubTotalSet:
+      return state;
     default:
       return state;
   }

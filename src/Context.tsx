@@ -14,6 +14,7 @@ type ProductType = {
   price: number;
   image: string;
   quantity: string;
+  button: boolean;
 };
 
 type InitialStateType = {
@@ -26,12 +27,15 @@ const initialState = {
   products: [],
   shoppingCart: 0,
   shoppingCartSubTotal: 0,
+  replaceQuantityButton: false,
 };
 
 const AppContext = createContext<{
   state: InitialStateType;
   dispatch: Dispatch<
-    ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
+    | ProductActions
+    | ShoppingCartActions
+    | ShoppingCartSubTotalActions
   >;
 }>({
   state: initialState,
@@ -39,12 +43,20 @@ const AppContext = createContext<{
 });
 
 const mainReducer = (
-  { products, shoppingCart, shoppingCartSubTotal }: InitialStateType,
-  action: ProductActions | ShoppingCartActions | ShoppingCartSubTotalActions
+  {
+    products,
+    shoppingCart,
+    shoppingCartSubTotal,
+  }: InitialStateType,
+  action:
+    | ProductActions
+    | ShoppingCartActions
+    | ShoppingCartSubTotalActions
 ) => ({
   products: productReducer(products, action),
   shoppingCart: shoppingCartReducer(products, shoppingCart, action),
   shoppingCartSubTotal: shoppingCartSubTotalReducer(
+    products,
     shoppingCartSubTotal,
     action
   ),

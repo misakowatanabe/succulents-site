@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../Context";
 import { Types } from "../Reducers";
@@ -10,6 +10,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ClearIcon from "@material-ui/icons/Clear";
 import Button from "@material-ui/core/Button";
 import QuantitySelectCart from "./QuantitySelectCart";
+import QuantitySetButton from "./QuantitySetButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,43 +68,42 @@ const Cart = () => {
     });
   };
 
-  const [number, setNumber] = useState("");
-  const handleInputChange = (e: React.ChangeEvent<{ value: string }>) => {
-    // e.preventDefault();
-    setNumber(e.currentTarget.value.toString());
-  };
-
-  const ChangeQuantity = (id: string, quantity: string, price: number) => {
+  const handleChangeQuantity = (
+    id: string,
+    price: number,
+    quantity: string,
+    payload: string
+  ) => {
     dispatch({
       type: Types.QuantityChange,
-      payload: {
-        id,
-        quantity: number,
-      },
+      payload: { id, quantity: payload },
     });
     dispatch({
       type: Types.TotalQuantityChange,
-      payload: {
-        id,
-        quantity,
-      },
+      payload: { id, quantity },
     });
-    // dispatch({
-    //   type: Types.SubTotalDecrease,
-    //   payload: {
-    //     price,
-    //     quantity,
-    //   },
-    // });
+    dispatch({
+      type: Types.SubTotalChange,
+      payload: { id, price, quantity },
+    });
   };
 
-  // const [quantityState, setQuantityState] = useState("");
-  //  const handleSubmit = (
-  //    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  //  ) => {
-  //    event.preventDefault();
-  //    setQuantityState(number);
-  //  };
+  const handleReplaceQuantity = (id: string) => {
+    dispatch({
+      type: Types.QuantitySet,
+      payload: {
+        id,
+      },
+    });
+    dispatch({
+      type: Types.TotalQuantitySet,
+      payload: {},
+    });
+    dispatch({
+      type: Types.SubTotalSet,
+      payload: {},
+    });
+  };
 
   return (
     <div>
@@ -142,24 +142,25 @@ const Cart = () => {
                         <div className="subInfoInCartPreview">
                           Quantity: {productInCart.quantity}
                         </div>
+                        <div>{productInCart.button}</div>
                         <QuantitySelectCart
-                          onChange={handleInputChange}
+                          onChange={(e) =>
+                            handleChangeQuantity(
+                              productInCart.id,
+                              productInCart.price,
+                              productInCart.quantity,
+                              e.target.value.toString()
+                            )
+                          }
                           value={productInCart.quantity}
                         />
-                        {number === "" ? null : (
-                          <button
+                        {productInCart.button === true && (
+                          <QuantitySetButton
                             onClick={() =>
-                              ChangeQuantity(
-                                productInCart.id,
-                                productInCart.quantity,
-                                productInCart.price
-                              )
+                              handleReplaceQuantity(productInCart.id)
                             }
-                          >
-                            set quantity
-                          </button>
+                          />
                         )}
-
                         <Button
                           onClick={() =>
                             deleteProduct(

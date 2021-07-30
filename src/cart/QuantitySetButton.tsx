@@ -26,7 +26,7 @@ export default function InputSubmitButton({ onClick }: QantitySetButtonProps) {
         color="primary"
         onClick={onClick}
       >
-        Replace
+        Update
       </Button>
     </div>
   );

@@ -15,6 +15,7 @@ type ProductType = {
   image: string;
   quantity: string;
   button: boolean;
+  previousQuantity: string;
 };
 
 type InitialStateType = {

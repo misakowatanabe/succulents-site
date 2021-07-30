@@ -46,62 +46,48 @@ const Cart = () => {
 
   const { state, dispatch } = useContext(AppContext);
 
-  const deleteProduct = (id: string, quantity: string, price: number) => {
-    dispatch({
-      type: Types.Delete,
-      payload: {
-        id,
-      },
-    });
-    dispatch({
-      type: Types.Decrease,
-      payload: {
-        quantity,
-      },
-    });
-    dispatch({
-      type: Types.SubTotalDecrease,
-      payload: {
-        price,
-        quantity,
-      },
-    });
-  };
-
-  const handleChangeQuantity = (
-    id: string,
-    price: number,
-    quantity: string,
-    payload: string
-  ) => {
+  const handleChangeQuantity = (id: string, payload: string) => {
     dispatch({
       type: Types.QuantityChange,
       payload: { id, quantity: payload },
     });
-    dispatch({
-      type: Types.TotalQuantityChange,
-      payload: { id, quantity },
-    });
-    dispatch({
-      type: Types.SubTotalChange,
-      payload: { id, price, quantity },
-    });
   };
 
-  const handleReplaceQuantity = (id: string) => {
+  const handleUpdateQuantity = (
+    id: string,
+    quantity: string,
+    price: number
+  ) => {
     dispatch({
       type: Types.QuantitySet,
-      payload: {
-        id,
-      },
+      payload: { id },
     });
     dispatch({
       type: Types.TotalQuantitySet,
-      payload: {},
+      payload: { id, quantity },
     });
     dispatch({
       type: Types.SubTotalSet,
-      payload: {},
+      payload: { id, price, quantity },
+    });
+    dispatch({
+      type: Types.PreviousQuantitySet,
+      payload: { id, quantity },
+    });
+  };
+
+  const deleteProduct = (id: string, quantity: string, price: number) => {
+    dispatch({
+      type: Types.Delete,
+      payload: { id },
+    });
+    dispatch({
+      type: Types.Decrease,
+      payload: { quantity },
+    });
+    dispatch({
+      type: Types.SubTotalDecrease,
+      payload: { price, quantity },
     });
   };
 
@@ -147,8 +133,6 @@ const Cart = () => {
                           onChange={(e) =>
                             handleChangeQuantity(
                               productInCart.id,
-                              productInCart.price,
-                              productInCart.quantity,
                               e.target.value.toString()
                             )
                           }
@@ -157,7 +141,11 @@ const Cart = () => {
                         {productInCart.button === true && (
                           <QuantitySetButton
                             onClick={() =>
-                              handleReplaceQuantity(productInCart.id)
+                              handleUpdateQuantity(
+                                productInCart.id,
+                                productInCart.quantity,
+                                productInCart.price
+                              )
                             }
                           />
                         )}

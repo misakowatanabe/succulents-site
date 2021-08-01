@@ -16,6 +16,7 @@ type ProductType = {
   quantity: string;
   button: boolean;
   previousQuantity: string;
+  currentQuantity: string;
 };
 
 type InitialStateType = {
@@ -28,7 +29,6 @@ const initialState = {
   products: [],
   shoppingCart: 0,
   shoppingCartSubTotal: 0,
-  replaceQuantityButton: false,
 };
 
 const AppContext = createContext<{

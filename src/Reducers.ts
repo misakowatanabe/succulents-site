@@ -16,10 +16,13 @@ export enum Types {
   Decrease = "REDUCE_QUANTITY",
   SubTotalIncrease = "ADD_SUBTOTAL",
   SubTotalDecrease = "REDUCE_SUBTOTAL",
-  QuantityChange = "BUTTON_SHOW",
-  QuantitySet = "CHANGE_QUANTITY",
-  TotalQuantitySet = "SET_TOTALQUANTITY",
-  SubTotalSet = "SET_SUBTOTAL",
+  QuantityChange_TextField = "CHANGE_QUANTITY_T",
+  QuantitySet_TextField = "SET_QUANTITY_T",
+  QuantitySet_DropDown = "SET_QUANTITY_D",
+  TotalQuantitySet_TextField = "SET_TOTALQUANTITY_T",
+  TotalQuantitySet_DropDown = "SET_TOTALQUANTITY_D",
+  SubTotalSet_TextField = "SET_SUBTOTAL_T",
+  SubTotalSet_DropDown = "SET_SUBTOTAL_D",
   PreviousQuantitySet = "PREVIOUS_QUANTITY_SET",
 }
 
@@ -33,6 +36,7 @@ type ProductType = {
   quantity: string;
   button: boolean;
   previousQuantity: string;
+  currentQuantity: string;
 };
 
 type ProductPayload = {
@@ -44,16 +48,22 @@ type ProductPayload = {
     quantity: string;
     button: boolean;
     previousQuantity: string;
+    currentQuantity: string;
   };
   [Types.Delete]: {
     id: string;
   };
-  [Types.QuantityChange]: {
+  [Types.QuantityChange_TextField]: {
     id: string;
     quantity: string;
   };
-  [Types.QuantitySet]: {
+  [Types.QuantitySet_TextField]: {
     id: string;
+    quantity: string;
+  };
+  [Types.QuantitySet_DropDown]: {
+    id: string;
+    quantity: unknown;
   };
   [Types.PreviousQuantitySet]: {
     id: string;
@@ -86,6 +96,7 @@ export const productReducer = (
         ).toString();
         [...state][existingSameProductIndex].quantity = updatedQuantity;
         [...state][existingSameProductIndex].previousQuantity = updatedQuantity;
+        [...state][existingSameProductIndex].currentQuantity = updatedQuantity;
         return [...state];
       } else {
         return [
@@ -98,6 +109,7 @@ export const productReducer = (
             quantity: action.payload.quantity,
             button: action.payload.button,
             previousQuantity: action.payload.quantity,
+            currentQuantity: action.payload.quantity,
           },
         ];
       }
@@ -105,7 +117,7 @@ export const productReducer = (
     case Types.Delete:
       return [...state.filter((product) => product.id !== action.payload.id)];
 
-    case Types.QuantityChange:
+    case Types.QuantityChange_TextField:
       const modifiedProduct = [
         ...state.filter((product) => product.id === action.payload.id),
       ];
@@ -122,22 +134,39 @@ export const productReducer = (
         return [...state];
       }
 
-    case Types.QuantitySet:
+    case Types.QuantitySet_TextField:
       const modifiedProduct2 = [
         ...state.filter((product) => product.id === action.payload.id),
       ];
       const modifiedProductIndex2 = [...state].indexOf(modifiedProduct2[0]);
       [...state][modifiedProductIndex2].button = false;
-      return [...state];
+      const updatedQuantity3 = action.payload.quantity;
+      [...state][modifiedProductIndex2].currentQuantity = updatedQuantity3;
+      if (action.payload.quantity === "0") {
+        return [...state.filter((product) => product.id !== action.payload.id)];
+      } else return [...state];
 
-    case Types.PreviousQuantitySet:
+    case Types.QuantitySet_DropDown:
       const modifiedProduct3 = [
         ...state.filter((product) => product.id === action.payload.id),
       ];
       const modifiedProductIndex3 = [...state].indexOf(modifiedProduct3[0]);
       const newValue2 = action.payload;
-      var updatedQuantity2 = parseInt(newValue2.quantity).toString();
-      [...state][modifiedProductIndex3].previousQuantity = updatedQuantity2;
+      if (typeof newValue2.quantity === "string") {
+        const updatedQuantity = parseInt(newValue2.quantity).toString();
+        [...state][modifiedProductIndex3].quantity = updatedQuantity;
+        [...state][modifiedProductIndex3].currentQuantity = updatedQuantity;
+        return [...state];
+      } else return [...state];
+
+    case Types.PreviousQuantitySet:
+      const modifiedProduct4 = [
+        ...state.filter((product) => product.id === action.payload.id),
+      ];
+      const modifiedProductIndex4 = [...state].indexOf(modifiedProduct4[0]);
+      const newValue3 = action.payload;
+      const updatedQuantity2 = parseInt(newValue3.quantity).toString();
+      [...state][modifiedProductIndex4].previousQuantity = updatedQuantity2;
       return [...state];
 
     default:
@@ -154,7 +183,8 @@ type ShoppingCartPayload = {
   [Types.Decrease]: {
     quantity: string;
   };
-  [Types.TotalQuantitySet]: { id: string; quantity: string };
+  [Types.TotalQuantitySet_TextField]: { id: string; quantity: string };
+  [Types.TotalQuantitySet_DropDown]: { id: string; quantity: string };
 };
 
 export type ShoppingCartActions =
@@ -172,7 +202,7 @@ export const shoppingCartReducer = (
     case Types.Decrease:
       return state - parseInt(action.payload.quantity);
 
-    case Types.TotalQuantitySet:
+    case Types.TotalQuantitySet_TextField:
       const modifiedProduct = [
         ...productState.filter((product) => product.id === action.payload.id),
       ];
@@ -182,11 +212,56 @@ export const shoppingCartReducer = (
       const modifiedProductIndex = [...productState].indexOf(
         modifiedProduct[0]
       );
-      var offset =
-        parseInt(modifiedProductQuantity) -
-        parseInt([...productState][modifiedProductIndex].previousQuantity);
-      return state + offset;
 
+      if (
+        // Case1: 10 to (11-), coming back to 10 and go up again included. Case2: (1-9) => 10 => (1-9).
+        (parseInt([...productState][modifiedProductIndex].previousQuantity) <=
+          9 &&
+          parseInt(modifiedProductQuantity) >= 11) ||
+        (parseInt([...productState][modifiedProductIndex].previousQuantity) <=
+          9 &&
+          parseInt(modifiedProductQuantity) <= 9)
+      ) {
+        [...productState][modifiedProductIndex].previousQuantity = "10";
+        const offset =
+          parseInt(modifiedProductQuantity) -
+          parseInt([...productState][modifiedProductIndex].previousQuantity);
+        return state + offset;
+      } else if (
+        // Case1: test (11-) to (1-9). Case 2: (11-) => 10, (11-) => 10 => (11-). Case3: (11-) => 10 => (1-9).
+        (parseInt([...productState][modifiedProductIndex].previousQuantity) >=
+          11 &&
+          parseInt(modifiedProductQuantity) <= 9) ||
+        (parseInt(modifiedProductQuantity) >= 10 &&
+          parseInt([...productState][modifiedProductIndex].previousQuantity) >=
+            10) ||
+        (parseInt([...productState][modifiedProductIndex].previousQuantity) ===
+          10 &&
+          parseInt(modifiedProductQuantity) <= 9)
+      ) {
+        const offset =
+          parseInt(modifiedProductQuantity) -
+          parseInt([...productState][modifiedProductIndex].previousQuantity);
+        return state + offset;
+      } else return state;
+
+    case Types.TotalQuantitySet_DropDown:
+      const modifiedProduct2 = [
+        ...productState.filter((product) => product.id === action.payload.id),
+      ];
+      const modifiedProductQuantity2 = modifiedProduct2.map(
+        (product) => product.quantity
+      )[0];
+      if (
+        // Case: (1-9) to (1-10), upward and downward, but backward 10 => (1-9) excluded.
+        parseInt(modifiedProductQuantity2) <= 10 &&
+        parseInt(action.payload.quantity) <= 9
+      ) {
+        var offset =
+          parseInt(modifiedProductQuantity2) -
+          parseInt(action.payload.quantity);
+        return state + offset;
+      } else return state;
     default:
       return state;
   }
@@ -203,7 +278,12 @@ type ShoppingCartSubTotalPayload = {
     price: number;
     quantity: string;
   };
-  [Types.SubTotalSet]: { id: string; price: number; quantity: string };
+  [Types.SubTotalSet_TextField]: {
+    id: string;
+    price: number;
+    quantity: string;
+  };
+  [Types.SubTotalSet_DropDown]: { id: string; price: number; quantity: string };
 };
 
 export type ShoppingCartSubTotalActions =
@@ -220,8 +300,8 @@ export const shoppingCartSubTotalReducer = (
 
     case Types.SubTotalDecrease:
       return state - action.payload.price * parseInt(action.payload.quantity);
-      
-    case Types.SubTotalSet:
+
+    case Types.SubTotalSet_TextField:
       const modifiedProduct = [
         ...productState.filter((product) => product.id === action.payload.id),
       ];
@@ -239,7 +319,22 @@ export const shoppingCartSubTotalReducer = (
         action.payload.price *
           parseInt([...productState][modifiedProductIndex].previousQuantity);
       return state + offset;
-      
+
+    case Types.SubTotalSet_DropDown:
+      const modifiedProduct2 = [
+        ...productState.filter((product) => product.id === action.payload.id),
+      ];
+      const modifiedProductPrice2 = modifiedProduct2.map(
+        (product) => product.price
+      )[0];
+      const modifiedProductQuantity2 = modifiedProduct2.map(
+        (product) => product.quantity
+      )[0];
+      var offset3 =
+        modifiedProductPrice2 * parseInt(modifiedProductQuantity2) -
+        action.payload.price * parseInt(action.payload.quantity);
+      return state + offset3;
+
     default:
       return state;
   }

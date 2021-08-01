@@ -11,6 +11,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import Button from "@material-ui/core/Button";
 import QuantitySelectCart from "./QuantitySelectCart";
 import QuantitySetButton from "./QuantitySetButton";
+import QuantitySelectCart2 from "./QuantitySelectCart2";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,28 +47,52 @@ const Cart = () => {
 
   const { state, dispatch } = useContext(AppContext);
 
-  const handleChangeQuantity = (id: string, payload: string) => {
+  const handleChangeQuantity_TextField = (id: string, payload: string) => {
     dispatch({
-      type: Types.QuantityChange,
+      type: Types.QuantityChange_TextField,
       payload: { id, quantity: payload },
     });
   };
 
-  const handleUpdateQuantity = (
+  const handleUpdateQuantity_TextField = (
     id: string,
     quantity: string,
     price: number
   ) => {
     dispatch({
-      type: Types.QuantitySet,
-      payload: { id },
-    });
-    dispatch({
-      type: Types.TotalQuantitySet,
+      type: Types.QuantitySet_TextField,
       payload: { id, quantity },
     });
     dispatch({
-      type: Types.SubTotalSet,
+      type: Types.TotalQuantitySet_TextField,
+      payload: { id, quantity },
+    });
+    dispatch({
+      type: Types.SubTotalSet_TextField,
+      payload: { id, price, quantity },
+    });
+    dispatch({
+      type: Types.PreviousQuantitySet,
+      payload: { id, quantity },
+    });
+  };
+
+  const handleUpdateQuantity_DropDown = (
+    id: string,
+    quantity: string,
+    price: number,
+    payload: unknown
+  ) => {
+    dispatch({
+      type: Types.QuantitySet_DropDown,
+      payload: { id, quantity: payload },
+    });
+    dispatch({
+      type: Types.TotalQuantitySet_DropDown,
+      payload: { id, quantity },
+    });
+    dispatch({
+      type: Types.SubTotalSet_DropDown,
       payload: { id, price, quantity },
     });
     dispatch({
@@ -129,24 +154,43 @@ const Cart = () => {
                           Quantity: {productInCart.quantity}
                         </div>
                         <div>{productInCart.button}</div>
-                        <QuantitySelectCart
-                          onChange={(e) =>
-                            handleChangeQuantity(
-                              productInCart.id,
-                              e.target.value.toString()
-                            )
-                          }
-                          value={productInCart.quantity}
-                        />
-                        {productInCart.button === true && (
-                          <QuantitySetButton
-                            onClick={() =>
-                              handleUpdateQuantity(
+                        {parseInt(productInCart.currentQuantity) >= 10 && (
+                          <div>
+                            <QuantitySelectCart
+                              onChange={(e) =>
+                                handleChangeQuantity_TextField(
+                                  productInCart.id,
+                                  e.target.value.toString()
+                                )
+                              }
+                              value={productInCart.quantity}
+                            />
+                            <div>
+                              {productInCart.button === true && (
+                                <QuantitySetButton
+                                  onClick={() =>
+                                    handleUpdateQuantity_TextField(
+                                      productInCart.id,
+                                      productInCart.quantity,
+                                      productInCart.price
+                                    )
+                                  }
+                                />
+                              )}
+                            </div>
+                          </div>
+                        )}
+                        {parseInt(productInCart.currentQuantity) <= 9 && (
+                          <QuantitySelectCart2
+                            onChange={(e) =>
+                              handleUpdateQuantity_DropDown(
                                 productInCart.id,
                                 productInCart.quantity,
-                                productInCart.price
+                                productInCart.price,
+                                e.target.value
                               )
                             }
+                            value={productInCart.quantity}
                           />
                         )}
                         <Button
@@ -170,12 +214,18 @@ const Cart = () => {
               <NavLink to="/">
                 <div className="continueShoppinginCart">Continue shoppping</div>
               </NavLink>
-              <div className="totalQuantityinCart">
-                Total Quantity: {state.shoppingCart}
-              </div>
-              <div className="subTotalinCart">
-                Sub Total: SEK {state.shoppingCartSubTotal}
-              </div>
+              {!state.shoppingCart && !state.shoppingCartSubTotal ? (
+                <div>Loading...</div>
+              ) : (
+                <div>
+                  <div className="totalQuantityinCart">
+                    Total Quantity: {state.shoppingCart}
+                  </div>
+                  <div className="subTotalinCart">
+                    Sub Total: SEK {state.shoppingCartSubTotal}
+                  </div>
+                </div>
+              )}
               {/* <Button>Proceed to checkout</Button> */}
             </div>
           )}

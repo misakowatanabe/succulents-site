@@ -48,6 +48,7 @@ export default function Succulent() {
         quantity: quantityState.quantity,
         button: false,
         previousQuantity: quantityState.quantity,
+        currentQuantity: quantityState.quantity,
       },
     });
     dispatch({

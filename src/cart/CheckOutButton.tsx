@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { withStyles, Theme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -21,22 +20,16 @@ const ColorButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
-type GoToCartButtonProps = {
-  onClick: (event: React.MouseEvent<HTMLElement>) => void;
-};
-
-export default function GoToCartButton({ onClick }: GoToCartButtonProps) {
+export default function CheckOutButton() {
   return (
     <div className="goToCartButton">
-      <NavLink to="/cart">
-        <ColorButton onClick={onClick} variant="contained" color="primary">
+        <ColorButton variant="contained" color="primary">
           <ShoppingCartIcon
             className="cartIcon-addToCart"
             style={{ fontSize: "26px" }}
           />
-          View Cart
+          Proceed to check out
         </ColorButton>
-      </NavLink>
     </div>
   );
 }

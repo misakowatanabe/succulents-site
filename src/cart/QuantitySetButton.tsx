@@ -5,9 +5,17 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(() => ({
   rootInput: {
     "& > *": {
-      margin: "10px 0px",
-      padding: "5px 10px 5px 10px",
+      margin: "0px 0px 0px 5px",
+      padding: "7px 10px 8px 10px",
       borderRadius: "4px",
+      fontSize: "14px",
+      boxShadow: "none",
+      "&:hover": {
+        boxShadow: "none",
+      },
+      "&:active": {
+        boxShadow: "none",
+      },
     },
   },
 }));

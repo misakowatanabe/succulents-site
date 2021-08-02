@@ -360,6 +360,22 @@ input[type="number" i] {
   margin: 0px auto 0px auto;
 }
 
+#quantitySelectinsideInCart_dropDown {
+  padding: 10px;
+}
+
+.quantitySelectTitleInCart {
+  color: #6d6d6d;
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+
+/* Remove arrows in quantity textfield */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+}
+
 .deleteButtonInCart {
   color: #838383 !important;
   min-width: 0px !important;
@@ -388,12 +404,6 @@ input[type="number" i] {
 .subTotalinCart {
   font-size: 18px;
   margin-top: 10px;
-}
-
-/* Remove arrows in quantity inputs */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { 
-	-webkit-appearance: none;
 }
 
 /* Cart end */

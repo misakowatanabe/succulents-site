@@ -7,11 +7,14 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Grid from "@material-ui/core/Grid";
 import ClearIcon from "@material-ui/icons/Clear";
 import Button from "@material-ui/core/Button";
-import QuantitySelectCart from "./QuantitySelectCart";
+import QuantitySelectCartTextField from "./QuantitySelectCart_TextField";
 import QuantitySetButton from "./QuantitySetButton";
-import QuantitySelectCart2 from "./QuantitySelectCart2";
+import QuantitySelectCartDropDown from "./QuantitySelectCart_DropDown";
+import CheckOutButton from "./CheckOutButton";
+import ContinueShoppingButton from "./ContinueShoppingButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -75,7 +78,7 @@ const Cart = () => {
       type: Types.PreviousQuantitySet,
       payload: { id, quantity },
     });
-    if(quantity === "0"){
+    if (quantity === "0") {
       deleteProduct(id, quantity, price);
     }
   };
@@ -156,38 +159,46 @@ const Cart = () => {
                         <div className="subInfoInCartPreview">
                           SEK {productInCart.price}
                         </div>
-                        <div className="subInfoInCartPreview">
-                          Quantity: {productInCart.quantity}
+                        <div className="quantitySelectTitleInCart">
+                          Quantity
                         </div>
-                        <div>{productInCart.button}</div>
                         {parseInt(productInCart.currentQuantity) >= 10 && (
-                          <div>
-                            <QuantitySelectCart
-                              onChange={(e) =>
-                                handleChangeQuantity_TextField(
-                                  productInCart.id,
-                                  e.target.value.toString()
-                                )
-                              }
-                              value={productInCart.quantity}
-                            />
-                            <div>
-                              {productInCart.button === true && (
-                                <QuantitySetButton
-                                  onClick={() =>
-                                    handleUpdateQuantity_TextField(
+                          <div style={{ flexGrow: 1 }}>
+                            <Grid
+                              container
+                              style={{ justifyContent: "flex-start" }}
+                            >
+                              <Grid item xs={6} style={{ flexBasis: "0%" }}>
+                                <QuantitySelectCartTextField
+                                  onChange={(e) =>
+                                    handleChangeQuantity_TextField(
                                       productInCart.id,
-                                      productInCart.quantity,
-                                      productInCart.price
+                                      e.target.value.toString()
                                     )
                                   }
+                                  value={productInCart.quantity}
                                 />
-                              )}
-                            </div>
+                              </Grid>
+                              <Grid item xs={6}>
+                                <div>
+                                  {productInCart.button === true && (
+                                    <QuantitySetButton
+                                      onClick={() =>
+                                        handleUpdateQuantity_TextField(
+                                          productInCart.id,
+                                          productInCart.quantity,
+                                          productInCart.price
+                                        )
+                                      }
+                                    />
+                                  )}
+                                </div>
+                              </Grid>
+                            </Grid>
                           </div>
                         )}
                         {parseInt(productInCart.currentQuantity) <= 9 && (
-                          <QuantitySelectCart2
+                          <QuantitySelectCartDropDown
                             onChange={(e) =>
                               handleUpdateQuantity_DropDown(
                                 productInCart.id,
@@ -217,13 +228,10 @@ const Cart = () => {
                 </div>
               ))}
               <hr style={{ marginTop: "30px" }} />
-              <NavLink to="/">
-                <div className="continueShoppinginCart">Continue shoppping</div>
-              </NavLink>
               {!state.shoppingCart && !state.shoppingCartSubTotal ? (
                 <div>Loading...</div>
-              ) : (
-                <div>
+                ) : (
+                  <div>
                   <div className="totalQuantityinCart">
                     Total Quantity: {state.shoppingCart}
                   </div>
@@ -232,7 +240,8 @@ const Cart = () => {
                   </div>
                 </div>
               )}
-              {/* <Button>Proceed to checkout</Button> */}
+              <ContinueShoppingButton />
+              <CheckOutButton />
             </div>
           )}
         </div>

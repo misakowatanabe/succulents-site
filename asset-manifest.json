@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/succulents-site/static/css/main.69e19513.chunk.css",
-    "main.js": "/succulents-site/static/js/main.a7140c28.chunk.js",
-    "main.js.map": "/succulents-site/static/js/main.a7140c28.chunk.js.map",
+    "main.css": "/succulents-site/static/css/main.be53715a.chunk.css",
+    "main.js": "/succulents-site/static/js/main.d42e5fe1.chunk.js",
+    "main.js.map": "/succulents-site/static/js/main.d42e5fe1.chunk.js.map",
     "runtime-main.js": "/succulents-site/static/js/runtime-main.1b45c573.js",
     "runtime-main.js.map": "/succulents-site/static/js/runtime-main.1b45c573.js.map",
     "static/css/2.ad581902.chunk.css": "/succulents-site/static/css/2.ad581902.chunk.css",
-    "static/js/2.e739bec5.chunk.js": "/succulents-site/static/js/2.e739bec5.chunk.js",
-    "static/js/2.e739bec5.chunk.js.map": "/succulents-site/static/js/2.e739bec5.chunk.js.map",
+    "static/js/2.27939ad2.chunk.js": "/succulents-site/static/js/2.27939ad2.chunk.js",
+    "static/js/2.27939ad2.chunk.js.map": "/succulents-site/static/js/2.27939ad2.chunk.js.map",
     "index.html": "/succulents-site/index.html",
     "static/css/2.ad581902.chunk.css.map": "/succulents-site/static/css/2.ad581902.chunk.css.map",
-    "static/css/main.69e19513.chunk.css.map": "/succulents-site/static/css/main.69e19513.chunk.css.map",
-    "static/js/2.e739bec5.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.e739bec5.chunk.js.LICENSE.txt",
+    "static/css/main.be53715a.chunk.css.map": "/succulents-site/static/css/main.be53715a.chunk.css.map",
+    "static/js/2.27939ad2.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.27939ad2.chunk.js.LICENSE.txt",
     "static/media/categoryOther.27ff9f4e.jpg": "/succulents-site/static/media/categoryOther.27ff9f4e.jpg",
     "static/media/categoryPot.9ef1b587.jpg": "/succulents-site/static/media/categoryPot.9ef1b587.jpg",
     "static/media/categorySucculent.62275829.jpg": "/succulents-site/static/media/categorySucculent.62275829.jpg",
@@ -45,8 +45,8 @@
   "entrypoints": [
     "static/js/runtime-main.1b45c573.js",
     "static/css/2.ad581902.chunk.css",
-    "static/js/2.e739bec5.chunk.js",
-    "static/css/main.69e19513.chunk.css",
-    "static/js/main.a7140c28.chunk.js"
+    "static/js/2.27939ad2.chunk.js",
+    "static/css/main.be53715a.chunk.css",
+    "static/js/main.d42e5fe1.chunk.js"
   ]
 }

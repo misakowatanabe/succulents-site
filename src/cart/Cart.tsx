@@ -75,6 +75,9 @@ const Cart = () => {
       type: Types.PreviousQuantitySet,
       payload: { id, quantity },
     });
+    if(quantity === "0"){
+      deleteProduct(id, quantity, price);
+    }
   };
 
   const handleUpdateQuantity_DropDown = (
@@ -99,6 +102,9 @@ const Cart = () => {
       type: Types.PreviousQuantitySet,
       payload: { id, quantity },
     });
+    if (payload === "0") {
+      deleteProduct(id, payload, price);
+    }
   };
 
   const deleteProduct = (id: string, quantity: string, price: number) => {

@@ -142,9 +142,7 @@ export const productReducer = (
       [...state][modifiedProductIndex2].button = false;
       const updatedQuantity3 = action.payload.quantity;
       [...state][modifiedProductIndex2].currentQuantity = updatedQuantity3;
-      if (action.payload.quantity === "0") {
-        return [...state.filter((product) => product.id !== action.payload.id)];
-      } else return [...state];
+      return [...state];
 
     case Types.QuantitySet_DropDown:
       const modifiedProduct3 = [
@@ -314,7 +312,7 @@ export const shoppingCartSubTotalReducer = (
       const modifiedProductIndex = [...productState].indexOf(
         modifiedProduct[0]
       );
-      var offset =
+      const offset =
         modifiedProductPrice * parseInt(modifiedProductQuantity) -
         action.payload.price *
           parseInt([...productState][modifiedProductIndex].previousQuantity);
@@ -330,10 +328,10 @@ export const shoppingCartSubTotalReducer = (
       const modifiedProductQuantity2 = modifiedProduct2.map(
         (product) => product.quantity
       )[0];
-      var offset3 =
+      const offset2 =
         modifiedProductPrice2 * parseInt(modifiedProductQuantity2) -
         action.payload.price * parseInt(action.payload.quantity);
-      return state + offset3;
+      return state + offset2;
 
     default:
       return state;

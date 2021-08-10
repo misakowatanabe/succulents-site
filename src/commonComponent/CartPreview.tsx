@@ -128,7 +128,18 @@ export default function CartPreview() {
             </Fade>
           )}
         </Popper>
-        <div style={{ marginTop: "-10px" }}>
+        <div style={{ marginTop: "-10px", position: "relative" }}>
+          <div
+            className={
+              state.shoppingCart < 10
+                ? "cartState-container"
+                : state.shoppingCart > 9 && state.shoppingCart < 100
+                ? "cartState-container-moreThanTen"
+                : "cartState-container-moreThanHundred"
+            }
+          >
+            <div className="cartState">{state.shoppingCart}</div>
+          </div>
           <button onClick={handleClick("bottom-end")} className="cartIcon">
             <ShoppingCartIcon style={{ fontSize: "34px" }} />
           </button>

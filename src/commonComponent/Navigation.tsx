@@ -15,7 +15,7 @@ import CartPreview from "./CartPreview";
 type Anchor = "left";
 
 export default function Navigation() {
-  const [state, setState] = useState({
+  const [drawerState, setDrawerState] = useState({
     left: false,
   });
 
@@ -31,7 +31,7 @@ export default function Navigation() {
         return;
       }
 
-      setState({ ...state, [anchor]: open });
+      setDrawerState({ ...drawerState, [anchor]: open });
     };
 
   const list = (anchor: Anchor) => (
@@ -93,7 +93,7 @@ export default function Navigation() {
                 </button>
                 <SwipeableDrawer
                   anchor={anchor}
-                  open={state[anchor]}
+                  open={drawerState[anchor]}
                   onClose={toggleDrawer(anchor, false)}
                   onOpen={toggleDrawer(anchor, true)}
                 >

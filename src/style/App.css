@@ -99,7 +99,7 @@ a:-webkit-any-link {
 
 .cartIcon {
   padding: 0px !important;
-  margin: 0px 10px 0px 10px !important;
+  margin: 0px 22px 0px 10px !important;
   color: #242424;
   justify-content: flex-start !important;
   min-width: 0px !important;
@@ -107,6 +107,41 @@ a:-webkit-any-link {
   border-width: 0px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+
+.cartState-container {
+  position: absolute;
+  background-color: #fdab3f;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: -5px;
+}
+
+.cartState-container-moreThanTen {
+  position: absolute;
+  background-color: #fdab3f;
+  height: 20px;
+  width: 28px;
+  border-radius: 10px;
+  margin-left: 22px;
+  margin-top: -5px;
+}
+
+.cartState-container-moreThanHundred {
+  position: absolute;
+  background-color: #fdab3f;
+  height: 20px;
+  width: 36px;
+  border-radius: 10px;
+  margin-left: 14px;
+  margin-top: -5px;
+}
+
+.cartState {
+  color: #000000;
+  text-align: center;
 }
 
 /* Header end */
@@ -371,9 +406,9 @@ input[type="number" i] {
 }
 
 /* Remove arrows in quantity textfield */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { 
-	-webkit-appearance: none;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 .deleteButtonInCart {

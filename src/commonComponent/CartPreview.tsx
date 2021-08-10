@@ -138,7 +138,11 @@ export default function CartPreview() {
                 : "cartState-container-moreThanHundred"
             }
           >
-            <div className="cartState">{state.shoppingCart}</div>
+            {state.shoppingCart < 100 ? (
+              <div className="cartState">{state.shoppingCart}</div>
+            ) : (
+              <div className="cartState">99+</div>
+            )}
           </div>
           <button onClick={handleClick("bottom-end")} className="cartIcon">
             <ShoppingCartIcon style={{ fontSize: "34px" }} />

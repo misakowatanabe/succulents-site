@@ -19,6 +19,7 @@ export default function Succulent() {
   const thisProduct = ProductData.find((prod) => prod.id === id)!;
 
   const isMobile = useMediaQuery("(max-width:599px)");
+  const isBigger = useMediaQuery("(max-width:1350px)");
 
   const images = [
     {
@@ -87,13 +88,20 @@ export default function Succulent() {
   if (thisProduct)
     return (
       <div
-        className={isMobile ? "productView-mobile" : "productView-bigScreen"}
+        className={
+          isMobile
+            ? "productView-mobile"
+            : isBigger
+            ? "productView-bigScreen"
+            : "productView-over1280px"
+        }
+        style={{ maxWidth: "1280px" }}
       >
         <Grid
           container
           style={{
-            justifyContent: "space-evenly",
-            maxWidth: "1100px",
+            justifyContent: "space-between",
+            width: "100%",
             margin: "0px auto 0px auto",
           }}
         >
@@ -144,7 +152,7 @@ export default function Succulent() {
               isMobile
                 ? {}
                 : {
-                    flexBasis: "45%",
+                    flexBasis: "55%",
                   }
             }
           >
@@ -174,5 +182,9 @@ export default function Succulent() {
         </Grid>
       </div>
     );
-  else return <NotFoundPage />;
+  else return (
+    <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
+      <NotFoundPage />
+    </div>
+  );
 }

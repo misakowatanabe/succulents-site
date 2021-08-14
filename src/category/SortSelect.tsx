@@ -23,10 +23,20 @@ export default function SortButton({ onChange, value }: sortProps) {
   const classes = useStyles();
 
   const isMobile = useMediaQuery("(max-width:599px)");
+  const isBigger = useMediaQuery("(max-width:959px)");
+  const isBiggest = useMediaQuery("(max-width:1279px)");
 
   return (
     <FormControl
-      className={isMobile ? "sortButton-mobile" : "sortButton-bigScreen"}
+      className={
+        isMobile
+          ? "sortButton-mobile"
+          : isBigger
+          ? "sortButton-bigScreen"
+          : isBiggest
+          ? "sortButton-biggestScreen"
+          : "sortButton-over1280px"
+      }
     >
       <NativeSelect
         value={value}

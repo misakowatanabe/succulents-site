@@ -71,7 +71,7 @@ export default function Navigation() {
     setChange(false);
   }
   let style = {
-    backgroundColor: change ? "white" : "transparent",
+    backgroundColor: change ? "rgb(243, 243, 243)" : "transparent",
     transition: "400ms ease",
   };
 
@@ -114,26 +114,30 @@ export default function Navigation() {
         </div>
       )}
       {isBigScreen && (
-        <div className="header" style={style}>
-          <div className="logoBigScreen">
-            <NavLink to="/">
-              Happy
-              <br />
-              Succulent
-            </NavLink>
+        // <div style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+          <div className="header" style={style}>
+            {/* <div> */}
+            <div className="logoBigScreen">
+              <NavLink to="/">
+                Happy
+                <br />
+                Succulent
+              </NavLink>
+            </div>
+            {CategoryData.map((item, index) => (
+              <NavLink
+                to={`/product/${item.categoryName}`}
+                className="navLinkText"
+                key={index}
+              >
+                {item.categoryName}
+              </NavLink>
+            ))}
+            <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
+            <CartPreview />
+            {/* </div> */}
           </div>
-          {CategoryData.map((item, index) => (
-            <NavLink
-              to={`/product/${item.categoryName}`}
-              className="navLinkText"
-              key={index}
-            >
-              {item.categoryName}
-            </NavLink>
-          ))}
-          <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-          <CartPreview />
-        </div>
+        // </div>
       )}
     </div>
   );

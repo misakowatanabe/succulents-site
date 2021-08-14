@@ -5,8 +5,9 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(() => ({
   rootInput: {
     "& > *": {
-      margin: "0px 0px 0px 5px",
-      padding: "7px 10px 8px 10px",
+      margin: "0px 0px 0px 0px",
+      padding: "7px 0px 8px 0px",
+      width: "91px",
       borderRadius: "4px",
       fontSize: "14px",
       boxShadow: "none",
@@ -26,6 +27,7 @@ type QantitySetButtonProps = {
 
 export default function InputSubmitButton({ onClick }: QantitySetButtonProps) {
   const classes = useStyles();
+
   return (
     <div className={classes.rootInput}>
       <Button
@@ -33,6 +35,7 @@ export default function InputSubmitButton({ onClick }: QantitySetButtonProps) {
         variant="contained"
         color="primary"
         onClick={onClick}
+        style={{ position: "absolute" }}
       >
         Update
       </Button>

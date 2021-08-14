@@ -5,7 +5,6 @@ import CategoryPage from "./category/CategoryPage";
 import ProductView from "./productView/ProductView";
 import Cart from "./cart/Cart";
 
-
 export default function Main() {
   return (
     <Switch>

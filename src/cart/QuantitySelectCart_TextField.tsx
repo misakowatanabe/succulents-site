@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       "& .MuiTextField-root": {
-        minWidth: 90,
+        width: 91,
       },
     },
   })

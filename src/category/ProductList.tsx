@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      margin: "0px 5% 180px 5%",
+      // margin: "0px 5% 180px 5%",
+      margin: "0px 0% 180px 0%",
     },
   })
 );
@@ -31,6 +32,7 @@ export default function ProductList({ sortState }: sortProps) {
 
   const isMobile = useMediaQuery("(max-width:599px)");
   const isMediumScreen = useMediaQuery("(min-width:960px)");
+  const isBigScreen = useMediaQuery("(max-width:1279px)");
 
   function FormRow({ sortState }: sortProps) {
     const { categoryName } = useParams<Params>();
@@ -74,7 +76,9 @@ export default function ProductList({ sortState }: sortProps) {
                 ? { flexBasis: "48%", marginBottom: "20px" }
                 : isMediumScreen
                 ? { flexBasis: "22%", marginBottom: "20px", margin: "1.5%" }
-                : { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
+                : isBigScreen
+                ? { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
+                : { flexBasis: "80%", marginBottom: "20px", margin: "0%" }
             }
           >
             <NavLink to={`/product/${categoryName}/${product.id}`}>
@@ -127,8 +131,28 @@ export default function ProductList({ sortState }: sortProps) {
         container
         style={
           isMobile
-            ? { justifyContent: "space-between" }
-            : { justifyContent: "start" }
+            ? {
+                justifyContent: "space-between",
+                margin: "0px 5%",
+                width: "auto",
+              }
+            : isMediumScreen
+            ? {
+                justifyContent: "start",
+                margin: "0px 14px",
+                width: "auto",
+              }
+            : isBigScreen
+            ? {
+                justifyContent: "start",
+                margin: "0px 14px",
+                width: "auto",
+              }
+            : {
+                justifyContent: "start",
+                margin: "0px 14px",
+                width: "auto",
+              }
         }
       >
         <FormRow sortState={sortState} />

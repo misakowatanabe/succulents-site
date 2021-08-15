@@ -31,7 +31,7 @@ export default function Quantityselect({ onChange, value }: quantityProps) {
             onChange={onChange}
             inputProps={{
               name: "quantity",
-              id: "quantitySelectinsideInCart_dropDown",
+              id: "quantity-select-inside-in-cart_dropDown",
             }}
           >
             <option value={"0"}>0 (Delete)</option>

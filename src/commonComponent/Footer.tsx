@@ -26,28 +26,39 @@ export default function Footer() {
         container
         style={{ justifyContent: "space-evenly", alignItems: "center" }}
       >
+        {!isMobile && (
+          <Grid item sm={6} style={{ flexBasis: "auto" }}>
+            <div className="footer-link">
+              <div>ABOUT</div>
+              <div>HELP</div>
+              <div>SHOP</div>
+            </div>
+          </Grid>
+        )}
         <Grid item sm={6} style={{ flexBasis: "auto" }}>
-          <div className="footerLink">
-            <div>ABOUT</div>
-            <div>HELP</div>
-            <div>SHOP</div>
-          </div>
-        </Grid>
-        <Grid item sm={6} style={{ flexBasis: "auto" }}>
-          <div className="followUsText">Follow us on Instagram</div>
-          <div className={isMobile ? "" : "imageGalley"}>
+          <div className="follow-us-text">Follow us on Instagram</div>
+          <div className={isMobile ? "" : "image-galley"}>
             <ImageGallery
               items={images}
               showThumbnails={false}
               showFullscreenButton={false}
               showPlayButton={false}
               autoPlay={true}
-              slideInterval={50000}
+              slideInterval={3000}
             />
           </div>
         </Grid>
+        {isMobile && (
+          <Grid item sm={6} style={{ flexBasis: "auto" }}>
+            <div className="footer-link">
+              <div>ABOUT</div>
+              <div>HELP</div>
+              <div>SHOP</div>
+            </div>
+          </Grid>
+        )}
       </Grid>
-      <div className="footerCredit">
+      <div className="footer-credit">
         ©2021 Misako Watanabe Website design and development
       </div>
     </div>

@@ -22,14 +22,14 @@ const ColorButton = withStyles((theme: Theme) => ({
 
 export default function CheckOutButton() {
   return (
-    <div className="goToCartButton">
-        <ColorButton variant="contained" color="primary">
-          <ShoppingCartIcon
-            className="cartIcon-addToCart"
-            style={{ fontSize: "26px" }}
-          />
-          Proceed to check out
-        </ColorButton>
+    <div className="checkout-button">
+      <ColorButton variant="contained" color="primary">
+        <ShoppingCartIcon
+          className="checkout-button-icon"
+          style={{ fontSize: "26px" }}
+        />
+        Proceed to check out
+      </ColorButton>
     </div>
   );
 }

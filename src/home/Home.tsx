@@ -26,18 +26,18 @@ export default function Home() {
 
   return (
     <div
-      className="homeBackground"
+      className="home-background"
       style={isMobile ? { paddingBottom: "120px" } : { paddingBottom: "30px" }}
     >
       <div
-        className="mainImage"
+        className="main-image"
         style={{ backgroundImage: `url(${mainImage})` }}
       >
-        <h1 className="mainText">Happy Succulent</h1>
+        <h1 className="main-text">Happy Succulent</h1>
         <MainButton />
       </div>
-      <div className="shopByCategory">Shop By Category</div>
-      <div className={isMobile ? "" : "category-container"}>
+      <div className="shop-by-category">Shop By Category</div>
+      <div className={isMobile ? "" : "category_container"}>
         <Grid
           container
           style={{

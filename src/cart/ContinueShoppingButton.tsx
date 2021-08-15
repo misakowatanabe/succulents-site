@@ -23,11 +23,11 @@ const ColorButton = withStyles((theme: Theme) => ({
 
 export default function ContinueShoppingButton() {
   return (
-    <div className="goToCartButton">
+    <div className="continue-shopping-button">
       <NavLink to="/">
         <ColorButton variant="contained" color="primary">
           <KeyboardReturnIcon
-            className="cartIcon-addToCart"
+            className="continue-shopping-button-icon"
             style={{ fontSize: "26px" }}
           />
           Continue Shopping

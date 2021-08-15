@@ -28,7 +28,7 @@ export default function Quantityselect({ onChange, value }: quantityProps) {
 
   return (
     <form noValidate autoComplete="off">
-      <div className="quantitySelect">
+      <div className="quantity-select">
         <FormControl variant="outlined" className={classes.formControl}>
           <div style={{ zIndex: -1 }}>
             <InputLabel htmlFor="outlined-age-native-simple">

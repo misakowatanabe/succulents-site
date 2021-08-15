@@ -130,15 +130,15 @@ const Cart = () => {
       <div
         className={
           isMobile
-            ? "cart-container-mobile"
+            ? "cart_container_mobile"
             : isBigger
-            ? "cart-container-bigScreen"
-            : "cart-container-over1280px"
+            ? "cart_container_bigger-screen"
+            : "cart_container_over1280px"
         }
       >
-        <div className="titleInCart">YOUR SHOPPING CART</div>
+        <div className="title-in-cart">YOUR SHOPPING CART</div>
         {state.products[0] == null ? (
-          <div className="noProductInCartPreview">
+          <div className="no-product-in-cart-preview">
             There is no product in your cart.
             <div style={{ maxWidth: "270px" }}>
               <ContinueShoppingButton />
@@ -161,7 +161,7 @@ const Cart = () => {
                   <div style={{ flexBasis: "20%" }}>Item</div>
                   <div style={{ width: "91px" }}>Quantity</div>
                   <div style={{ minWidth: "40px" }}>Price</div>
-                  <div style={{ width: "40px" }}>Delete</div>
+                  <div style={{ width: "40px" }}></div>
                 </div>
               </div>
             )}
@@ -177,10 +177,10 @@ const Cart = () => {
                       />
                       <div className={classes.details}>
                         <CardContent className={classes.content}>
-                          <div className="productNameInCart-mobile">
+                          <div className="product-name-in-cart_mobile">
                             {productInCart.name}
                           </div>
-                          <div className="quantitySelectTitleInCart-mobile">
+                          <div className="quantity-select-title-in-cart_mobile">
                             Quantity:
                           </div>
                           {parseInt(productInCart.currentQuantity) >= 10 && (
@@ -231,7 +231,7 @@ const Cart = () => {
                               value={productInCart.quantity}
                             />
                           )}
-                          <div className="priceInCart-mobile">
+                          <div className="price-in-cart_mobile">
                             SEK {productInCart.price}
                           </div>
                           <Button
@@ -242,7 +242,7 @@ const Cart = () => {
                                 productInCart.price
                               )
                             }
-                            className="deleteButtonInCart-mobile"
+                            className="delete-button-in-cart_mobile"
                           >
                             <ClearIcon />
                           </Button>
@@ -265,7 +265,7 @@ const Cart = () => {
                         image={productInCart.image}
                       />
                       <div
-                        className="productNameInCart-biggerScreen"
+                        className="product-name-in-cart_bigger-screen"
                         style={{ flexBasis: "20%" }}
                       >
                         {productInCart.name}
@@ -309,7 +309,7 @@ const Cart = () => {
                           value={productInCart.quantity}
                         />
                       )}
-                      <div className="priceInCart-biggerScreen">
+                      <div className="price-in-cart_bigger-screen">
                         SEK {productInCart.price}
                       </div>
                       <Button
@@ -320,7 +320,7 @@ const Cart = () => {
                             productInCart.price
                           )
                         }
-                        className="deleteButtonInCart-biggerScreen"
+                        className="delete-button-in-cart_bigger-screen"
                       >
                         <ClearIcon />
                       </Button>
@@ -330,7 +330,7 @@ const Cart = () => {
               </div>
             ))}
             <hr />
-            <div className="totalQuantityAndSubtotalinCart">
+            <div className="total-in-cart">
               {!state.shoppingCart && !state.shoppingCartSubTotal ? (
                 <div>Loading...</div>
               ) : (
@@ -338,18 +338,18 @@ const Cart = () => {
                   <div
                     style={{ justifyContent: "space-between", display: "flex" }}
                   >
-                    <div className="totalQuantityTitleinCart">
+                    <div className="total-quantity-in-cart">
                       Total Quantity:
                     </div>
-                    <div className="totalQuantityinCart">
+                    <div className="total-quantity-in-cart">
                       {state.shoppingCart}
                     </div>
                   </div>
                   <div
                     style={{ justifyContent: "space-between", display: "flex" }}
                   >
-                    <div className="subTotalTitleinCart">Subtotal:</div>
-                    <div className="subTotalTitleinCart">
+                    <div className="sub-total-in-cart">Subtotal:</div>
+                    <div className="sub-total-in-cart">
                       SEK {state.shoppingCartSubTotal}
                     </div>
                   </div>

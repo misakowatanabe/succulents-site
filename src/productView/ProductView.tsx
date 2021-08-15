@@ -90,10 +90,10 @@ export default function Succulent() {
       <div
         className={
           isMobile
-            ? "productView-mobile"
+            ? "product-view_mobile"
             : isBigger
-            ? "productView-bigScreen"
-            : "productView-over1280px"
+            ? "product-view_bigger-screen"
+            : "product-view_1280-px"
         }
         style={{ maxWidth: "1280px" }}
       >
@@ -117,7 +117,7 @@ export default function Succulent() {
                   }
             }
           >
-            <div className="productViewCategory">
+            <div className="product-view-category">
               <NavLink to={`/`} style={{ textDecoration: "underline" }}>
                 Home
               </NavLink>
@@ -130,7 +130,7 @@ export default function Succulent() {
               </NavLink>
             </div>
             <div
-              className="productViewName"
+              className="product-view-name_mobile"
               style={isMobile ? {} : { display: "none" }}
             >
               {thisProduct.name}
@@ -157,7 +157,7 @@ export default function Succulent() {
             }
           >
             <div
-              className="productViewName-biggerScreen"
+              className="product-view-name_bigger-screen"
               style={isMobile ? { display: "none" } : {}}
             >
               {thisProduct.name}
@@ -165,26 +165,27 @@ export default function Succulent() {
             <div
               className={
                 isMobile
-                  ? "productViewDescription-mobile"
-                  : "productViewDescription-biggerScreen"
+                  ? "product-view-description_mobile"
+                  : "product-view-description_bigger-screen"
               }
             >
               {thisProduct.description}
-              <div className="productViewPrice">SEK {thisProduct.price}</div>
+              <div className="product-view-price">SEK {thisProduct.price}</div>
               <Quantityselect
                 onChange={handleChange}
                 value={quantityState.quantity}
               />
               <AddToCartButton onClick={AddProduct} />
-              <div className="productViewId">ID: {thisProduct.id}</div>
+              <div className="product-view-id">ID: {thisProduct.id}</div>
             </div>
           </Grid>
         </Grid>
       </div>
     );
-  else return (
-    <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
-      <NotFoundPage />
-    </div>
-  );
+  else
+    return (
+      <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
+        <NotFoundPage />
+      </div>
+    );
 }

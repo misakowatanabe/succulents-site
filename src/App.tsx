@@ -14,7 +14,7 @@ export default function App() {
       <div
         className="App"
         style={
-          isMobile ? { paddingBottom: "100%" } : { paddingBottom: "362px" }
+          isMobile ? { paddingBottom: "150%" } : { paddingBottom: "472px" }
         }
       >
         <Navigation />

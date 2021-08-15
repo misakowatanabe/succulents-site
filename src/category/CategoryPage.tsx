@@ -35,8 +35,8 @@ export default function CategoryPage() {
     if (item.categoryName === categoryName) {
       selectedCategory.push(
         <div key={item.categoryName}>
-          <div className="categoryName">{item.categoryName}</div>
-          <p className="categoryDescription">{item.description}</p>
+          <div className="category-name">{item.categoryName}</div>
+          <p className="category-description">{item.description}</p>
         </div>
       );
     }

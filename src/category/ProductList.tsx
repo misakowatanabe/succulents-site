@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      // margin: "0px 5% 180px 5%",
       margin: "0px 0% 180px 0%",
     },
   })
@@ -31,8 +30,9 @@ export default function ProductList({ sortState }: sortProps) {
   const classes = useStyles();
 
   const isMobile = useMediaQuery("(max-width:599px)");
-  const isMediumScreen = useMediaQuery("(min-width:960px)");
-  const isBigScreen = useMediaQuery("(max-width:1279px)");
+  // const is600to959px = useMediaQuery("(min-width:960px)");
+  const isfrom959px = useMediaQuery("(min-width:960px)");
+  const isto1279px = useMediaQuery("(max-width:1279px)");
 
   function FormRow({ sortState }: sortProps) {
     const { categoryName } = useParams<Params>();
@@ -74,9 +74,9 @@ export default function ProductList({ sortState }: sortProps) {
             style={
               isMobile
                 ? { flexBasis: "48%", marginBottom: "20px" }
-                : isMediumScreen
+                : isfrom959px
                 ? { flexBasis: "22%", marginBottom: "20px", margin: "1.5%" }
-                : isBigScreen
+                : isto1279px
                 ? { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
                 : { flexBasis: "80%", marginBottom: "20px", margin: "0%" }
             }
@@ -136,13 +136,13 @@ export default function ProductList({ sortState }: sortProps) {
                 margin: "0px 5%",
                 width: "auto",
               }
-            : isMediumScreen
+            : isfrom959px
             ? {
                 justifyContent: "start",
                 margin: "0px 14px",
                 width: "auto",
               }
-            : isBigScreen
+            : isto1279px
             ? {
                 justifyContent: "start",
                 margin: "0px 14px",

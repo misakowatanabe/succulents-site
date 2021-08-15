@@ -76,21 +76,23 @@ export default function CartPreview() {
               <div
                 className={
                   isMobile
-                    ? "cartPreview-container-mobile"
-                    : "cartPreview-container-bigscreen"
+                    ? "cart-preview_container_mobile"
+                    : "cart-preview_container_bigger-screen"
                 }
               >
-                <div className="cartPreview">
-                  <div className="titleInCartPreview">YOUR SHOPPING CART</div>
+                <div className="cart-preview">
+                  <div className="title-in-cart-preview">
+                    YOUR SHOPPING CART
+                  </div>
                   <div
                     className={
                       isMobile
-                        ? "itemInCartPreview-mobile"
-                        : "itemInCartPreview-bigscreen"
+                        ? "item-in-cart-preview_mobile"
+                        : "item-in-cart-preview_bigger-screen"
                     }
                   >
                     {state.products[0] == null ? (
-                      <div className="noProductInCartPreview">
+                      <div className="no-product-in-cart-preview">
                         There is no product in your cart.
                       </div>
                     ) : (
@@ -105,13 +107,13 @@ export default function CartPreview() {
                             <div className={classes.details}>
                               <CardContent className={classes.content}>
                                 <div>
-                                  <div className="productNameInCartPreview">
+                                  <div className="product-name-in-cart-preview">
                                     {productInCart.name}
                                   </div>
-                                  <div className="subInfoInCartPreview">
+                                  <div className="sub-info-in-cart-preview">
                                     SEK {productInCart.price}
                                   </div>
-                                  <div className="subInfoInCartPreview">
+                                  <div className="sub-info-in-cart-preview">
                                     Quantity: {productInCart.quantity}
                                   </div>
                                 </div>
@@ -132,19 +134,19 @@ export default function CartPreview() {
           <div
             className={
               state.shoppingCart < 10
-                ? "cartState-container"
+                ? "cart-state_container"
                 : state.shoppingCart > 9 && state.shoppingCart < 100
-                ? "cartState-container-moreThanTen"
-                : "cartState-container-moreThanHundred"
+                ? "cart-state_container-more-than-ten"
+                : "cart-state_container-more-than-hundred"
             }
           >
             {state.shoppingCart < 100 ? (
-              <div className="cartState">{state.shoppingCart}</div>
+              <div className="cart-state">{state.shoppingCart}</div>
             ) : (
-              <div className="cartState">99+</div>
+              <div className="cart-state">99+</div>
             )}
           </div>
-          <button onClick={handleClick("bottom-end")} className="cartIcon">
+          <button onClick={handleClick("bottom-end")} className="cart-icon">
             <ShoppingCartIcon style={{ fontSize: "34px" }} />
           </button>
         </div>

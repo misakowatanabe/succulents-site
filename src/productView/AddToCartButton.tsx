@@ -26,10 +26,10 @@ type AddToCartButtonProps = {
 
 export default function AddToCartButton({ onClick }: AddToCartButtonProps) {
   return (
-    <div className="addToCartButton">
+    <div className="add-to-cart-button">
       <ColorButton variant="contained" color="primary" onClick={onClick}>
         <ShoppingCartIcon
-          className="cartIcon-addToCart"
+          className="add-to-cart-button-icon"
           style={{ fontSize: "26px" }}
         />
         ADD TO CART

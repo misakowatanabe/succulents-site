@@ -46,11 +46,11 @@ export default function Navigation() {
             <ListItemText>
               <NavLink
                 to={`/product/${item.categoryName}`}
-                className="drawerLinkText"
+                className="drawer-link-text"
               >
                 {item.categoryName}
                 <KeyboardArrowRightIcon
-                  className="ArrowIcon"
+                  className="arrow-icon"
                   style={{ fontSize: "30px" }}
                 />
               </NavLink>
@@ -83,11 +83,11 @@ export default function Navigation() {
       {isMobile && (
         <div>
           {(["left"] as Anchor[]).map((anchor) => (
-            <div key={anchor} className="header" style={style}>
+            <div key={anchor} className="navbar" style={style}>
               <React.Fragment key={anchor}>
                 <button
                   onClick={toggleDrawer(anchor, true)}
-                  className="menuIcon"
+                  className="menu-icon"
                 >
                   <MenuIcon style={{ fontSize: "40px" }} />
                 </button>
@@ -100,44 +100,40 @@ export default function Navigation() {
                   {list(anchor)}
                 </SwipeableDrawer>
               </React.Fragment>
-              <div className="logoMobile">
+              <div className="logo_mobile">
                 <NavLink to="/">
                   Happy
                   <br />
                   Succulent
                 </NavLink>
               </div>
-              <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
+              <SearchIcon className="search-icon" style={{ fontSize: "34px" }} />
               <CartPreview />
             </div>
           ))}
         </div>
       )}
       {isBigScreen && (
-        // <div style={{ position: "fixed", zIndex: 1, width: "100%" }}>
-          <div className="header" style={style}>
-            {/* <div> */}
-            <div className="logoBigScreen">
-              <NavLink to="/">
-                Happy
-                <br />
-                Succulent
-              </NavLink>
-            </div>
-            {CategoryData.map((item, index) => (
-              <NavLink
-                to={`/product/${item.categoryName}`}
-                className="navLinkText"
-                key={index}
-              >
-                {item.categoryName}
-              </NavLink>
-            ))}
-            <SearchIcon className="searchIcon" style={{ fontSize: "34px" }} />
-            <CartPreview />
-            {/* </div> */}
+        <div className="navbar" style={style}>
+          <div className="logo_bigger-screen">
+            <NavLink to="/">
+              Happy
+              <br />
+              Succulent
+            </NavLink>
           </div>
-        // </div>
+          {CategoryData.map((item, index) => (
+            <NavLink
+              to={`/product/${item.categoryName}`}
+              className="nav-link-text"
+              key={index}
+            >
+              {item.categoryName}
+            </NavLink>
+          ))}
+          <SearchIcon className="search-icon" style={{ fontSize: "34px" }} />
+          <CartPreview />
+        </div>
       )}
     </div>
   );

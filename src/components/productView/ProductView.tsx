@@ -102,7 +102,7 @@ export default function Succulent() {
           style={{
             justifyContent: "space-between",
             width: "100%",
-            margin: "0px auto 0px auto",
+            margin: "0px auto",
           }}
         >
           <Grid

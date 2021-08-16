@@ -33,49 +33,57 @@ export default function Home() {
         className="main-image"
         style={{ backgroundImage: `url(${mainImage})` }}
       >
-        <h1 className="main-text">Happy Succulent</h1>
-        <MainButton />
+        <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
+          <div
+            className={
+              isMobile ? "main-text_mobile" : "main-text_bigger-screen"
+            }
+          >
+            A little friend
+            <br />
+            at home
+          </div>
+          <MainButton />
+        </div>
       </div>
       <div className="shop-by-category">Shop By Category</div>
-      <div className={isMobile ? "" : "category_container"}>
-        <Grid
-          container
-          style={{
-            justifyContent: "start",
-            maxWidth: "1400px",
-            margin: "0px auto 0px auto",
-          }}
-        >
-          {CategoryData.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <NavLink to={`/product/${item.categoryName}`}>
-                    <CardMedia
-                      component="img"
-                      alt="CategoryImage"
-                      height="220"
-                      image={item.image}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {item.categoryName}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {item.description}
-                      </Typography>
-                    </CardContent>
-                  </NavLink>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </div>
+      <Grid
+        container
+        style={{
+          justifyContent: "start",
+          maxWidth: "1280px",
+          margin: "0px auto",
+        }}
+      >
+        {CategoryData.map((item, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card className={classes.root}>
+              <CardActionArea>
+                <NavLink to={`/product/${item.categoryName}`}>
+                  <CardMedia
+                    component="img"
+                    alt="CategoryImage"
+                    height="220"
+                    image={item.image}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {item.categoryName}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                </NavLink>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 }

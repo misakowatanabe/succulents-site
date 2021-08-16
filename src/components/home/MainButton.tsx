@@ -1,13 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import {
-  createStyles,
-  withStyles,
-  makeStyles,
-  Theme,
-} from "@material-ui/core/styles";
+import { withStyles, Theme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const ColorButton = withStyles((theme: Theme) => ({
@@ -24,25 +20,15 @@ const ColorButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    margin: {
-      margin: theme.spacing(1),
-      marginTop: "200px",
-    },
-  })
-);
-
 export default function MainButton() {
-  const classes = useStyles();
+  const isMobile = useMediaQuery("(max-width:599px)");
 
   return (
-    <div className="mainButton">
+    <div className={isMobile ? "main-button_mobile" : "main-button_bigger-screen"}>
       <NavLink to="product/Succulents">
         <ColorButton
           variant="contained"
           color="primary"
-          className={classes.margin}
           style={{ fontSize: "15px" }}
         >
           Explore

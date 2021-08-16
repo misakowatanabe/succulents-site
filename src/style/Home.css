@@ -8,14 +8,34 @@
   position: relative;
 }
 
-.main-text {
-  font-family: "Cinzel", serif;
+.main-text_mobile {
+  font-family: "Crimson Text", serif;
   letter-spacing: 1px;
-  line-height: 95%;
-  font-size: 50px;
-  text-align: center;
+  line-height: 115%;
+  font-size: 45px;
+  text-align: left;
   color: #242424;
   margin: 120px 5% 0px 5%;
+}
+
+.main-text_bigger-screen {
+  font-family: "Crimson Text", serif;
+  letter-spacing: 1px;
+  line-height: 115%;
+  font-size: 60px;
+  text-align: left;
+  color: #242424;
+  margin: 120px 30px 0px 30px;
+}
+
+.main-button_mobile {
+  text-align: center;
+  margin: 260px auto auto auto;
+}
+
+.main-button_bigger-screen {
+  text-align: left;
+  margin: 40px 0px 0px 30px;
 }
 
 .shop-by-category {
@@ -30,6 +50,6 @@
   background-color: #f3f3f3;
 }
 
-.category_container {
-  margin: 0px 5% 0px 5%;
-}
+/* .category_container {
+  margin: 0 14px;
+} */

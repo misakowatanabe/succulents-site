@@ -15,7 +15,6 @@ import Main from "./components/Main";
 import Footer from "./components/common/Footer";
 
 export default function App() {
-
   return (
     <AppProvider>
       <FooterPositioning>

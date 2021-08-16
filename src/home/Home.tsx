@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div
       className="home-background"
-      style={isMobile ? { paddingBottom: "120px" } : { paddingBottom: "30px" }}
+      style={isMobile ? { paddingBottom: "120px" } : { paddingBottom: "90px" }}
     >
       <div
         className="main-image"

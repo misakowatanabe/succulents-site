@@ -1,7 +1,7 @@
 import ImageGallery from "react-image-gallery";
-import galleryImage1 from "../img/galleryImage1.jpg";
-import galleryImage2 from "../img/galleryImage2.jpg";
-import galleryImage3 from "../img/galleryImage3.jpg";
+import galleryImage1 from "../../img/galleryImage1.jpg";
+import galleryImage2 from "../../img/galleryImage2.jpg";
+import galleryImage3 from "../../img/galleryImage3.jpg";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 

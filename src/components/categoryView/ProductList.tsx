@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { ProductData } from "../ProductData";
+import { ProductData } from "../../data/ProductData";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

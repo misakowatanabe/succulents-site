@@ -1,6 +1,6 @@
-import categorySucculent from "./img/categorySucculent.jpg";
-import categoryPot from "./img/categoryPot.jpg";
-import categoryOther from "./img/categoryOther.jpg";
+import categorySucculent from "../img/categorySucculent.jpg";
+import categoryPot from "../img/categoryPot.jpg";
+import categoryOther from "../img/categoryOther.jpg";
 
 type CategoryProps = {
   categoryName: string;

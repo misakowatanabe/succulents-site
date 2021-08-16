@@ -9,7 +9,7 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import SearchIcon from "@material-ui/icons/Search";
 import useWindowScrollPosition from "@rehooks/window-scroll-position";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { CategoryData } from "../CategoryData";
+import { CategoryData } from "../../data/CategoryData";
 import CartPreview from "./CartPreview";
 
 type Anchor = "left";

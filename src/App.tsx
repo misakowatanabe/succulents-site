@@ -8,11 +8,11 @@ import "./style/NotAvailable.css";
 import "./style/CartPreview.css";
 import "./style/Cart.css";
 import "./style/Footer.css";
-import { AppProvider } from "./Context";
-import FooterPositioning from "./FooterPositioning";
-import Navigation from "./commonComponent/Navigation";
-import Main from "./Main";
-import Footer from "./commonComponent/Footer";
+import { AppProvider } from "./context/Context";
+import FooterPositioning from "./context/FooterPositioning";
+import Navigation from "./components/common/Navigation";
+import Main from "./components/Main";
+import Footer from "./components/common/Footer";
 
 export default function App() {
 

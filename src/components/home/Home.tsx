@@ -6,10 +6,10 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import mainImage from "../img/main.jpg";
+import mainImage from "../../img/main.jpg";
 import MainButton from "./MainButton";
 import Grid from "@material-ui/core/Grid";
-import { CategoryData } from "../CategoryData";
+import { CategoryData } from "../../data/CategoryData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles({

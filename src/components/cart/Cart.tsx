@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AppContext } from "../Context";
-import { Types } from "../Reducers";
+import { AppContext } from "../../context/Context";
+import { Types } from "../../context/Reducers";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";

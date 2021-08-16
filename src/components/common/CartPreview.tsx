@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../Context";
+import { AppContext } from "../../context/Context";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Popper, { PopperPlacementType } from "@material-ui/core/Popper";
 import Fade from "@material-ui/core/Fade";

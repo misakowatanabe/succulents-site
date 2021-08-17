@@ -17,6 +17,7 @@ type ProductType = {
   button: boolean;
   previousQuantity: string;
   currentQuantity: string;
+  category: string;
 };
 
 type InitialStateType = {

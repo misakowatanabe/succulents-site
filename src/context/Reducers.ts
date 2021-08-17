@@ -37,6 +37,7 @@ type ProductType = {
   button: boolean;
   previousQuantity: string;
   currentQuantity: string;
+  category: string;
 };
 
 type ProductPayload = {
@@ -49,6 +50,7 @@ type ProductPayload = {
     button: boolean;
     previousQuantity: string;
     currentQuantity: string;
+    category: string;
   };
   [Types.Delete]: {
     id: string;
@@ -110,6 +112,7 @@ export const productReducer = (
             button: action.payload.button,
             previousQuantity: action.payload.quantity,
             currentQuantity: action.payload.quantity,
+            category: action.payload.category,
           },
         ];
       }

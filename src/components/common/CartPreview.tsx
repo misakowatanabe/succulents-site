@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { AppContext } from "../../context/Context";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Popper, { PopperPlacementType } from "@material-ui/core/Popper";
@@ -99,11 +100,16 @@ export default function CartPreview() {
                       <div>
                         {state.products.map((productInCart) => (
                           <Card className={classes.root} key={productInCart.id}>
-                            <CardMedia
-                              className={classes.cover}
-                              image={productInCart.image}
-                              title="Product"
-                            />
+                            <NavLink
+                              to={`/product/${productInCart.category}/${productInCart.id}`}
+                              onClick={handleClickAway}
+                            >
+                              <CardMedia
+                                className={classes.cover}
+                                image={productInCart.image}
+                                title="Product"
+                              />
+                            </NavLink>
                             <div className={classes.details}>
                               <CardContent className={classes.content}>
                                 <div>

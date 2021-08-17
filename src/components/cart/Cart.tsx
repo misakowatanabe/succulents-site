@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { AppContext } from "../../context/Context";
 import { Types } from "../../context/Reducers";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
@@ -171,10 +172,14 @@ const Cart = () => {
                 {isMobile ? (
                   <div>
                     <Card className={classes.root}>
-                      <CardMedia
-                        className={classes.cover}
-                        image={productInCart.image}
-                      />
+                      <NavLink
+                        to={`/product/${productInCart.category}/${productInCart.id}`}
+                      >
+                        <CardMedia
+                          className={classes.cover}
+                          image={productInCart.image}
+                        />
+                      </NavLink>
                       <div className={classes.details}>
                         <CardContent className={classes.content}>
                           <div className="product-name-in-cart_mobile">
@@ -260,10 +265,14 @@ const Cart = () => {
                         marginBottom: "10px",
                       }}
                     >
-                      <CardMedia
-                        className={classes.cover}
-                        image={productInCart.image}
-                      />
+                      <NavLink
+                        to={`/product/${productInCart.category}/${productInCart.id}`}
+                      >
+                        <CardMedia
+                          className={classes.cover}
+                          image={productInCart.image}
+                        />
+                      </NavLink>
                       <div
                         className="product-name-in-cart_bigger-screen"
                         style={{ flexBasis: "20%" }}

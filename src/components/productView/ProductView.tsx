@@ -50,6 +50,7 @@ export default function Succulent() {
         button: false,
         previousQuantity: quantityState.quantity,
         currentQuantity: quantityState.quantity,
+        category: thisProduct.category,
       },
     });
     dispatch({

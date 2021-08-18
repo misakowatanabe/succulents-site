@@ -1,5 +1,5 @@
 .main-image {
-  background-position: center;
+  /* background-position: center left; */
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,9 +28,17 @@
   margin: 120px 30px 0px 30px;
 }
 
+.sub-text_bigger-screen {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  line-height: 150%;
+  margin-top: 20px;
+  width: 400px;
+}
+
 .main-button_mobile {
-  text-align: center;
-  margin: 260px auto auto auto;
+  text-align: left;
+  margin: 30px 0px 0px 5%;
 }
 
 .main-button_bigger-screen {

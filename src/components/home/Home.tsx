@@ -7,6 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import mainImage from "../../img/main.jpg";
+import mainImageBigger from "../../img/mainBiggerScreen.jpg";
+import mainMobile from "../../img/mainMobile.jpg";
 import MainButton from "./MainButton";
 import Grid from "@material-ui/core/Grid";
 import { CategoryData } from "../../data/CategoryData";
@@ -31,7 +33,17 @@ export default function Home() {
     >
       <div
         className="main-image"
-        style={{ backgroundImage: `url(${mainImage})` }}
+        style={
+          isMobile
+            ? {
+                backgroundImage: `url(${mainMobile})`,
+                backgroundPosition: "center center",
+              }
+            : {
+                backgroundImage: `url(${mainImageBigger})`,
+                backgroundPosition: "center left",
+              }
+        }
       >
         <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
           <div
@@ -42,6 +54,12 @@ export default function Home() {
             A little friend
             <br />
             at home
+            {!isMobile && (
+              <div className="sub-text_bigger-screen"> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                sodales vehicula velit eu euismod.
+              </div>
+            )}
           </div>
           <MainButton />
         </div>

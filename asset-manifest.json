@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/succulents-site/static/css/main.672bbaf0.chunk.css",
-    "main.js": "/succulents-site/static/js/main.98092b4a.chunk.js",
-    "main.js.map": "/succulents-site/static/js/main.98092b4a.chunk.js.map",
+    "main.css": "/succulents-site/static/css/main.a9b884c2.chunk.css",
+    "main.js": "/succulents-site/static/js/main.0832cf84.chunk.js",
+    "main.js.map": "/succulents-site/static/js/main.0832cf84.chunk.js.map",
     "runtime-main.js": "/succulents-site/static/js/runtime-main.1b45c573.js",
     "runtime-main.js.map": "/succulents-site/static/js/runtime-main.1b45c573.js.map",
     "static/css/2.6cd54866.chunk.css": "/succulents-site/static/css/2.6cd54866.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.332a4cf0.chunk.js.map": "/succulents-site/static/js/2.332a4cf0.chunk.js.map",
     "index.html": "/succulents-site/index.html",
     "static/css/2.6cd54866.chunk.css.map": "/succulents-site/static/css/2.6cd54866.chunk.css.map",
-    "static/css/main.672bbaf0.chunk.css.map": "/succulents-site/static/css/main.672bbaf0.chunk.css.map",
+    "static/css/main.a9b884c2.chunk.css.map": "/succulents-site/static/css/main.a9b884c2.chunk.css.map",
     "static/js/2.332a4cf0.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.332a4cf0.chunk.js.LICENSE.txt",
     "static/media/categoryOther.27ff9f4e.jpg": "/succulents-site/static/media/categoryOther.27ff9f4e.jpg",
     "static/media/categoryPot.9ef1b587.jpg": "/succulents-site/static/media/categoryPot.9ef1b587.jpg",
@@ -18,7 +18,8 @@
     "static/media/galleryImage1.02f25a67.jpg": "/succulents-site/static/media/galleryImage1.02f25a67.jpg",
     "static/media/galleryImage2.457c3d4e.jpg": "/succulents-site/static/media/galleryImage2.457c3d4e.jpg",
     "static/media/galleryImage3.7d7c6bcd.jpg": "/succulents-site/static/media/galleryImage3.7d7c6bcd.jpg",
-    "static/media/main.02d623f9.jpg": "/succulents-site/static/media/main.02d623f9.jpg",
+    "static/media/mainBiggerScreen.817abfc0.jpg": "/succulents-site/static/media/mainBiggerScreen.817abfc0.jpg",
+    "static/media/mainMobile.4f01f191.jpg": "/succulents-site/static/media/mainMobile.4f01f191.jpg",
     "static/media/other1-big.57a9349a.jpg": "/succulents-site/static/media/other1-big.57a9349a.jpg",
     "static/media/other1.c46c63d9.jpg": "/succulents-site/static/media/other1.c46c63d9.jpg",
     "static/media/other2-big.ea8e6be2.jpg": "/succulents-site/static/media/other2-big.ea8e6be2.jpg",
@@ -46,7 +47,7 @@
     "static/js/runtime-main.1b45c573.js",
     "static/css/2.6cd54866.chunk.css",
     "static/js/2.332a4cf0.chunk.js",
-    "static/css/main.672bbaf0.chunk.css",
-    "static/js/main.98092b4a.chunk.js"
+    "static/css/main.a9b884c2.chunk.css",
+    "static/js/main.0832cf84.chunk.js"
   ]
 }

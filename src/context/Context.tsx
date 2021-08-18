@@ -57,9 +57,13 @@ const mainReducer = (
 
 const AppProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(mainReducer, initialState);
-
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppContext.Provider
+      value={{
+        state,
+        dispatch,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

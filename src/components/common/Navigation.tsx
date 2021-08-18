@@ -6,11 +6,11 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import SearchIcon from "@material-ui/icons/Search";
 import useWindowScrollPosition from "@rehooks/window-scroll-position";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { CategoryData } from "../../data/CategoryData";
 import CartPreview from "./CartPreview";
+import Search from "./Search";
 
 type Anchor = "left";
 
@@ -107,7 +107,7 @@ export default function Navigation() {
                   Succulent
                 </NavLink>
               </div>
-              <SearchIcon className="search-icon" style={{ fontSize: "34px" }} />
+              <Search />
               <CartPreview />
             </div>
           ))}
@@ -131,7 +131,7 @@ export default function Navigation() {
               {item.categoryName}
             </NavLink>
           ))}
-          <SearchIcon className="search-icon" style={{ fontSize: "34px" }} />
+          <Search />
           <CartPreview />
         </div>
       )}

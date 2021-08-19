@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/succulents-site/static/css/main.a9b884c2.chunk.css",
-    "main.js": "/succulents-site/static/js/main.0832cf84.chunk.js",
-    "main.js.map": "/succulents-site/static/js/main.0832cf84.chunk.js.map",
+    "main.css": "/succulents-site/static/css/main.09eea102.chunk.css",
+    "main.js": "/succulents-site/static/js/main.83dbab62.chunk.js",
+    "main.js.map": "/succulents-site/static/js/main.83dbab62.chunk.js.map",
     "runtime-main.js": "/succulents-site/static/js/runtime-main.1b45c573.js",
     "runtime-main.js.map": "/succulents-site/static/js/runtime-main.1b45c573.js.map",
     "static/css/2.6cd54866.chunk.css": "/succulents-site/static/css/2.6cd54866.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.332a4cf0.chunk.js.map": "/succulents-site/static/js/2.332a4cf0.chunk.js.map",
     "index.html": "/succulents-site/index.html",
     "static/css/2.6cd54866.chunk.css.map": "/succulents-site/static/css/2.6cd54866.chunk.css.map",
-    "static/css/main.a9b884c2.chunk.css.map": "/succulents-site/static/css/main.a9b884c2.chunk.css.map",
+    "static/css/main.09eea102.chunk.css.map": "/succulents-site/static/css/main.09eea102.chunk.css.map",
     "static/js/2.332a4cf0.chunk.js.LICENSE.txt": "/succulents-site/static/js/2.332a4cf0.chunk.js.LICENSE.txt",
     "static/media/categoryOther.27ff9f4e.jpg": "/succulents-site/static/media/categoryOther.27ff9f4e.jpg",
     "static/media/categoryPot.9ef1b587.jpg": "/succulents-site/static/media/categoryPot.9ef1b587.jpg",
@@ -47,7 +47,7 @@
     "static/js/runtime-main.1b45c573.js",
     "static/css/2.6cd54866.chunk.css",
     "static/js/2.332a4cf0.chunk.js",
-    "static/css/main.a9b884c2.chunk.css",
-    "static/js/main.0832cf84.chunk.js"
+    "static/css/main.09eea102.chunk.css",
+    "static/js/main.83dbab62.chunk.js"
   ]
 }

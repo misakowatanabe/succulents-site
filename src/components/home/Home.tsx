@@ -6,7 +6,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import mainImage from "../../img/main.jpg";
 import mainImageBigger from "../../img/mainBiggerScreen.jpg";
 import mainMobile from "../../img/mainMobile.jpg";
 import MainButton from "./MainButton";

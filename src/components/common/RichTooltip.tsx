@@ -28,15 +28,14 @@ const useStyles = makeStyles((theme) => {
     },
     content: {
       padding: "15px",
-      marginTop: "15px",
+      marginTop: "18px",
     },
     popper: {
       zIndex: 2000,
       '&[x-placement*="bottom"] $arrow': {
         top: 0,
         left: 0,
-        paddingTop: "0.2px",
-        marginTop: "0.21em",
+        paddingTop: "4.3px",
         marginLeft: -6,
         marginRight: 4,
         "&::before": {
@@ -47,8 +46,7 @@ const useStyles = makeStyles((theme) => {
     arrow: {
       overflow: "hidden",
       position: "absolute",
-      width: "1.7em",
-      height: "0.71em",
+      width: "3em",
       boxSizing: "border-box",
       color,
       "&::before": {
@@ -56,7 +54,7 @@ const useStyles = makeStyles((theme) => {
         margin: "auto",
         display: "block",
         width: "1.3em",
-        height: "0.9em",
+        height: "0.85em",
         boxShadow: "0px 0px 7px 0px #999999",
         backgroundColor: "currentColor",
         transform: "rotate(45deg)",

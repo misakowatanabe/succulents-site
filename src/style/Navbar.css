@@ -79,9 +79,8 @@
 /* Navbar common start */
 
 .search-icon {
-  padding: 0px auto 0px 2% !important;
-  margin-right: 8px !important;
-  margin-bottom: -10px !important;
+  padding: 0px 12px 0px 0px !important;
+  margin: 0px !important;
   color: #242424;
   min-width: 0px !important;
   background-color: transparent;
@@ -90,7 +89,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.cart-icon {
+.cart-icon  {
   padding: 0px !important;
   margin: 0px 22px 0px 10px !important;
   color: #242424;

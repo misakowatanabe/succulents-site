@@ -58,7 +58,11 @@ export default function Search() {
           onClose={() => setOpen(false)}
         >
           <div style={{ marginTop: "-10px" }}>
-            <button onClick={handleClick("bottom-end")} className="search-icon">
+            <button
+              onClick={handleClick("bottom-end")}
+              className="search-icon"
+              // style={{ marginBottom: "-10px" }}
+            >
               <SearchIcon style={{ fontSize: "34px" }} />
             </button>
           </div>

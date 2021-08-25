@@ -1,3 +1,4 @@
+import React, { ReactElement } from "react";
 import {
   Box,
   ClickAwayListener,
@@ -7,7 +8,6 @@ import {
   Popper,
   PopperPlacementType,
 } from "@material-ui/core";
-import React, { ReactElement } from "react";
 
 interface Props {
   content: ReactElement;

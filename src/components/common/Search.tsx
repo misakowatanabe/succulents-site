@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { AppContextSearch } from "../../context/ContextSearch";
+import { Types } from "../../context/ReducersSearch";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { PopperPlacementType } from "@material-ui/core/Popper";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,8 +9,6 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import RichTooltip from "./RichTooltip";
 import SearchContents from "./SearchContents";
-import { AppContextSearch } from "../../context/ContextSearch";
-import { Types } from "../../context/ReducersSearch";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

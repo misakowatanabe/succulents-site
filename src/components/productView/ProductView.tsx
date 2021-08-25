@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { useParams, NavLink } from "react-router-dom";
-import { ProductData } from "../../data/ProductData";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ImageGallery from "react-image-gallery";
-import NotFoundPage from "../NotFoundPage";
-import Grid from "@material-ui/core/Grid";
-import AddToCartButton from "./AddToCartButton";
 import { AppContext } from "../../context/Context";
 import { Types } from "../../context/Reducers";
+import { ProductData } from "../../data/ProductData";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Grid from "@material-ui/core/Grid";
+import NotFoundPage from "../NotFoundPage";
+import AddToCartButton from "./AddToCartButton";
 import Quantityselect from "./QuantitySelect";
 
 type Params = {

@@ -1,6 +1,6 @@
 import React from "react";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { withStyles, Theme } from "@material-ui/core/styles";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
 
 const ColorButton = withStyles((theme: Theme) => ({

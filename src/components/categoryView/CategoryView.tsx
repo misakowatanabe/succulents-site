@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { CategoryData } from "../../data/CategoryData";
 import SortSelect from "./SortSelect";
 import ProductList from "./ProductList";
-import { CategoryData } from "../../data/CategoryData";
 import NotFoundPage from "../NotFoundPage";
 
 type Params = {

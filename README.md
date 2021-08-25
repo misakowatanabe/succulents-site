@@ -1,6 +1,8 @@
 # Ecommerce website for succulents (Ongoing project)
 
-- React js (React hooks)
+- React.js (React hooks)
+- React Router
+- React Image Gallery
 - TypeScript
 - Material UI
 

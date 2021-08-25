@@ -4,6 +4,7 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { PopperPlacementType } from "@material-ui/core/Popper";
 import SearchIcon from "@material-ui/icons/Search";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import RichTooltip from "./RichTooltip";
 import SearchContents from "./SearchContents";
 import { AppContextSearch } from "../../context/ContextSearch";
@@ -52,16 +53,14 @@ export default function Search() {
   };
 
   const [letters, setLetters] = useState("");
-  const handleChangeLetters = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChangeLetters = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLetters(event.target.value);
   };
 
   const { state, dispatch } = useContext(AppContextSearch);
   const handleUpdateLetters = () => {
     dispatch({
-      type: Types.UpdateLetters, 
+      type: Types.UpdateLetters,
       payload: { search: letters },
     });
     handleClickAway();
@@ -80,6 +79,8 @@ export default function Search() {
     setLetters("");
   }, [state.search]);
 
+  const isMobile = useMediaQuery("(max-width:599px)");
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={classes.root}>
@@ -97,7 +98,7 @@ export default function Search() {
           onClose={() => setOpen(false)}
         >
           <div style={{ marginTop: "-10px" }}>
-            <button onClick={handleClick("bottom-end")} className="search-icon">
+            <button onClick={handleClick("bottom-end")} className={isMobile ? "search-icon_mobile" : "search-icon_bigger-screen"} >
               <SearchIcon style={{ fontSize: "34px" }} />
             </button>
           </div>

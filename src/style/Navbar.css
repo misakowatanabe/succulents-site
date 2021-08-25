@@ -2,7 +2,7 @@
 
 .menu-icon {
   color: #242424;
-  padding: 0px 10px 0px 4.2% !important;
+  padding: 0px 10px 0px 20px !important;
   justify-content: flex-start !important;
   min-width: 0px !important;
   background-color: transparent;
@@ -32,6 +32,17 @@
   margin-left: auto;
 }
 
+.search-icon_mobile {
+  padding: 0px !important;
+  margin: 0px 0px 0px 0px !important;
+  color: #242424;
+  min-width: 0px !important;
+  background-color: transparent;
+  border-width: 0px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Navbar (< 599px) end */
 
 /* Navbar (> 600px) start */
@@ -53,7 +64,7 @@
   color: #242424;
   text-align: center;
   margin: 15px auto 15px auto;
-  padding-left: 28px;
+  padding-left: 30px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -74,13 +85,9 @@
   margin-left: 30px;
 }
 
-/* Navbar (> 600px) end */
-
-/* Navbar common start */
-
-.search-icon {
-  padding: 0px 12px 0px 0px !important;
-  margin: 0px !important;
+.search-icon_bigger-screen {
+  padding: 0px !important;
+  margin: 0px 10px 0px 0px !important;
   color: #242424;
   min-width: 0px !important;
   background-color: transparent;
@@ -88,6 +95,10 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Navbar (> 600px) end */
+
+/* Navbar common start */
 
 .cart-icon  {
   padding: 0px !important;

@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import CategoryPage from "./categoryView/CategoryView";
 import ProductView from "./productView/ProductView";
 import Cart from "./cart/Cart";
+import SearchResults from "./SearchResults";
 
 export default function Main() {
   return (
@@ -20,6 +21,11 @@ export default function Main() {
         component={ProductView}
       ></Route>
       <Route exact path="/cart" component={Cart}></Route>
+      <Route
+        exact
+        path="/search/query=:query"
+        component={SearchResults}
+      ></Route>
     </Switch>
   );
 }

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { PopperPlacementType } from "@material-ui/core/Popper";
 import SearchIcon from "@material-ui/icons/Search";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import RichTooltip from "./RichTooltip";
 import SearchContents from "./SearchContents";
+import { AppContextSearch } from "../../context/ContextSearch";
+import { Types } from "../../context/ReducersSearch";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,10 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function Search() {
+  const classes = useStyles();
+
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState<PopperPlacementType>();
-
-  const classes = useStyles();
 
   const handleClick = (newPlacement: PopperPlacementType) => () => {
     setOpen((prev) => placement !== newPlacement || !prev);
@@ -48,21 +51,53 @@ export default function Search() {
     setOpen(false);
   };
 
+  const [letters, setLetters] = useState("");
+  const handleChangeLetters = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setLetters(event.target.value);
+  };
+
+  const { state, dispatch } = useContext(AppContextSearch);
+  const handleUpdateLetters = () => {
+    dispatch({
+      type: Types.UpdateLetters, 
+      payload: { search: letters },
+    });
+    handleClickAway();
+  };
+
+  const history = useHistory();
+  const handleOnKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" && letters !== "") {
+      event.preventDefault();
+      handleUpdateLetters();
+      history.push(`/search/query=${letters}`);
+    }
+  };
+
+  useEffect(() => {
+    setLetters("");
+  }, [state.search]);
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={classes.root}>
         <RichTooltip
-          content={<SearchContents onClick={handleClickAway} />}
+          content={
+            <SearchContents
+              onChange={handleChangeLetters}
+              onClick={handleUpdateLetters}
+              onKeyPress={handleOnKeyPress}
+              value={letters}
+            />
+          }
           open={open}
           placement="bottom"
           onClose={() => setOpen(false)}
         >
           <div style={{ marginTop: "-10px" }}>
-            <button
-              onClick={handleClick("bottom-end")}
-              className="search-icon"
-              // style={{ marginBottom: "-10px" }}
-            >
+            <button onClick={handleClick("bottom-end")} className="search-icon">
               <SearchIcon style={{ fontSize: "34px" }} />
             </button>
           </div>

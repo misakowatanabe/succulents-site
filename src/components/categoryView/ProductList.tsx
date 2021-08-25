@@ -30,7 +30,6 @@ export default function ProductList({ sortState }: sortProps) {
   const classes = useStyles();
 
   const isMobile = useMediaQuery("(max-width:599px)");
-  // const is600to959px = useMediaQuery("(min-width:960px)");
   const isfrom959px = useMediaQuery("(min-width:960px)");
   const isto1279px = useMediaQuery("(max-width:1279px)");
 
@@ -75,10 +74,10 @@ export default function ProductList({ sortState }: sortProps) {
               isMobile
                 ? { flexBasis: "48%", marginBottom: "20px" }
                 : isfrom959px
-                ? { flexBasis: "22%", marginBottom: "20px", margin: "1.5%" }
+                ? { flexBasis: "22%", margin: "1.5%" }
                 : isto1279px
-                ? { flexBasis: "31%", marginBottom: "20px", margin: "1.16%" }
-                : { flexBasis: "80%", marginBottom: "20px", margin: "0%" }
+                ? { flexBasis: "31%", margin: "1.16%" }
+                : { flexBasis: "80%", margin: "0%" }
             }
           >
             <NavLink to={`/product/${categoryName}/${product.id}`}>

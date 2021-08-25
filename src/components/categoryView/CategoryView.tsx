@@ -45,11 +45,9 @@ export default function CategoryPage() {
   if (CategoryData.map((a) => a.categoryName).includes(categoryName))
     return (
       <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
-        <div className="categoryPage">
           {selectedCategory}
           <SortSelect onChange={handleChange} value={sortState.sort} />
           <ProductList sortState={sortState} />
-        </div>
       </div>
     );
   else return (

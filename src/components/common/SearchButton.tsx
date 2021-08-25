@@ -20,18 +20,26 @@ const ColorButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
-type GoToCartButtonProps = {
+type SearchButtonProps = {
   onClick: (event: React.MouseEvent<HTMLElement>) => void;
+  value: string;
 };
 
-export default function GoToCartButton({ onClick }: GoToCartButtonProps) {
+export default function SearchButton({ onClick, value }: SearchButtonProps) {
   return (
-    <div className="go-to-cart-button">
-      <NavLink to="/">
-        <ColorButton onClick={onClick} variant="contained" color="primary">
+    <div className="search-button">
+      {value !== "" && (
+        <NavLink to={`/search/query=${value}`}>
+          <ColorButton onClick={onClick} variant="contained" color="primary">
+            Search
+          </ColorButton>
+        </NavLink>
+      )}
+      {value === "" && (
+        <ColorButton variant="contained" color="primary">
           Search
         </ColorButton>
-      </NavLink>
+      )}
     </div>
   );
 }

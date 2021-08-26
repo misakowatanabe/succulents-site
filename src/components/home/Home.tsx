@@ -54,9 +54,9 @@ export default function Home() {
             <br />
             at home
             {!isMobile && (
-              <div className="sub-text_bigger-screen"> 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                sodales vehicula velit eu euismod.
+              <div className="sub-text_bigger-screen">
+                Each of them has unique shape, color and personality. Pick up
+                your succulents.
               </div>
             )}
           </div>

@@ -111,7 +111,7 @@ export default function ProductList({ sortState }: sortProps) {
                       color: "#242424",
                     }}
                   >
-                    SEK {product.price}
+                    {product.price} kr
                   </Typography>
                 </CardContent>
               </CardActionArea>

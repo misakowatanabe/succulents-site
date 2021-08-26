@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
       boxShadow: "none",
       borderRadius: 0,
       overFlow: "hidden",
-      paddingTop: "10px",
     },
     details: {
       display: "flex",
@@ -237,7 +236,7 @@ const Cart = () => {
                             />
                           )}
                           <div className="price-in-cart_mobile">
-                            SEK {productInCart.price}
+                            {productInCart.price} kr
                           </div>
                           <Button
                             onClick={() =>
@@ -319,7 +318,7 @@ const Cart = () => {
                         />
                       )}
                       <div className="price-in-cart_bigger-screen">
-                        SEK {productInCart.price}
+                        {productInCart.price} kr
                       </div>
                       <Button
                         onClick={() =>

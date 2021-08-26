@@ -93,7 +93,7 @@ export default function CartPreviewContents({
                                 {productInCart.name}
                               </div>
                               <div className="sub-info-in-cart-preview">
-                                SEK {productInCart.price}
+                                {productInCart.price} kr
                               </div>
                               <div className="sub-info-in-cart-preview">
                                 Quantity: {productInCart.quantity}

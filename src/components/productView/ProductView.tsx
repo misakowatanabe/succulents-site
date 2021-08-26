@@ -171,7 +171,7 @@ export default function Succulent() {
               }
             >
               {thisProduct.description}
-              <div className="product-view-price">SEK {thisProduct.price}</div>
+              <div className="product-view-price">{thisProduct.price} kr</div>
               <Quantityselect
                 onChange={handleChange}
                 value={quantityState.quantity}

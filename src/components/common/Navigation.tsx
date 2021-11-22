@@ -76,65 +76,63 @@ export default function Navigation() {
   };
 
   const isMobile = useMediaQuery("(max-width:599px)");
-  const isBigScreen = useMediaQuery("(min-width:600px)");
 
-  return (
-    <div>
-      {isMobile && (
-        <div>
-          {(["left"] as Anchor[]).map((anchor) => (
-            <div key={anchor} className="navbar" style={style}>
-              <React.Fragment key={anchor}>
-                <button
-                  onClick={toggleDrawer(anchor, true)}
-                  className="menu-icon"
-                >
-                  <MenuIcon style={{ fontSize: "40px" }} />
-                </button>
-                <SwipeableDrawer
-                  anchor={anchor}
-                  open={drawerState[anchor]}
-                  onClose={toggleDrawer(anchor, false)}
-                  onOpen={toggleDrawer(anchor, true)}
-                >
-                  {list(anchor)}
-                </SwipeableDrawer>
-              </React.Fragment>
-              <div className="logo_mobile">
-                <NavLink to="/">
-                  Happy
-                  <br />
-                  Succulent
-                </NavLink>
-              </div>
-              <Search />
-              <CartPreview />
+  if (isMobile) {
+    return (
+      <div>
+        {(["left"] as Anchor[]).map((anchor) => (
+          <div key={anchor} className="navbar" style={style}>
+            <React.Fragment key={anchor}>
+              <button
+                onClick={toggleDrawer(anchor, true)}
+                className="menu-icon"
+              >
+                <MenuIcon style={{ fontSize: "40px" }} />
+              </button>
+              <SwipeableDrawer
+                anchor={anchor}
+                open={drawerState[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+                onOpen={toggleDrawer(anchor, true)}
+              >
+                {list(anchor)}
+              </SwipeableDrawer>
+            </React.Fragment>
+            <div className="logo_mobile">
+              <NavLink to="/">
+                Happy
+                <br />
+                Succulent
+              </NavLink>
             </div>
-          ))}
-        </div>
-      )}
-      {isBigScreen && (
-        <div className="navbar" style={style}>
-          <div className="logo_bigger-screen">
-            <NavLink to="/">
-              Happy
-              <br />
-              Succulent
-            </NavLink>
+            <Search />
+            <CartPreview />
           </div>
-          {CategoryData.map((item, index) => (
-            <NavLink
-              to={`/product/${item.categoryName}`}
-              className="nav-link-text"
-              key={index}
-            >
-              {item.categoryName}
-            </NavLink>
-          ))}
-          <Search />
-          <CartPreview />
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div className="navbar" style={style}>
+        <div className="logo_bigger-screen">
+          <NavLink to="/">
+            Happy
+            <br />
+            Succulent
+          </NavLink>
         </div>
-      )}
-    </div>
-  );
+        {CategoryData.map((item, index) => (
+          <NavLink
+            to={`/product/${item.categoryName}`}
+            className="nav-link-text"
+            key={index}
+          >
+            {item.categoryName}
+          </NavLink>
+        ))}
+        <Search />
+        <CartPreview />
+      </div>
+    );
+  }
 }

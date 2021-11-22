@@ -5,7 +5,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import RichTooltip from "./RichTooltip";
 import CartPreviewContents from "./CartPreviewContents";
-import { useStyles } from "./CartPreviewStyles";
+import { useStyles } from "./NavigationItemStyles";
 
 export default function CartPreview() {
   const [open, setOpen] = React.useState(false);

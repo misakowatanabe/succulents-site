@@ -4,7 +4,7 @@ import { AppContext } from "../../context/Context";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import { useStyles } from "./CartPreviewStyles";
+import { useStyles } from "./NavigationItemStyles";
 
 type CartPreviewContentsProps = {
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;

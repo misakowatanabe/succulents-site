@@ -1,9 +1,11 @@
-# Ecommerce website for succulents (Ongoing project)
+# Happy Succulent
 
-- React.js (React hooks)
+- React (hooks)
+- TypeScript
 - React Router
 - React Image Gallery
-- TypeScript
 - Material UI
 
 Demo: [https://misakowatanabe.github.io/succulents-site/](https://misakowatanabe.github.io/succulents-site/)
+
+User-friendly e-commerce website for succulents and some other related products. 

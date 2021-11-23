@@ -1,40 +1,24 @@
-import React, { useState, useContext } from "react";
-import { useParams, NavLink } from "react-router-dom";
-import ImageGallery from "react-image-gallery";
+import { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import { AppContext } from "../../context/Context";
 import { Types } from "../../context/Reducers";
 import { ProductData } from "../../data/ProductData";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import NotFoundPage from "../NotFoundPage";
-import AddToCartButton from "./AddToCartButton";
-import Quantityselect from "./QuantitySelect";
+import ProductViewContainer from "./ProductViewContainer";
+import ImageView from "./ImageView";
+import DescriptionView from "./DescriptionView";
 
 type Params = {
   id: string;
 };
 
-export default function Succulent() {
+export default function ProductView() {
   const { id } = useParams<Params>();
   const thisProduct = ProductData.find((prod) => prod.id === id)!;
 
   const isMobile = useMediaQuery("(max-width:599px)");
-  const isBigger = useMediaQuery("(max-width:1350px)");
-
-  const images = [
-    {
-      original: thisProduct?.image,
-      thumbnail: thisProduct?.image,
-    },
-    {
-      original: thisProduct?.image,
-      thumbnail: thisProduct?.image,
-    },
-    {
-      original: thisProduct?.image,
-      thumbnail: thisProduct?.image,
-    },
-  ];
 
   const { dispatch } = useContext(AppContext);
 
@@ -76,28 +60,29 @@ export default function Succulent() {
     name: "quantity",
   });
 
-  const handleChange = (
-    event: React.ChangeEvent<{ name?: string; value: number | unknown }>
-  ) => {
-    const name = event.target.name as keyof typeof quantityState;
-    setQuantityState({
-      ...quantityState,
-      [name]: event.target.value,
-    });
-  };
-
-  if (thisProduct)
+  if (thisProduct && isMobile) {
     return (
-      <div
-        className={
-          isMobile
-            ? "product-view_mobile"
-            : isBigger
-            ? "product-view_bigger-screen"
-            : "product-view_1280-px"
-        }
-        style={{ maxWidth: "1280px" }}
-      >
+      <ProductViewContainer>
+        <ImageView
+          category={thisProduct?.category}
+          image={thisProduct?.image}
+          name={thisProduct?.name}
+        />
+        <DescriptionView
+          name={thisProduct?.name}
+          description={thisProduct?.description}
+          price={thisProduct?.price}
+          id={thisProduct?.id}
+          quantityState={quantityState}
+          setQuantityState={setQuantityState}
+          quantity={quantityState.quantity}
+          AddProduct={AddProduct}
+        />
+      </ProductViewContainer>
+    );
+  } else if (thisProduct && !isMobile) {
+    return (
+      <ProductViewContainer>
         <Grid
           container
           style={{
@@ -106,87 +91,33 @@ export default function Succulent() {
             margin: "0px auto",
           }}
         >
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            style={
-              isMobile
-                ? {}
-                : {
-                    flexBasis: "45%",
-                  }
-            }
-          >
-            <div className="product-view-category">
-              <NavLink to={`/`} style={{ textDecoration: "underline" }}>
-                Home
-              </NavLink>
-              <span> &gt; </span>
-              <NavLink
-                to={`/product/${thisProduct?.category}`}
-                style={{ textDecoration: "underline" }}
-              >
-                {thisProduct?.category}
-              </NavLink>
-            </div>
-            <div
-              className="product-view-name_mobile"
-              style={isMobile ? {} : { display: "none" }}
-            >
-              {thisProduct.name}
-            </div>
-            <ImageGallery
-              items={images}
-              showThumbnails={true}
-              showFullscreenButton={false}
-              showPlayButton={false}
-              autoPlay={false}
-              showNav={false}
+          <Grid item xs={12} sm={6} style={{ flexBasis: "45%" }}>
+            <ImageView
+              category={thisProduct?.category}
+              image={thisProduct?.image}
+              name={thisProduct?.name}
             />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            style={
-              isMobile
-                ? {}
-                : {
-                    flexBasis: "55%",
-                  }
-            }
-          >
-            <div
-              className="product-view-name_bigger-screen"
-              style={isMobile ? { display: "none" } : {}}
-            >
-              {thisProduct.name}
-            </div>
-            <div
-              className={
-                isMobile
-                  ? "product-view-description_mobile"
-                  : "product-view-description_bigger-screen"
-              }
-            >
-              {thisProduct.description}
-              <div className="product-view-price">{thisProduct.price} kr</div>
-              <Quantityselect
-                onChange={handleChange}
-                value={quantityState.quantity}
-              />
-              <AddToCartButton onClick={AddProduct} />
-              <div className="product-view-id">ID: {thisProduct.id}</div>
-            </div>
+          <Grid item xs={12} sm={6} style={{ flexBasis: "55%" }}>
+            <DescriptionView
+              name={thisProduct?.name}
+              description={thisProduct?.description}
+              price={thisProduct?.price}
+              id={thisProduct?.id}
+              quantityState={quantityState}
+              setQuantityState={setQuantityState}
+              quantity={quantityState.quantity}
+              AddProduct={AddProduct}
+            />
           </Grid>
         </Grid>
-      </div>
+      </ProductViewContainer>
     );
-  else
+  } else {
     return (
       <div style={{ maxWidth: "1280px", margin: "0px auto" }}>
         <NotFoundPage />
       </div>
     );
+  }
 }
